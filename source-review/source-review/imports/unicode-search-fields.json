@@ -1,0 +1,127 @@
+{
+  "equipment-parameters": [
+    "equipment_parameters",
+    [
+      "code",
+      "name"
+    ]
+  ],
+  "equipment-pairings": [
+    "equipment_pairing_drafts",
+    [
+      "parent_code",
+      "child_code",
+      "updated_by_name"
+    ]
+  ],
+  "equipment": [
+    "equipment",
+    [
+      "code",
+      "name",
+      "brand_model",
+      "serial_number",
+      "generator_type",
+      "container_spec",
+      "route_group",
+      "location_unit"
+    ]
+  ],
+  "part-objects": [
+    "part_objects",
+    [
+      "code",
+      "name"
+    ]
+  ],
+  "part-groups": [
+    "part_groups",
+    [
+      "code",
+      "name"
+    ]
+  ],
+  "parts": [
+    "parts",
+    [
+      "sku",
+      "name",
+      "object_code",
+      "group_code"
+    ]
+  ],
+  "fuel-tanks": [
+    "fuel_tanks",
+    [
+      "code",
+      "name",
+      "location"
+    ]
+  ],
+  "warehouses": [
+    "warehouses",
+    [
+      "code",
+      "name",
+      "location"
+    ]
+  ],
+  "vehicles": [
+    "vehicles",
+    [
+      "plate_number",
+      "brand_model",
+      "chassis_number",
+      "engine_number",
+      "lessor_name",
+      "ownership_source",
+      "route_group",
+      "location_unit"
+    ]
+  ],
+  "org-units": [
+    "org_units",
+    [
+      "code",
+      "name"
+    ]
+  ],
+  "departments": [
+    "departments",
+    [
+      "code",
+      "name"
+    ]
+  ],
+  "staff": [
+    "staff",
+    [
+      "code",
+      "name",
+      "phone",
+      "email",
+      "job_title",
+      "department",
+      "vehicle_plate",
+      "trailer_plate"
+    ]
+  ],
+  "suppliers": [
+    "suppliers",
+    [
+      "code",
+      "name",
+      "tax_code",
+      "province_name",
+      "address",
+      "supplied_items"
+    ]
+  ],
+  "users": [
+    "app_users",
+    [
+      "email",
+      "display_name"
+    ]
+  ]
+}

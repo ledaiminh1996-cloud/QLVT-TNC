@@ -1,0 +1,997 @@
+{
+  "data": {
+    "a": {
+      "fields": [
+        {
+          "name": "databaseId"
+        },
+        {
+          "name": "databaseRole"
+        },
+        {
+          "name": "date"
+        },
+        {
+          "name": "datetime"
+        },
+        {
+          "name": "datetimeFifteenMinutes"
+        },
+        {
+          "name": "datetimeFiveMinutes"
+        },
+        {
+          "name": "datetimeHour"
+        },
+        {
+          "name": "datetimeMinute"
+        },
+        {
+          "name": "datetimeSixHours"
+        },
+        {
+          "name": "servedByInstance"
+        },
+        {
+          "name": "servedByRegion"
+        }
+      ],
+      "name": "AccountD1AnalyticsAdaptiveGroupsDimensions"
+    },
+    "b": {
+      "inputFields": [
+        {
+          "name": "AND",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "OR",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "databaseId",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseId_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseId_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseId_ilike",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseId_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "databaseId_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseId_like",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseId_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseId_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseId_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "databaseId_notlike",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole_ilike",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "databaseRole_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole_like",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "databaseRole_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "databaseRole_notlike",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "date",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Date",
+            "ofType": null
+          }
+        },
+        {
+          "name": "date_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Date",
+            "ofType": null
+          }
+        },
+        {
+          "name": "date_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Date",
+            "ofType": null
+          }
+        },
+        {
+          "name": "date_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "date_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Date",
+            "ofType": null
+          }
+        },
+        {
+          "name": "date_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Date",
+            "ofType": null
+          }
+        },
+        {
+          "name": "date_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Date",
+            "ofType": null
+          }
+        },
+        {
+          "name": "date_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetime",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFifteenMinutes",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFifteenMinutes_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFifteenMinutes_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFifteenMinutes_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeFifteenMinutes_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFifteenMinutes_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFifteenMinutes_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFifteenMinutes_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeFiveMinutes",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFiveMinutes_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFiveMinutes_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFiveMinutes_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeFiveMinutes_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFiveMinutes_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFiveMinutes_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeFiveMinutes_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeHour",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeHour_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeHour_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeHour_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeHour_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeHour_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeHour_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeHour_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeMinute",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeMinute_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeMinute_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeMinute_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeMinute_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeMinute_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeMinute_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeMinute_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeSixHours",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeSixHours_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeSixHours_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeSixHours_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetimeSixHours_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeSixHours_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeSixHours_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetimeSixHours_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetime_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetime_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetime_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "datetime_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetime_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetime_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Time",
+            "ofType": null
+          }
+        },
+        {
+          "name": "datetime_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "servedByInstance",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByInstance_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByInstance_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByInstance_ilike",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByInstance_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "servedByInstance_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByInstance_like",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByInstance_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByInstance_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByInstance_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "servedByInstance_notlike",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion_geq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion_gt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion_ilike",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion_in",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "servedByRegion_leq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion_like",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion_lt",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion_neq",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        },
+        {
+          "name": "servedByRegion_notin",
+          "type": {
+            "kind": "LIST",
+            "name": "",
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": ""
+            }
+          }
+        },
+        {
+          "name": "servedByRegion_notlike",
+          "type": {
+            "kind": "SCALAR",
+            "name": "string",
+            "ofType": null
+          }
+        }
+      ],
+      "name": "AccountD1AnalyticsAdaptiveGroupsFilter_InputObject"
+    },
+    "c": {
+      "fields": [
+        {
+          "name": "databaseId"
+        },
+        {
+          "name": "databaseRole"
+        },
+        {
+          "name": "date"
+        },
+        {
+          "name": "datetime"
+        },
+        {
+          "name": "datetimeFifteenMinutes"
+        },
+        {
+          "name": "datetimeFiveMinutes"
+        },
+        {
+          "name": "datetimeHour"
+        },
+        {
+          "name": "datetimeMinute"
+        },
+        {
+          "name": "datetimeSixHours"
+        },
+        {
+          "name": "error"
+        },
+        {
+          "name": "query"
+        },
+        {
+          "name": "servedByInstance"
+        },
+        {
+          "name": "servedByRegion"
+        }
+      ],
+      "name": "AccountD1QueriesAdaptiveGroupsDimensions"
+    },
+    "d": {
+      "fields": [
+        {
+          "name": "queryDurationMs"
+        },
+        {
+          "name": "rowsRead"
+        },
+        {
+          "name": "rowsReturned"
+        },
+        {
+          "name": "rowsWritten"
+        }
+      ],
+      "name": "AccountD1QueriesAdaptiveGroupsSum"
+    }
+  },
+  "errors": null
+}

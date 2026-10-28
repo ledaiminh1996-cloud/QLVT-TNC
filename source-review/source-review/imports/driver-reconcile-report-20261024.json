@@ -1,0 +1,96 @@
+{
+  "linked_tractors": 62,
+  "matched_drivers": 61,
+  "changed_vehicles": 18,
+  "held": [
+    {
+      "plate": "50H-236.90",
+      "name": "Đinh Hùng Dũng"
+    },
+    {
+      "plate": "50H-048.95",
+      "name": "Trần Trung Hiếu"
+    },
+    {
+      "plate": "51D-155.69",
+      "name": "Nguyễn Tuấn Luận"
+    },
+    {
+      "plate": "50H-296.03",
+      "name": "Nguyễn Văn Lập"
+    },
+    {
+      "plate": "50H-042.16",
+      "name": "Nguyễn Anh Tuấn"
+    },
+    {
+      "plate": "50H-166.26",
+      "name": "Nguyễn Thái Vũ"
+    },
+    {
+      "plate": "51D-155.29",
+      "name": "Lê Văn Thành"
+    },
+    {
+      "plate": "51D-154.12",
+      "name": "Nguyễn Vương Hùng"
+    },
+    {
+      "plate": "51C-710.16",
+      "name": "Trần Văn Tâm"
+    },
+    {
+      "plate": "51D-154.59",
+      "name": "Phan Thanh Thỏa"
+    },
+    {
+      "plate": "51D-155.41",
+      "name": "Huỳnh Hữu Nhân"
+    },
+    {
+      "plate": "51C-358.30",
+      "name": "Nguyễn Hoàng Trọng"
+    },
+    {
+      "plate": "51D-154.73",
+      "name": "Phạm Quang Trung"
+    },
+    {
+      "plate": "50H-114.25",
+      "name": "Nguyễn Đức Trí"
+    },
+    {
+      "plate": "50H-089.04",
+      "name": "Phạm Văn Dân"
+    },
+    {
+      "plate": "51D-154.67",
+      "name": "Nguyễn Phú Phong"
+    },
+    {
+      "plate": "50H-238.18",
+      "name": "Phạm Hồng Tâm"
+    },
+    {
+      "plate": "50H-165.70",
+      "name": "Đinh Thành Luân"
+    },
+    {
+      "plate": "50H-212.43",
+      "name": "Nguyễn Văn Nam"
+    },
+    {
+      "plate": "51D-155.07",
+      "name": "Trần Hải Hà"
+    }
+  ],
+  "multiple_tractors": [
+    {
+      "name": "Nguyễn Hoàng Anh",
+      "plates": [
+        "50H-113.08",
+        "50H-090.93"
+      ]
+    }
+  ]
+}

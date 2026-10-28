@@ -1,0 +1,74 @@
+[
+  {
+    "results": [
+      {
+        "id": "0115d0b1-b2e2-402b-af1f-e1add7f5d99b",
+        "code": "TT",
+        "name": "Trước trái (Tài)",
+        "notes": null,
+        "is_active": 1,
+        "version": 1
+      },
+      {
+        "id": "4a987e89-e9b0-493f-98f9-871167a03e12",
+        "code": "TP",
+        "name": "Trước phải (Phụ)",
+        "notes": null,
+        "is_active": 1,
+        "version": 1
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "APAC",
+      "served_by_colo": "SIN",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 2.46
+      },
+      "duration": 2.46,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 4902912,
+      "rows_read": 2,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "resource": "mount-positions",
+        "entity_id": "0115d0b1-b2e2-402b-af1f-e1add7f5d99b",
+        "field_key": "all",
+        "normalized_text": "tt trước trái (tài) "
+      },
+      {
+        "resource": "mount-positions",
+        "entity_id": "4a987e89-e9b0-493f-98f9-871167a03e12",
+        "field_key": "all",
+        "normalized_text": "tp trước phải (phụ) "
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "APAC",
+      "served_by_colo": "SIN",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 2.0558
+      },
+      "duration": 2.0558,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 4902912,
+      "rows_read": 3,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  }
+]

@@ -1,0 +1,2855 @@
+{
+  "start": "2026-10-27T17:00:00Z",
+  "end": "2026-10-28T08:36:17.103Z",
+  "queries": [
+    {
+      "avg": {
+        "queryDurationMs": 7.03614776119403,
+        "rowsRead": 7091
+      },
+      "count": 67,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  AND (lower(code) LIKE ? ESCAPE '\\' OR EXISTS(SELECT 1 FROM rows r LEFT JOIN document_draft_serials ds ON ds.document_id=r.draft_id AND ds.line_id=r.draft_line_id WHERE r.group_key=g.group_key AND (lower(coalesce(ds.serial_number,r.fallback_serial)) LIKE ? ESCAPE '\\' OR lower(coalesce(r.vehicle_plate_snapshot,'')||' '||coalesce(json_extract(r.header_json,'$.issue_details.vehicle_plate'),'')||' '||coalesce(json_extract(r.header_json,'$.recovery_details.vehicle_plate'),'')||' '||coalesce((SELECT e.value FROM json_each(r.labels_json) e WHERE e.key='recovery_source:'||json_extract(r.line_json,'$.id') LIMIT ?),'')||' '||coalesce((SELECT e.value FROM json_each(r.labels_json) e WHERE e.key=(CASE json_extract(r.line_json,'$.target_type') WHEN 'equipment' THEN 'equipment:' ELSE 'vehicles:' END)||json_extract(r.line_json,'$.target_id') LIMIT 1)"
+      },
+      "sum": {
+        "queryDurationMs": 471.4219,
+        "rowsRead": 475103,
+        "rowsReturned": 56,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 13.555207692307695,
+        "rowsRead": 6072
+      },
+      "count": 26,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT g.*,(SELECT r.header_json FROM rows r WHERE r.group_key=g.group_key LIMIT ?) AS header_json,(SELECT r.labels_json FROM rows r WHERE r.group_key=g.group_key LIMIT 1) AS labels_json,(SELECT json_group_array(json_object('kind',r.kind,'line_json',r.line_json,'source_target_type',r.source_target_type,'source_target_id',r.source_target_id,'source_header_json',r.source_header_json,'source_labels_json',r.source_labels_json,'vehicle_plate_snapshot',r.vehicle_plate_snapshot,'vehicle_odo_km',r.vehicle_odo_km)) FROM rows r WHERE r.group_key=g.group_key) AS metadata FROM matched g ORDER BY day ASC,at ASC,document_id ASC,flow ASC LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 352.4354000000001,
+        "rowsRead": 157887,
+        "rowsReturned": 237,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.8021439999999997,
+        "rowsRead": 2907
+      },
+      "count": 25,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM parts WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=parts.id AND s.normalized_text LIKE ? ESCAPE '\\')"
+      },
+      "sum": {
+        "queryDurationMs": 45.053599999999996,
+        "rowsRead": 72675,
+        "rowsReturned": 25,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.493511111111111,
+        "rowsRead": 2679
+      },
+      "count": 27,
+      "dimensions": {
+        "query": "SELECT id, source_group, chassis_number, engine_number, load_spec, container_spec, ownership_source, lessor_name, contract_number, route_group, location_unit, generator_type, original_status, plate_number, type, brand_model, manufacture_year, current_odo_km, assigned_driver_id, status, has_reefer, notes, version FROM vehicles WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=vehicles.id AND s.normalized_text LIKE ? ESCAPE '\\') AND status = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 67.3248,
+        "rowsRead": 72333,
+        "rowsReturned": 27,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.3087916666666666,
+        "rowsRead": 2296
+      },
+      "count": 24,
+      "dimensions": {
+        "query": "SELECT id, sku, item_type, object_code, group_code, name, category, unit, applicable_for, unit_price_vnd, min_stock_milli, min_stock_unit, lifespan_hours_limit, specifications, lifespan_km_limit, lifespan_days_limit, is_serialized, is_fuel, needs_data_package, is_active, notes, version, COALESCE((SELECT sum(quantity_milli) FROM stock_balances b WHERE b.part_id=parts.id),0) AS current_stock_milli FROM parts WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=parts.id AND s.normalized_text LIKE ? ESCAPE '\\') ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 55.411,
+        "rowsRead": 55114,
+        "rowsReturned": 222,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.194357142857143,
+        "rowsRead": 3050
+      },
+      "count": 14,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM parts WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=parts.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ?"
+      },
+      "sum": {
+        "queryDurationMs": 16.721,
+        "rowsRead": 42700,
+        "rowsReturned": 14,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.6,
+        "rowsRead": 2830
+      },
+      "count": 11,
+      "dimensions": {
+        "query": "SELECT id, code, name, province_name, tax_code, phone, supplied_items, address, is_active, version, EXISTS(SELECT 1 FROM inventory_documents WHERE supplier_id=suppliers.id) AS is_linked FROM suppliers WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=suppliers.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 17.6,
+        "rowsRead": 31134,
+        "rowsReturned": 6,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.052125,
+        "rowsRead": 758
+      },
+      "count": 36,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT unit,sum(in_milli) AS in_milli,sum(out_milli) AS out_milli FROM matched GROUP BY unit"
+      },
+      "sum": {
+        "queryDurationMs": 37.8765,
+        "rowsRead": 27295,
+        "rowsReturned": 44,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.1029333333333333,
+        "rowsRead": 2679
+      },
+      "count": 9,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM vehicles WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=vehicles.id AND s.normalized_text LIKE ? ESCAPE '\\') AND status = ?"
+      },
+      "sum": {
+        "queryDurationMs": 9.9264,
+        "rowsRead": 24111,
+        "rowsReturned": 9,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 9.8139,
+        "rowsRead": 1961
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1 AND kind=? AND (lower(code) LIKE ? ESCAPE '\\' OR EXISTS(SELECT 1 FROM rows r LEFT JOIN document_draft_serials ds ON ds.document_id=r.draft_id AND ds.line_id=r.draft_line_id WHERE r.group_key=g.group_key AND (lower(coalesce(ds.serial_number,r.fallback_serial)) LIKE ? ESCAPE '\\' OR lower(coalesce(r.vehicle_plate_snapshot,'')||' '||coalesce(json_extract(r.header_json,'$.issue_details.vehicle_plate'),'')||' '||coalesce(json_extract(r.header_json,'$.recovery_details.vehicle_plate'),'')||' '||coalesce((SELECT e.value FROM json_each(r.labels_json) e WHERE e.key='recovery_source:'||json_extract(r.line_json,'$.id') LIMIT ?),'')||' '||coalesce((SELECT e.value FROM json_each(r.labels_json) e WHERE e.key=(CASE json_extract(r.line_json,'$.target_type') WHEN 'equipment' THEN 'equipment:' ELSE 'vehicles:' END)||json_extract(r.line_json,'$.target_id'"
+      },
+      "sum": {
+        "queryDurationMs": 117.7668,
+        "rowsRead": 23532,
+        "rowsReturned": 12,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 3.1635055555555556,
+        "rowsRead": 411
+      },
+      "count": 54,
+      "dimensions": {
+        "query": "WITH bounds AS (SELECT ? AS start_at,? AS end_at,? AS start_day), source AS (\n SELECT m.id AS movement_id,m.part_id,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,m.warehouse_id,w.code AS warehouse_code,w.name AS warehouse_name,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,\n coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,l.line_number,dd.id AS draft_id,d.code,d.type,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,d.type) END AS kind,\n coalesce(json_extract(dd.header_json,'$.purpose'),d.notes,'') AS purpose,coalesce(json_extract(dl.line_json,'$.notes'),'') AS notes,\n '' AS serials,\n dd.header_json,dd.labels_json,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n m.quantity_delta_milli AS quantity_delta,m.value_delta_vnd AS value_delta,\n EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.inventory_line_id=l.id AND f.status='pending') AS pending\n FROM stock_movements m JOIN inventory_document_lines l ON l.id=m.document_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id')\n LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND l.is_opening_usage=0\n ), raw AS (SELECT * FROM source WHERE business_at <= (SELECT end_at FROM bounds) ),\n aggregates AS (SELECT part_id,warehouse_id,stock_state,\n sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END) AS opening_quantity_milli,\n CASE WHEN sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN pending ELSE 0 END)>0 AND sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END)<>0 THEN NULL ELSE sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN value_delta ELSE 0 END) END AS opening_value_vnd,\n sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN quantity_delta ELSE 0 END) AS in_quantity_milli,\n CASE WHEN sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN pending ELSE 0 END)>0 THEN NULL ELSE sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN value_delta ELSE 0 END) END AS in_value_vnd,\n sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN -quantity_delta ELSE 0 END) AS out_quantity_milli,\n CASE WHEN sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN pending ELSE 0 END)>0 THEN NULL ELSE sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN -value_delta ELSE 0 END) END AS out_value_vnd,\n sum(quant"
+      },
+      "sum": {
+        "queryDurationMs": 170.8293,
+        "rowsRead": 22214,
+        "rowsReturned": 230,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.1186121212121212,
+        "rowsRead": 652
+      },
+      "count": 33,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT count(*) AS total FROM matched"
+      },
+      "sum": {
+        "queryDurationMs": 36.9142,
+        "rowsRead": 21516,
+        "rowsReturned": 33,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.18248,
+        "rowsRead": 3364
+      },
+      "count": 5,
+      "dimensions": {
+        "query": "SELECT id, sku, item_type, object_code, group_code, name, category, unit, applicable_for, unit_price_vnd, min_stock_milli, min_stock_unit, lifespan_hours_limit, specifications, lifespan_km_limit, lifespan_days_limit, is_serialized, is_fuel, needs_data_package, is_active, notes, version, COALESCE((SELECT sum(quantity_milli) FROM stock_balances b WHERE b.part_id=parts.id),0) AS current_stock_milli FROM parts WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=parts.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 10.9124,
+        "rowsRead": 16822,
+        "rowsReturned": 6,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.4211896551724138,
+        "rowsRead": 561
+      },
+      "count": 29,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM parts"
+      },
+      "sum": {
+        "queryDurationMs": 12.214500000000001,
+        "rowsRead": 16269,
+        "rowsReturned": 29,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.9704250000000001,
+        "rowsRead": 3455
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM suppliers WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=suppliers.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ?"
+      },
+      "sum": {
+        "queryDurationMs": 3.8817000000000004,
+        "rowsRead": 13820,
+        "rowsReturned": 4,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 9.6558,
+        "rowsRead": 6107
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT r.*,coalesce(nullif(r.fallback_serial,''),ds.serial_number,'') AS serial FROM rows r JOIN matched g ON g.group_key=r.group_key LEFT JOIN document_draft_serials ds ON ds.document_id=r.draft_id AND ds.line_id=r.draft_line_id AND r.kind<>'retread_receive' ORDER BY r.day,r.business_at,r.document_id,r.line_number,serial LIMIT ?"
+      },
+      "sum": {
+        "queryDurationMs": 19.3116,
+        "rowsRead": 12214,
+        "rowsReturned": 208,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 4.266166666666667,
+        "rowsRead": 2017
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT r.*,coalesce(nullif(r.fallback_serial,''),ds.serial_number,'') AS serial FROM rows r JOIN matched g ON g.group_key=r.group_key LEFT JOIN document_draft_serials ds ON ds.document_id=r.draft_id AND ds.line_id=r.draft_line_id AND r.kind<>'retread_receive' WHERE r.group_key=? AND g.version=? ORDER BY r.line_number,serial,r.movement_id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 25.597,
+        "rowsRead": 12104,
+        "rowsReturned": 117,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.928377777777778,
+        "rowsRead": 630
+      },
+      "count": 18,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM staff WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=staff.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ? AND staff_type = ?"
+      },
+      "sum": {
+        "queryDurationMs": 16.710800000000003,
+        "rowsRead": 11340,
+        "rowsReturned": 18,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.7987800000000003,
+        "rowsRead": 750
+      },
+      "count": 15,
+      "dimensions": {
+        "query": "SELECT d.id,d.version,d.code,d.kind,d.business_at,CASE WHEN d.status='cancelled' THEN 'cancelled' WHEN d.posted_inventory_id IS NOT NULL THEN 'posted' ELSE d.status END AS status,d.totals_json,d.created_by,d.created_at,d.updated_at,u.display_name AS created_by_name,(SELECT count(*) FROM document_draft_lines l WHERE l.document_id=d.id) AS line_count,(SELECT json_group_array(json(l.line_json)) FROM document_draft_lines l WHERE l.document_id=d.id) AS summary_lines_json,(SELECT json_group_array(ds.serial_number) FROM document_draft_serials ds WHERE ds.document_id=d.id) AS serial_numbers_json,(SELECT eu.display_name FROM document_draft_events e JOIN app_users eu ON eu.id=e.actor_id WHERE e.document_id=d.id AND e.action='save' AND e.before_json IS NOT NULL ORDER BY e.created_at DESC,e.rowid DESC LIMIT ?) AS last_edited_by_name,d.labels_json,d.header_json,d.operation_state,CASE WHEN d.status<>'cancelled' AND d.deleted_at IS NULL AND d.posted_inventory_id IS NOT NULL AND ((d.kind='receipt' AND NOT (EXISTS(SELECT 1 FROM stock_source_allocations a JOIN inventory_document_lines l ON l.id=a.source_line_id WHERE l.document_id=d.posted_inventory_id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies a JOIN inventory_document_lines l ON l.id=a.source_line_id WHERE l.document_id=d.posted_inventory_id) OR EXISTS(SELECT 1 FROM inventory_document_lines l LEFT JOIN stock_lots s ON s.source_line_id=l.id WHERE l.document_id=d.posted_inventory_id AND (s.source_line_id IS NULL OR s.remaining_quantity_milli<>s.initial_quantity_milli)) OR EXISTS(SELECT 1 FROM document_draft_lines x JOIN inventory_document_lines l ON l.id=json_extract(x.line_json,'$.source_line_id') JOIN document_drafts other ON other.id=x.document_id WHERE l.document_id=d.posted_inventory_id AND other.id<>d.id AND other.status<>'cancelled' AND other.deleted_at IS NULL))) OR (d.kind='opening' AND json_extract(d.header_json,'$.opening_mode')='in_use' AND NOT (EXISTS(SELECT 1 FROM inventory_document_lines l WHERE l.document_id=d.posted_inventory_id AND (NOT EXISTS(SELECT 1 FROM opening_usage_lines ou WHERE ou.inventory_line_id=l.id) OR (SELECT count(*) FROM stock_usages u WHERE u.root_line_id=l.id)<>1 OR EXISTS(SELECT 1 FROM stock_usages u WHERE u.root_line_id=l.id AND (u.parent_usage_id IS NOT NULL OR u.open_quantity_milli<>u.quantity_milli)) OR EXISTS(SELECT 1 FROM stock_movements m WHERE m.document_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_lots lot WHERE lot.source_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies c WHERE c.source_line_id=l.id OR c.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_source_allocations a WHERE a.source_line_id=l.id OR a.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.origin_line_id=l.id AND f.inventory_line_id<>l.id) OR EXISTS(SELECT 1 FROM equipment_operations e JOIN stock_usages u ON u.id=e.from_usage_id OR u.id=e.to_usage_id WHERE u.root_line_id=l.id) OR EXISTS(SELECT 1 FROM retread_jobs j WHERE j.send_line_id=l.id OR j.received_line_id=l.id) OR EXISTS(SELECT 1 FROM usage_serials us JOIN stock_usages u ON u.id=us.usage_id WHERE u.root_line_id=l.id AND (us.active<>1 OR NOT EXISTS(SELECT 1 FROM inventory_serials s WHERE s.part_id=us.part_id AND s.serial_key=us.serial_key AND s.document_line_id=l.id AND s.status='mounted'))) OR EXISTS(SELECT 1 FROM document_draft_lines dl JOIN document_drafts other ON other.id=dl.document_id JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') WHERE u.root_line_id=l.id AND other.id<>d.id AND other.deleted_at IS NULL AND other.status<>'cancelled')))) AND coalesce(substr(d.business_at,1,7)>(SELECT max(period) FROM accounting_periods WHERE is_locked=1),1))) THEN 1 ELSE 0 END AS can_modify FROM document_drafts d JOIN app_users u ON u.id=d.created_by WHERE d.kind=? AND (d.deleted_at IS NULL OR ?='cancelled') AND coalesce(json_extract(d.header_json,'$.opening_mode'),'stock')=? ORDER BY d.business_at DESC,d.id DESC LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 41.981700000000004,
+        "rowsRead": 11254,
+        "rowsReturned": 20,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 6.524725,
+        "rowsRead": 1167
+      },
+      "count": 8,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT part_id,warehouse_id,stock_state,sum(q) AS opening_milli FROM (\n SELECT b.part_id,b.warehouse_id,b.stock_state,b.quantity_milli AS q FROM stock_book_months b WHERE b.period<substr(?,1,7)  AND b.part_id=?\n UNION ALL SELECT f.part_id,f.warehouse_id,f.stock_state,f.quantity_delta_milli FROM stock_book_flow f WHERE f.status='posted' AND f.day>=substr(?,1,7)||'-01' AND f.day<?  AND f.part_id=?) GROUP BY part_id,warehouse_id,stock_state), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1  AND s.part_id=?),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,coalesce((SELECT o.opening_milli FROM opening o WHERE o.part_id=g.part_id AND o.warehouse_id=g.warehouse_id AND o.stock_state=g.stock_state),0)+sum(delta) OVER (PARTITION BY part_id,warehouse_id,stock_state ORDER BY day,at,document_id,flow ROWS UNBOUNDED PRECEDING) AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT g.*,(SELECT r.header_json FROM rows r WHERE r.group_key=g.group_key LIMIT ?) AS header_json,(SELECT r.labels_json FROM rows r WHERE r.group_key=g.group_key LIMIT 1) AS labels_json,(SELECT json_group_array(jso"
+      },
+      "sum": {
+        "queryDurationMs": 52.1978,
+        "rowsRead": 9338,
+        "rowsReturned": 22,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.8623864864864866,
+        "rowsRead": 239
+      },
+      "count": 37,
+      "dimensions": {
+        "query": "SELECT u.id AS usage_id,u.root_line_id,p.id AS part_id,p.sku,p.name,p.unit,p.version AS part_version,p.is_serialized,s.serial_number AS serial_number,CASE u.target_type WHEN 'vehicle' THEN (SELECT plate_number FROM vehicles WHERE id=u.target_id) ELSE (SELECT code FROM equipment WHERE id=u.target_id) END AS target_label,u.position,d.code,u.started_at,u.odo_milli,u.hours_milli,CASE WHEN p.is_serialized=1 THEN 1000 ELSE u.open_quantity_milli END AS quantity_milli,u.quantity_milli AS issued_quantity_milli,u.open_quantity_milli,CASE WHEN ou.inventory_line_id IS NOT NULL THEN 'opening_usage' ELSE 'issue' END AS source_kind,ou.installed_at AS opening_installed_at,ou.original_unit_price_known AS opening_original_unit_price_known,json_extract(odl.line_json,'$.opening_current_unit_price') AS opening_current_unit_price,json_extract(odl.line_json,'$.opening_quality_percent') AS opening_quality_percent,json_extract(odl.line_json,'$.opening_assessor') AS opening_assessor,json_extract(odl.line_json,'$.opening_confirmation_basis') AS opening_confirmation_basis,EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.inventory_line_id=u.root_line_id AND f.status='pending' AND NOT (ou.inventory_line_id IS NOT NULL AND f.reason='Chưa có giá gốc của vật tư đang sử dụng đầu kỳ.')) AS valuation_pending FROM stock_usages u JOIN inventory_document_lines l ON l.id=u.root_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN parts p ON p.id=u.part_id LEFT JOIN opening_usage_lines ou ON ou.inventory_line_id=u.root_line_id LEFT JOIN document_drafts od ON od.posted_inventory_id=l.document_id LEFT JOIN document_draft_lines odl ON odl.document_id=od.id AND odl.line_number=l.line_number LEFT JOIN usage_serials us ON us.usage_id=u.id AND us.active=1 LEFT JOIN inventory_serials s ON s.part_id=us.part_id AND s.serial_key=us.serial_key WHERE u.open_quantity_milli>0 AND (d.type='OUT' OR (d.type='OPENING' AND ou.inventory_line_id IS NOT NULL)) AND d.status='posted' AND (p.is_serialized=0 OR (us.active=1 AND s.status='mounted')) AND EXISTS(SELECT 1 FROM vehicles v WHERE v.id=? AND ((u.target_type='vehicle' AND u.target_id=v.id) OR EXISTS(SELECT 1 FROM equipment_pairing_drafts ep WHERE ep.parent_code=v.plate_number AND ep.is_active=1 AND ep.child_code=CASE u.target_type WHEN 'vehicle' THEN (SELECT plate_number FROM vehicles WHERE id=u.target_id) ELSE (SELECT code FROM equipment WHERE id=u.target_id) END))) AND (upper(p.sku) LIKE ? ESCAPE '\\' OR upper(coalesce(us.serial_key,'')) LIKE ? ESCAPE '\\' OR upper(d.code) LIKE ? ESCAPE '\\') ORDER BY u.started_at DESC,u.id,us.serial_key LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 31.908300000000004,
+        "rowsRead": 8878,
+        "rowsReturned": 37,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.91,
+        "rowsRead": 1987
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "SELECT d.kind,d.status,d.header_json,d.deleted_at,d.posted_inventory_id,(EXISTS(SELECT 1 FROM inventory_document_lines l WHERE l.document_id=d.posted_inventory_id AND (NOT EXISTS(SELECT 1 FROM opening_usage_lines ou WHERE ou.inventory_line_id=l.id) OR (SELECT count(*) FROM stock_usages u WHERE u.root_line_id=l.id)<>1 OR EXISTS(SELECT 1 FROM stock_usages u WHERE u.root_line_id=l.id AND (u.parent_usage_id IS NOT NULL OR u.open_quantity_milli<>u.quantity_milli)) OR EXISTS(SELECT 1 FROM stock_movements m WHERE m.document_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_lots lot WHERE lot.source_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies c WHERE c.source_line_id=l.id OR c.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_source_allocations a WHERE a.source_line_id=l.id OR a.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.origin_line_id=l.id AND f.inventory_line_id<>l.id) OR EXISTS(SELECT 1 FROM equipment_operations e JOIN stock_usages u ON u.id=e.from_usage_id OR u.id=e.to_usage_id WHERE u.root_line_id=l.id) OR EXISTS(SELECT 1 FROM retread_jobs j WHERE j.send_line_id=l.id OR j.received_line_id=l.id) OR EXISTS(SELECT 1 FROM usage_serials us JOIN stock_usages u ON u.id=us.usage_id WHERE u.root_line_id=l.id AND (us.active<>1 OR NOT EXISTS(SELECT 1 FROM inventory_serials s WHERE s.part_id=us.part_id AND s.serial_key=us.serial_key AND s.document_line_id=l.id AND s.status='mounted'))) OR EXISTS(SELECT 1 FROM document_draft_lines dl JOIN document_drafts other ON other.id=dl.document_id JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') WHERE u.root_line_id=l.id AND other.id<>d.id AND other.deleted_at IS NULL AND other.status<>'cancelled')))) AS used,coalesce(substr(d.business_at,1,7)>(SELECT max(period) FROM accounting_periods WHERE is_locked=1),1) AS unlocked FROM document_drafts d WHERE d.id=?"
+      },
+      "sum": {
+        "queryDurationMs": 7.64,
+        "rowsRead": 7948,
+        "rowsReturned": 4,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.854025,
+        "rowsRead": 608
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT count(*) AS total FROM (SELECT r.*,coalesce(nullif(r.fallback_serial,''),ds.serial_number,'') AS serial FROM rows r JOIN matched g ON g.group_key=r.group_key LEFT JOIN document_draft_serials ds ON ds.document_id=r.draft_id AND ds.line_id=r.draft_line_id AND r.kind<>'retread_receive' WHERE r.group_key=? AND g.version=?)"
+      },
+      "sum": {
+        "queryDurationMs": 22.2483,
+        "rowsRead": 7305,
+        "rowsReturned": 12,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 10.441133333333333,
+        "rowsRead": 1202
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "WITH bounds AS (SELECT ? AS start_at,? AS end_at,? AS start_day,? AS serial_key), source AS (\n SELECT m.id AS movement_id,m.part_id,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,m.warehouse_id,w.code AS warehouse_code,w.name AS warehouse_name,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,\n coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,l.line_number,dd.id AS draft_id,d.code,d.type,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,d.type) END AS kind,\n coalesce(json_extract(dd.header_json,'$.purpose'),d.notes,'') AS purpose,coalesce(json_extract(dl.line_json,'$.notes'),'') AS notes,\n coalesce(rj.serial_after,(SELECT group_concat(ds.serial_number,'; ') FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id),l.serial_number_snapshot,'') AS batch_serials,CASE WHEN rj.received_line_id IS NOT NULL THEN CASE WHEN upper(trim(rj.serial_after))=(SELECT serial_key FROM bounds) THEN rj.serial_after END ELSE coalesce((SELECT ds.serial_number FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id AND ds.serial_key=(SELECT serial_key FROM bounds) LIMIT ?),CASE WHEN upper(trim(l.serial_number_snapshot))=(SELECT serial_key FROM bounds) THEN l.serial_number_snapshot END) END AS matched_serial,(SELECT json_extract(cost.value,'$.amount_vnd') FROM json_each(CASE WHEN json_valid(json_extract(dd.labels_json,'$.\"'||CASE WHEN dd.kind='recovery' THEN 'recovery_serial_costs:' ELSE 'issue_serial_costs:' END||dl.id||'\"')) THEN json_extract(dd.labels_json,'$.\"'||CASE WHEN dd.kind='recovery' THEN 'recovery_serial_costs:' ELSE 'issue_serial_costs:' END||dl.id||'\"') ELSE '[]' END) cost WHERE upper(trim(json_extract(cost.value,'$.serial')))=(SELECT serial_key FROM bounds) LIMIT 1) AS snapshot_serial_amount,CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n dd.header_json,dd.labels_json,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n m.quantity_delta_milli AS original_quantity,m.value_delta_vnd AS original_value,\n EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.inventory_line_id=l.id AND f.status='pending') AS original_pending\n FROM stock_movements m JOIN inventory_document_lines l ON l.id=m.document_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id')\n LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND l.is_opening_usage=0 AND m.part_id=?\n ), scoped AS (SELECT * FROM source WHERE business_at <= (SELECT end_at FROM bounds) ),\n serial_scope AS (SELECT EXISTS(SELECT 1 FROM scoped WHERE matched_serial IS NOT NULL) AS enabled),\n priced AS (SELECT scoped.*,coalesce(snapshot_serial_amount,CASE WHEN abs(original_quantity)=1000 THEN abs(original_value) WHEN (type IN ('IN','OPENING') OR kind='receipt') AND serial_count*1000=abs(original_quantity) THEN abs(original_value)/serial_count+CASE WHEN (abs(original_value)%serial_count)*2>=serial_count THEN 1 ELSE 0 END END) AS serial_amount FROM scoped),\n raw AS (SELECT priced.*,\n CASE WHEN (SELECT enabled FROM serial_scope)=1 THEN matched_serial ELSE batch_serials END AS serials,\n CASE WHEN (SELECT enabled FROM serial_scope)=1 THEN CASE WHEN original_quantity>0 THEN 1000 WHEN original_quantity<0 THEN -1000 ELSE 0 END ELSE original_quantity END AS quantit"
+      },
+      "sum": {
+        "queryDurationMs": 62.6468,
+        "rowsRead": 7214,
+        "rowsReturned": 7,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.34374000000000005,
+        "rowsRead": 223
+      },
+      "count": 25,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM stock_usages u JOIN inventory_document_lines l ON l.id=u.root_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN parts p ON p.id=u.part_id LEFT JOIN opening_usage_lines ou ON ou.inventory_line_id=u.root_line_id LEFT JOIN document_drafts od ON od.posted_inventory_id=l.document_id LEFT JOIN document_draft_lines odl ON odl.document_id=od.id AND odl.line_number=l.line_number LEFT JOIN usage_serials us ON us.usage_id=u.id AND us.active=1 LEFT JOIN inventory_serials s ON s.part_id=us.part_id AND s.serial_key=us.serial_key WHERE u.open_quantity_milli>0 AND (d.type='OUT' OR (d.type='OPENING' AND ou.inventory_line_id IS NOT NULL)) AND d.status='posted' AND (p.is_serialized=0 OR (us.active=1 AND s.status='mounted')) AND EXISTS(SELECT 1 FROM vehicles v WHERE v.id=? AND ((u.target_type='vehicle' AND u.target_id=v.id) OR EXISTS(SELECT 1 FROM equipment_pairing_drafts ep WHERE ep.parent_code=v.plate_number AND ep.is_active=1 AND ep.child_code=CASE u.target_type WHEN 'vehicle' THEN (SELECT plate_number FROM vehicles WHERE id=u.target_id) ELSE (SELECT code FROM equipment WHERE id=u.target_id) END))) AND (upper(p.sku) LIKE ? ESCAPE '\\' OR upper(coalesce(us.serial_key,'')) LIKE ? ESCAPE '\\' OR upper(d.code) LIKE ? ESCAPE '\\')"
+      },
+      "sum": {
+        "queryDurationMs": 8.5935,
+        "rowsRead": 5593,
+        "rowsReturned": 25,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.1555333333333333,
+        "rowsRead": 574
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT part_id,warehouse_id,stock_state,sum(q) AS opening_milli FROM (\n SELECT b.part_id,b.warehouse_id,b.stock_state,b.quantity_milli AS q FROM stock_book_months b WHERE b.period<substr(?,1,7)  AND b.part_id=?\n UNION ALL SELECT f.part_id,f.warehouse_id,f.stock_state,f.quantity_delta_milli FROM stock_book_flow f WHERE f.status='posted' AND f.day>=substr(?,1,7)||'-01' AND f.day<?  AND f.part_id=?) GROUP BY part_id,warehouse_id,stock_state), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1  AND s.part_id=?),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,coalesce((SELECT o.opening_milli FROM opening o WHERE o.part_id=g.part_id AND o.warehouse_id=g.warehouse_id AND o.stock_state=g.stock_state),0)+sum(delta) OVER (PARTITION BY part_id,warehouse_id,stock_state ORDER BY day,at,document_id,flow ROWS UNBOUNDED PRECEDING) AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT count(*) AS total FROM matched"
+      },
+      "sum": {
+        "queryDurationMs": 6.933199999999999,
+        "rowsRead": 3446,
+        "rowsReturned": 6,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.5339444444444448,
+        "rowsRead": 354
+      },
+      "count": 9,
+      "dimensions": {
+        "query": "SELECT id, code, name, phone, email, staff_rank, staff_type, unit_id, department_id, department, job_title, vehicle_plate, trailer_plate, is_active, version FROM staff WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=staff.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ? AND staff_type = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 22.805500000000002,
+        "rowsRead": 3194,
+        "rowsReturned": 151,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.9803142857142858,
+        "rowsRead": 454
+      },
+      "count": 7,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT part_id,warehouse_id,stock_state,sum(q) AS opening_milli FROM (\n SELECT b.part_id,b.warehouse_id,b.stock_state,b.quantity_milli AS q FROM stock_book_months b WHERE b.period<substr(?,1,7)  AND b.part_id=?\n UNION ALL SELECT f.part_id,f.warehouse_id,f.stock_state,f.quantity_delta_milli FROM stock_book_flow f WHERE f.status='posted' AND f.day>=substr(?,1,7)||'-01' AND f.day<?  AND f.part_id=?) GROUP BY part_id,warehouse_id,stock_state), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1  AND s.part_id=?),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,coalesce((SELECT o.opening_milli FROM opening o WHERE o.part_id=g.part_id AND o.warehouse_id=g.warehouse_id AND o.stock_state=g.stock_state),0)+sum(delta) OVER (PARTITION BY part_id,warehouse_id,stock_state ORDER BY day,at,document_id,flow ROWS UNBOUNDED PRECEDING) AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT x.part_id,x.warehouse_id,x.stock_state,w.code AS warehouse_code,p.sku,p.name AS part_name,p.unit,sum(x.opening_milli) AS opening_milli,sum(x.closing_milli) AS closing_milli FROM (\n SELECT part_id,warehouse_id"
+      },
+      "sum": {
+        "queryDurationMs": 6.8622000000000005,
+        "rowsRead": 3180,
+        "rowsReturned": 7,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 7.29845,
+        "rowsRead": 276
+      },
+      "count": 10,
+      "dimensions": {
+        "query": "WITH bounds AS (SELECT ? AS start_at,? AS end_at,? AS start_day,? AS serial_key), source AS (\n SELECT m.id AS movement_id,m.part_id,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,m.warehouse_id,w.code AS warehouse_code,w.name AS warehouse_name,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,\n coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,l.line_number,dd.id AS draft_id,d.code,d.type,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,d.type) END AS kind,\n coalesce(json_extract(dd.header_json,'$.purpose'),d.notes,'') AS purpose,coalesce(json_extract(dl.line_json,'$.notes'),'') AS notes,\n coalesce(rj.serial_after,(SELECT group_concat(ds.serial_number,'; ') FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id),l.serial_number_snapshot,'') AS batch_serials,NULL AS matched_serial,NULL AS snapshot_serial_amount,0 AS serial_count,\n dd.header_json,dd.labels_json,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n m.quantity_delta_milli AS original_quantity,m.value_delta_vnd AS original_value,\n EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.inventory_line_id=l.id AND f.status='pending') AS original_pending\n FROM stock_movements m JOIN inventory_document_lines l ON l.id=m.document_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id')\n LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND l.is_opening_usage=0 AND m.part_id=?\n ), scoped AS (SELECT * FROM source WHERE business_at <= (SELECT end_at FROM bounds) ),\n serial_scope AS (SELECT EXISTS(SELECT 1 FROM scoped WHERE matched_serial IS NOT NULL) AS enabled),\n priced AS (SELECT scoped.*,coalesce(snapshot_serial_amount,CASE WHEN abs(original_quantity)=1000 THEN abs(original_value) WHEN (type IN ('IN','OPENING') OR kind='receipt') AND serial_count*1000=abs(original_quantity) THEN abs(original_value)/serial_count+CASE WHEN (abs(original_value)%serial_count)*2>=serial_count THEN 1 ELSE 0 END END) AS serial_amount FROM scoped),\n raw AS (SELECT priced.*,\n CASE WHEN (SELECT enabled FROM serial_scope)=1 THEN matched_serial ELSE batch_serials END AS serials,\n CASE WHEN (SELECT enabled FROM serial_scope)=1 THEN CASE WHEN original_quantity>0 THEN 1000 WHEN original_quantity<0 THEN -1000 ELSE 0 END ELSE original_quantity END AS quantity_delta,\n CASE WHEN (SELECT enabled FROM serial_scope)=1 THEN coalesce(serial_amount,0)*CASE WHEN original_quantity<0 THEN -1 ELSE 1 END ELSE original_value END AS value_delta,\n CASE WHEN (SELECT enabled FROM serial_scope)=1 THEN original_pending OR serial_amount IS NULL ELSE original_pending END AS pending\n FROM priced WHERE (SELECT enabled FROM serial_scope)=0 OR matched_serial IS NOT NULL),\n aggregates AS (SELECT part_id,warehouse_id,stock_state,\n sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END) AS opening_quantity_milli,\n CASE WHEN sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN pending ELSE 0 END)>0 AND sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END)<>0 THEN NULL ELSE sum(CASE WHEN (business_at < (SELECT s"
+      },
+      "sum": {
+        "queryDurationMs": 72.9845,
+        "rowsRead": 2767,
+        "rowsReturned": 30,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1276,
+        "rowsRead": 561
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM parts WHERE is_active = ?"
+      },
+      "sum": {
+        "queryDurationMs": 0.5104,
+        "rowsRead": 2244,
+        "rowsReturned": 4,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.5642,
+        "rowsRead": 2231
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT d.code,d.version,json_extract(d.header_json,'$.issue_details.installation_target') AS installation_target,json_extract(d.header_json,'$.issue_details.odo') AS tractor_odo_preserved,(SELECT count(*) FROM document_draft_lines dl WHERE dl.document_id=d.id AND json_extract(dl.line_json,'$.target_id')='359ad25d-733d-5cb6-9322-41384cce5824' AND json_extract(dl.line_json,'$.odo')='') AS corrected_lines,(SELECT count(*) FROM inventory_document_lines l WHERE l.document_id=d.posted_inventory_id AND l.vehicle_id='359ad25d-733d-5cb6-9322-41384cce5824' AND l.vehicle_odo_km IS NULL) AS corrected_snapshots,(SELECT count(*) FROM stock_usages u WHERE u.document_id=d.posted_inventory_id AND u.target_id='359ad25d-733d-5cb6-9322-41384cce5824' AND u.odo_milli IS NULL) AS corrected_usages,(SELECT count(*) FROM document_draft_events e WHERE e.document_id=d.id AND e.request_id='ed262aab-5c76-45b5-bda2-ea21e06f0e21' AND e.action='correct_installation_target') AS document_audit_count,(SELECT count(*) FROM audit_events e WHERE e.entity_id=d.id AND e.request_id='ed262aab-5c76-45b5-bda2-ea21e06f0e21') AS global_audit_count,(SELECT count(*) FROM receipt_mutation_locks l WHERE l.document_id=d.id) AS remaining_locks FROM document_drafts d WHERE d.id='c707a451-a741-495f-abd5-87167ac5571e';"
+      },
+      "sum": {
+        "queryDurationMs": 1.5642,
+        "rowsRead": 2231,
+        "rowsReturned": 1,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.21436000000000002,
+        "rowsRead": 433
+      },
+      "count": 5,
+      "dimensions": {
+        "query": "SELECT 'NCC'||printf('%05d',MAX(COALESCE((SELECT MAX(CAST(substr(code,4) AS INTEGER)) FROM suppliers WHERE length(code)=8 AND code GLOB 'NCC[0-9][0-9][0-9][0-9][0-9]'),0),COALESCE((SELECT last_value FROM supplier_code_sequence WHERE id=1),0))+1) AS next_code"
+      },
+      "sum": {
+        "queryDurationMs": 1.0718,
+        "rowsRead": 2165,
+        "rowsReturned": 5,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.3828399999999998,
+        "rowsRead": 423
+      },
+      "count": 5,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT part_id,warehouse_id,stock_state,sum(q) AS opening_milli FROM (\n SELECT b.part_id,b.warehouse_id,b.stock_state,b.quantity_milli AS q FROM stock_book_months b WHERE b.period<substr(?,1,7)  AND b.part_id=?\n UNION ALL SELECT f.part_id,f.warehouse_id,f.stock_state,f.quantity_delta_milli FROM stock_book_flow f WHERE f.status='posted' AND f.day>=substr(?,1,7)||'-01' AND f.day<?  AND f.part_id=?) GROUP BY part_id,warehouse_id,stock_state), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1  AND s.part_id=?),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,coalesce((SELECT o.opening_milli FROM opening o WHERE o.part_id=g.part_id AND o.warehouse_id=g.warehouse_id AND o.stock_state=g.stock_state),0)+sum(delta) OVER (PARTITION BY part_id,warehouse_id,stock_state ORDER BY day,at,document_id,flow ROWS UNBOUNDED PRECEDING) AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT unit,sum(in_milli) AS in_milli,sum(out_milli) AS out_milli FROM matched GROUP BY unit"
+      },
+      "sum": {
+        "queryDurationMs": 6.914199999999999,
+        "rowsRead": 2115,
+        "rowsReturned": 5,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.9277222222222223,
+        "rowsRead": 225
+      },
+      "count": 9,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT version FROM matched WHERE group_key=?"
+      },
+      "sum": {
+        "queryDurationMs": 8.3495,
+        "rowsRead": 2027,
+        "rowsReturned": 9,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 3.2148000000000003,
+        "rowsRead": 323
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "WITH bounds AS (SELECT ? AS start_at,? AS end_at,? AS start_day), source AS (\n SELECT m.id AS movement_id,m.part_id,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,m.warehouse_id,w.code AS warehouse_code,w.name AS warehouse_name,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,\n coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,l.line_number,dd.id AS draft_id,d.code,d.type,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,d.type) END AS kind,\n coalesce(json_extract(dd.header_json,'$.purpose'),d.notes,'') AS purpose,coalesce(json_extract(dl.line_json,'$.notes'),'') AS notes,\n coalesce(rj.serial_after,(SELECT group_concat(ds.serial_number,'; ') FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id),l.serial_number_snapshot,'') AS serials,\n dd.header_json,dd.labels_json,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n m.quantity_delta_milli AS quantity_delta,m.value_delta_vnd AS value_delta,\n EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.inventory_line_id=l.id AND f.status='pending') AS pending\n FROM stock_movements m JOIN inventory_document_lines l ON l.id=m.document_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id')\n LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND l.is_opening_usage=0 AND m.part_id=?\n ), raw AS (SELECT * FROM source WHERE business_at <= (SELECT end_at FROM bounds) ),\n aggregates AS (SELECT part_id,warehouse_id,stock_state,\n sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END) AS opening_quantity_milli,\n CASE WHEN sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN pending ELSE 0 END)>0 AND sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END)<>0 THEN NULL ELSE sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN value_delta ELSE 0 END) END AS opening_value_vnd,\n sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN quantity_delta ELSE 0 END) AS in_quantity_milli,\n CASE WHEN sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN pending ELSE 0 END)>0 THEN NULL ELSE sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN value_delta ELSE 0 END) END AS in_value_vnd,\n sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN -quantity_delta ELSE 0 END) AS out_quantity_milli,\n CASE WHEN sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN pending ELSE 0 END)>0 THEN NULL ELSE sum(CASE WHEN NOT (business_at < (SE"
+      },
+      "sum": {
+        "queryDurationMs": 19.288800000000002,
+        "rowsRead": 1941,
+        "rowsReturned": 66,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.765375,
+        "rowsRead": 153
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "SELECT kind,status,posted_inventory_id,deleted_at,(EXISTS(SELECT 1 FROM stock_source_allocations a JOIN inventory_document_lines l ON l.id=a.source_line_id WHERE l.document_id=d.posted_inventory_id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies a JOIN inventory_document_lines l ON l.id=a.source_line_id WHERE l.document_id=d.posted_inventory_id) OR EXISTS(SELECT 1 FROM inventory_document_lines l LEFT JOIN stock_lots s ON s.source_line_id=l.id WHERE l.document_id=d.posted_inventory_id AND (s.source_line_id IS NULL OR s.remaining_quantity_milli<>s.initial_quantity_milli)) OR EXISTS(SELECT 1 FROM document_draft_lines x JOIN inventory_document_lines l ON l.id=json_extract(x.line_json,'$.source_line_id') JOIN document_drafts other ON other.id=x.document_id WHERE l.document_id=d.posted_inventory_id AND other.id<>d.id AND other.status<>'cancelled' AND other.deleted_at IS NULL)) AS used FROM document_drafts d WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 9.1845,
+        "rowsRead": 1840,
+        "rowsReturned": 12,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 4.2781,
+        "rowsRead": 896
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT id, code, name, phone, email, staff_rank, staff_type, unit_id, department_id, department, job_title, vehicle_plate, trailer_plate, is_active, version FROM staff WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=staff.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 8.5562,
+        "rowsRead": 1792,
+        "rowsReturned": 2,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.3229,
+        "rowsRead": 896
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM staff WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=staff.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ?"
+      },
+      "sum": {
+        "queryDurationMs": 0.6458,
+        "rowsRead": 1792,
+        "rowsReturned": 2,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.3181271331058021,
+        "rowsRead": 3
+      },
+      "count": 586,
+      "dimensions": {
+        "query": "SELECT u.id,u.auth_subject,u.email,u.display_name,u.role,u.is_active,u.version,c.must_change,c.credential_version,s.idle_expires_at,s.expires_at FROM native_sessions s JOIN app_users u ON u.id=s.user_id JOIN native_credentials c ON c.user_id=u.id WHERE s.token_hash=? AND s.credential_version=c.credential_version AND s.expires_at>? AND s.idle_expires_at>? AND u.is_active=1"
+      },
+      "sum": {
+        "queryDurationMs": 186.42250000000004,
+        "rowsRead": 1758,
+        "rowsReturned": 586,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.6528,
+        "rowsRead": 269
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM vehicles WHERE status = ?"
+      },
+      "sum": {
+        "queryDurationMs": 3.9168000000000003,
+        "rowsRead": 1614,
+        "rowsReturned": 6,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.3552571428571425,
+        "rowsRead": 92
+      },
+      "count": 14,
+      "dimensions": {
+        "query": "SELECT d.id,d.version,d.code,d.kind,d.business_at,CASE WHEN d.status='cancelled' THEN 'cancelled' WHEN d.posted_inventory_id IS NOT NULL THEN 'posted' ELSE d.status END AS status,d.totals_json,d.created_by,d.created_at,d.updated_at,u.display_name AS created_by_name,(SELECT count(*) FROM document_draft_lines l WHERE l.document_id=d.id) AS line_count,(SELECT json_group_array(json(l.line_json)) FROM document_draft_lines l WHERE l.document_id=d.id) AS summary_lines_json,(SELECT json_group_array(ds.serial_number) FROM document_draft_serials ds WHERE ds.document_id=d.id) AS serial_numbers_json,(SELECT eu.display_name FROM document_draft_events e JOIN app_users eu ON eu.id=e.actor_id WHERE e.document_id=d.id AND e.action='save' AND e.before_json IS NOT NULL ORDER BY e.created_at DESC,e.rowid DESC LIMIT ?) AS last_edited_by_name,d.labels_json,d.header_json,d.operation_state,CASE WHEN d.status<>'cancelled' AND d.deleted_at IS NULL AND d.posted_inventory_id IS NOT NULL AND ((d.kind='receipt' AND NOT (EXISTS(SELECT 1 FROM stock_source_allocations a JOIN inventory_document_lines l ON l.id=a.source_line_id WHERE l.document_id=d.posted_inventory_id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies a JOIN inventory_document_lines l ON l.id=a.source_line_id WHERE l.document_id=d.posted_inventory_id) OR EXISTS(SELECT 1 FROM inventory_document_lines l LEFT JOIN stock_lots s ON s.source_line_id=l.id WHERE l.document_id=d.posted_inventory_id AND (s.source_line_id IS NULL OR s.remaining_quantity_milli<>s.initial_quantity_milli)) OR EXISTS(SELECT 1 FROM document_draft_lines x JOIN inventory_document_lines l ON l.id=json_extract(x.line_json,'$.source_line_id') JOIN document_drafts other ON other.id=x.document_id WHERE l.document_id=d.posted_inventory_id AND other.id<>d.id AND other.status<>'cancelled' AND other.deleted_at IS NULL))) OR (d.kind='opening' AND json_extract(d.header_json,'$.opening_mode')='in_use' AND NOT (EXISTS(SELECT 1 FROM inventory_document_lines l WHERE l.document_id=d.posted_inventory_id AND (NOT EXISTS(SELECT 1 FROM opening_usage_lines ou WHERE ou.inventory_line_id=l.id) OR (SELECT count(*) FROM stock_usages u WHERE u.root_line_id=l.id)<>1 OR EXISTS(SELECT 1 FROM stock_usages u WHERE u.root_line_id=l.id AND (u.parent_usage_id IS NOT NULL OR u.open_quantity_milli<>u.quantity_milli)) OR EXISTS(SELECT 1 FROM stock_movements m WHERE m.document_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_lots lot WHERE lot.source_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies c WHERE c.source_line_id=l.id OR c.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_source_allocations a WHERE a.source_line_id=l.id OR a.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.origin_line_id=l.id AND f.inventory_line_id<>l.id) OR EXISTS(SELECT 1 FROM equipment_operations e JOIN stock_usages u ON u.id=e.from_usage_id OR u.id=e.to_usage_id WHERE u.root_line_id=l.id) OR EXISTS(SELECT 1 FROM retread_jobs j WHERE j.send_line_id=l.id OR j.received_line_id=l.id) OR EXISTS(SELECT 1 FROM usage_serials us JOIN stock_usages u ON u.id=us.usage_id WHERE u.root_line_id=l.id AND (us.active<>1 OR NOT EXISTS(SELECT 1 FROM inventory_serials s WHERE s.part_id=us.part_id AND s.serial_key=us.serial_key AND s.document_line_id=l.id AND s.status='mounted'))) OR EXISTS(SELECT 1 FROM document_draft_lines dl JOIN document_drafts other ON other.id=dl.document_id JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') WHERE u.root_line_id=l.id AND other.id<>d.id AND other.deleted_at IS NULL AND other.status<>'cancelled')))) AND coalesce(substr(d.business_at,1,7)>(SELECT max(period) FROM accounting_periods WHERE is_locked=1),1))) THEN 1 ELSE 0 END AS can_modify FROM document_drafts d JOIN app_users u ON u.id=d.created_by WHERE d.kind=? AND (d.deleted_at IS NULL OR ?='cancelled') AND d.business_at>=? AND d.business_at<? ORDER BY d.business_at DESC,d.id DESC LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 32.9736,
+        "rowsRead": 1300,
+        "rowsReturned": 20,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.8235,
+        "rowsRead": 270
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "SELECT id FROM vehicles WHERE assigned_driver_id=? AND status='active' AND type<>'trailer' ORDER BY id LIMIT ?"
+      },
+      "sum": {
+        "queryDurationMs": 3.294,
+        "rowsRead": 1080,
+        "rowsReturned": 4,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.58496,
+        "rowsRead": 215
+      },
+      "count": 5,
+      "dimensions": {
+        "query": "WITH bounds AS (SELECT ? AS start_at,? AS end_at,? AS start_day), source AS (\n SELECT m.id AS movement_id,m.part_id,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,m.warehouse_id,w.code AS warehouse_code,w.name AS warehouse_name,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,\n coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,l.line_number,dd.id AS draft_id,d.code,d.type,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,d.type) END AS kind,\n coalesce(json_extract(dd.header_json,'$.purpose'),d.notes,'') AS purpose,coalesce(json_extract(dl.line_json,'$.notes'),'') AS notes,\n coalesce(rj.serial_after,(SELECT group_concat(ds.serial_number,'; ') FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id),l.serial_number_snapshot,'') AS serials,\n dd.header_json,dd.labels_json,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n m.quantity_delta_milli AS quantity_delta,m.value_delta_vnd AS value_delta,\n EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.inventory_line_id=l.id AND f.status='pending') AS pending\n FROM stock_movements m JOIN inventory_document_lines l ON l.id=m.document_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id')\n LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND l.is_opening_usage=0\n ), raw AS (SELECT * FROM source WHERE business_at <= (SELECT end_at FROM bounds) ),\n aggregates AS (SELECT part_id,warehouse_id,stock_state,\n sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END) AS opening_quantity_milli,\n CASE WHEN sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN pending ELSE 0 END)>0 AND sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END)<>0 THEN NULL ELSE sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN value_delta ELSE 0 END) END AS opening_value_vnd,\n sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN quantity_delta ELSE 0 END) AS in_quantity_milli,\n CASE WHEN sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN pending ELSE 0 END)>0 THEN NULL ELSE sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN value_delta ELSE 0 END) END AS in_value_vnd,\n sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN -quantity_delta ELSE 0 END) AS out_quantity_milli,\n CASE WHEN sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN pending ELSE 0 END)>0 THEN NULL ELSE sum(CASE WHEN NOT (business_at < (SELECT start_at FR"
+      },
+      "sum": {
+        "queryDurationMs": 7.924799999999999,
+        "rowsRead": 1078,
+        "rowsReturned": 5,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.0171857142857144,
+        "rowsRead": 152
+      },
+      "count": 7,
+      "dimensions": {
+        "query": "SELECT pairing_type,child_code FROM equipment_pairing_drafts WHERE parent_code=? AND is_active=1 AND pairing_type IN ('trailer','generator','container') ORDER BY id"
+      },
+      "sum": {
+        "queryDurationMs": 7.1203,
+        "rowsRead": 1064,
+        "rowsReturned": 14,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.4300807692307695,
+        "rowsRead": 27
+      },
+      "count": 26,
+      "dimensions": {
+        "query": "SELECT id, sku, item_type, object_code, group_code, name, category, unit, applicable_for, unit_price_vnd, min_stock_milli, min_stock_unit, lifespan_hours_limit, specifications, lifespan_km_limit, lifespan_days_limit, is_serialized, is_fuel, needs_data_package, is_active, notes, version, COALESCE((SELECT sum(quantity_milli) FROM stock_balances b WHERE b.part_id=parts.id),0) AS current_stock_milli FROM parts ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 37.182100000000005,
+        "rowsRead": 704,
+        "rowsReturned": 650,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2615,
+        "rowsRead": 90
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "SELECT count(*) AS missing_aggregate_rows FROM (SELECT substr(day,1,7),part_id,warehouse_id,stock_state,sum(quantity_delta_milli),count(*) FROM stock_book_flow WHERE status='posted' GROUP BY substr(day,1,7),part_id,warehouse_id,stock_state EXCEPT SELECT period,part_id,warehouse_id,stock_state,quantity_milli,movement_count FROM stock_book_months)"
+      },
+      "sum": {
+        "queryDurationMs": 1.569,
+        "rowsRead": 540,
+        "rowsReturned": 6,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.5224,
+        "rowsRead": 40
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "SELECT CASE WHEN ((SELECT count(*) FROM stock_usages WHERE document_id=?)=?) THEN 1 ELSE json('ISSUE_TARGET_REPAIR_GUARD_FAILED') END AS ok"
+      },
+      "sum": {
+        "queryDurationMs": 6.2688,
+        "rowsRead": 480,
+        "rowsReturned": 12,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.36286521739130434,
+        "rowsRead": 10
+      },
+      "count": 46,
+      "dimensions": {
+        "query": "SELECT w.id,w.code,w.name FROM warehouses w ORDER BY w.code,w.id"
+      },
+      "sum": {
+        "queryDurationMs": 16.6918,
+        "rowsRead": 460,
+        "rowsReturned": 460,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.7436,
+        "rowsRead": 50
+      },
+      "count": 9,
+      "dimensions": {
+        "query": "WITH bounds AS (SELECT ? AS start_at,? AS end_at,? AS start_day), source AS (\n SELECT m.id AS movement_id,m.part_id,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,m.warehouse_id,w.code AS warehouse_code,w.name AS warehouse_name,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,\n coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,l.line_number,dd.id AS draft_id,d.code,d.type,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,d.type) END AS kind,\n coalesce(json_extract(dd.header_json,'$.purpose'),d.notes,'') AS purpose,coalesce(json_extract(dl.line_json,'$.notes'),'') AS notes,\n coalesce(rj.serial_after,(SELECT group_concat(ds.serial_number,'; ') FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id),l.serial_number_snapshot,'') AS serials,\n dd.header_json,dd.labels_json,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n m.quantity_delta_milli AS quantity_delta,m.value_delta_vnd AS value_delta,\n EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.inventory_line_id=l.id AND f.status='pending') AS pending\n FROM stock_movements m JOIN inventory_document_lines l ON l.id=m.document_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id')\n LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND l.is_opening_usage=0 AND m.warehouse_id=? AND m.part_id=?\n ), raw AS (SELECT * FROM source WHERE business_at <= (SELECT end_at FROM bounds) AND stock_state=?),\n aggregates AS (SELECT part_id,warehouse_id,stock_state,\n sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END) AS opening_quantity_milli,\n CASE WHEN sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN pending ELSE 0 END)>0 AND sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN quantity_delta ELSE 0 END)<>0 THEN NULL ELSE sum(CASE WHEN (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) THEN value_delta ELSE 0 END) END AS opening_value_vnd,\n sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN quantity_delta ELSE 0 END) AS in_quantity_milli,\n CASE WHEN sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN pending ELSE 0 END)>0 THEN NULL ELSE sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta>0 THEN value_delta ELSE 0 END) END AS in_value_vnd,\n sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN -quantity_delta ELSE 0 END) AS out_quantity_milli,\n CASE WHEN sum(CASE WHEN NOT (business_at < (SELECT start_at FROM bounds) OR (type='OPENING' AND substr(business_at,1,10)=(SELECT start_day FROM bounds))) AND quantity_delta<0 THEN pending ELSE 0 END)>0 THEN NULL ELS"
+      },
+      "sum": {
+        "queryDurationMs": 24.6924,
+        "rowsRead": 456,
+        "rowsReturned": 15,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.23554,
+        "rowsRead": 90
+      },
+      "count": 5,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM staff WHERE is_active = ? AND staff_type = ?"
+      },
+      "sum": {
+        "queryDurationMs": 1.1777,
+        "rowsRead": 450,
+        "rowsReturned": 5,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.3145714285714285,
+        "rowsRead": 27
+      },
+      "count": 14,
+      "dimensions": {
+        "query": "SELECT id, sku, item_type, object_code, group_code, name, category, unit, applicable_for, unit_price_vnd, min_stock_milli, min_stock_unit, lifespan_hours_limit, specifications, lifespan_km_limit, lifespan_days_limit, is_serialized, is_fuel, needs_data_package, is_active, notes, version, COALESCE((SELECT sum(quantity_milli) FROM stock_balances b WHERE b.part_id=parts.id),0) AS current_stock_milli FROM parts WHERE is_active = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 18.404,
+        "rowsRead": 382,
+        "rowsReturned": 350,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.7479,
+        "rowsRead": 172
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT u.id AS usage_id,u.root_line_id,p.id AS part_id,p.sku,p.name,p.unit,p.version AS part_version,p.is_serialized,s.serial_number AS serial_number,CASE u.target_type WHEN 'vehicle' THEN (SELECT plate_number FROM vehicles WHERE id=u.target_id) ELSE (SELECT code FROM equipment WHERE id=u.target_id) END AS target_label,u.position,d.code,u.started_at,u.odo_milli,u.hours_milli,CASE WHEN p.is_serialized=1 THEN 1000 ELSE u.open_quantity_milli END AS quantity_milli,u.quantity_milli AS issued_quantity_milli,u.open_quantity_milli,CASE WHEN ou.inventory_line_id IS NOT NULL THEN 'opening_usage' ELSE 'issue' END AS source_kind,ou.installed_at AS opening_installed_at,ou.original_unit_price_known AS opening_original_unit_price_known,json_extract(odl.line_json,'$.opening_current_unit_price') AS opening_current_unit_price,json_extract(odl.line_json,'$.opening_quality_percent') AS opening_quality_percent,json_extract(odl.line_json,'$.opening_assessor') AS opening_assessor,json_extract(odl.line_json,'$.opening_confirmation_basis') AS opening_confirmation_basis,EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.inventory_line_id=u.root_line_id AND f.status='pending' AND NOT (ou.inventory_line_id IS NOT NULL AND f.reason='Chưa có giá gốc của vật tư đang sử dụng đầu kỳ.')) AS valuation_pending FROM stock_usages u JOIN inventory_document_lines l ON l.id=u.root_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN parts p ON p.id=u.part_id LEFT JOIN opening_usage_lines ou ON ou.inventory_line_id=u.root_line_id LEFT JOIN document_drafts od ON od.posted_inventory_id=l.document_id LEFT JOIN document_draft_lines odl ON odl.document_id=od.id AND odl.line_number=l.line_number LEFT JOIN usage_serials us ON us.usage_id=u.id AND us.active=1 LEFT JOIN inventory_serials s ON s.part_id=us.part_id AND s.serial_key=us.serial_key WHERE u.open_quantity_milli>0 AND (d.type='OUT' OR (d.type='OPENING' AND ou.inventory_line_id IS NOT NULL)) AND d.status='posted' AND (p.is_serialized=0 OR (us.active=1 AND s.status='mounted')) AND (upper(p.sku) LIKE ? ESCAPE '\\' OR upper(coalesce(us.serial_key,'')) LIKE ? ESCAPE '\\' OR upper(d.code) LIKE ? ESCAPE '\\') ORDER BY u.started_at DESC,u.id,us.serial_key LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 5.4958,
+        "rowsRead": 344,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.4491,
+        "rowsRead": 171
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM stock_usages u JOIN inventory_document_lines l ON l.id=u.root_line_id JOIN inventory_documents d ON d.id=l.document_id JOIN parts p ON p.id=u.part_id LEFT JOIN opening_usage_lines ou ON ou.inventory_line_id=u.root_line_id LEFT JOIN document_drafts od ON od.posted_inventory_id=l.document_id LEFT JOIN document_draft_lines odl ON odl.document_id=od.id AND odl.line_number=l.line_number LEFT JOIN usage_serials us ON us.usage_id=u.id AND us.active=1 LEFT JOIN inventory_serials s ON s.part_id=us.part_id AND s.serial_key=us.serial_key WHERE u.open_quantity_milli>0 AND (d.type='OUT' OR (d.type='OPENING' AND ou.inventory_line_id IS NOT NULL)) AND d.status='posted' AND (p.is_serialized=0 OR (us.active=1 AND s.status='mounted')) AND (upper(p.sku) LIKE ? ESCAPE '\\' OR upper(coalesce(us.serial_key,'')) LIKE ? ESCAPE '\\' OR upper(d.code) LIKE ? ESCAPE '\\')"
+      },
+      "sum": {
+        "queryDurationMs": 0.8982,
+        "rowsRead": 342,
+        "rowsReturned": 2,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.06992121212121212,
+        "rowsRead": 4
+      },
+      "count": 66,
+      "dimensions": {
+        "query": "INSERT INTO document_draft_serials(document_id,line_id,part_id,serial_number,serial_key,stock_state) SELECT ?,?,?,json_extract(value,'$.number'),json_extract(value,'$.key'),? FROM json_each(?)"
+      },
+      "sum": {
+        "queryDurationMs": 4.6148,
+        "rowsRead": 264,
+        "rowsReturned": 0,
+        "rowsWritten": 198
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.18345263157894737,
+        "rowsRead": 12
+      },
+      "count": 19,
+      "dimensions": {
+        "query": "SELECT CAST(coalesce(sum(CAST(json_extract(l.line_json,'$.quantity') AS INTEGER)*1000 + CASE WHEN instr(json_extract(l.line_json,'$.quantity'),'.')>0 THEN CAST(substr(substr(json_extract(l.line_json,'$.quantity'),instr(json_extract(l.line_json,'$.quantity'),'.')+1)||'000',1,3) AS INTEGER) ELSE 0 END),0) AS TEXT) AS quantity_milli, json_group_array(DISTINCT coalesce(json_extract(d.labels_json,'$.\"unit:'||l.part_id||'\"'),'')) AS units_json FROM document_drafts d JOIN document_draft_lines l ON l.document_id=d.id WHERE d.kind=? AND (d.deleted_at IS NULL OR ?='cancelled') AND d.business_at>=? AND d.business_at<?"
+      },
+      "sum": {
+        "queryDurationMs": 3.4856,
+        "rowsRead": 234,
+        "rowsReturned": 19,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.32805652173913047,
+        "rowsRead": 5
+      },
+      "count": 46,
+      "dimensions": {
+        "query": "SELECT dl.line_json FROM opening_usage_lines ou JOIN inventory_document_lines il ON il.id=ou.inventory_line_id JOIN inventory_documents d ON d.id=il.document_id AND d.status='posted' JOIN document_drafts dd ON dd.posted_inventory_id=d.id JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=il.line_number WHERE ou.inventory_line_id=? AND ou.original_unit_price_known=0"
+      },
+      "sum": {
+        "queryDurationMs": 15.090600000000002,
+        "rowsRead": 230,
+        "rowsReturned": 46,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.5540285714285714,
+        "rowsRead": 28
+      },
+      "count": 7,
+      "dimensions": {
+        "query": "SELECT id, code, name, phone, email, staff_rank, staff_type, unit_id, department_id, department, job_title, vehicle_plate, trailer_plate, is_active, version FROM staff WHERE is_active = ? AND staff_type = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 3.8781999999999996,
+        "rowsRead": 196,
+        "rowsReturned": 175,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.42674,
+        "rowsRead": 37
+      },
+      "count": 5,
+      "dimensions": {
+        "query": "SELECT json_extract(dl.line_json,'$.id') AS line_id FROM document_draft_lines dl JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') JOIN opening_usage_lines ou ON ou.inventory_line_id=u.root_line_id WHERE dl.document_id=? AND ou.original_unit_price_known=0"
+      },
+      "sum": {
+        "queryDurationMs": 2.1337,
+        "rowsRead": 185,
+        "rowsReturned": 60,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.0532624999999998,
+        "rowsRead": 20
+      },
+      "count": 8,
+      "dimensions": {
+        "query": "SELECT d.*,u.display_name AS created_by_name,(SELECT json_group_array(json(l.line_json)) FROM document_draft_lines l WHERE l.document_id=d.id) AS lines FROM document_drafts d JOIN app_users u ON u.id=d.created_by WHERE d.kind='recovery' AND (d.deleted_at IS NULL OR ?='cancelled') AND d.business_at>=? AND d.business_at<? ORDER BY d.business_at DESC,d.id DESC LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 16.426099999999998,
+        "rowsRead": 164,
+        "rowsReturned": 11,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 2.1774,
+        "rowsRead": 163
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT dd.code,dd.status,json_extract(dd.header_json,'$.issue_details.trailer_number') AS saved_trailer,json_extract(dd.header_json,'$.issue_details.other') AS saved_generator,(SELECT count(*) FROM stock_usages u WHERE u.document_id=dd.posted_inventory_id) AS usage_count,(SELECT sum(open_quantity_milli) FROM stock_usages u WHERE u.document_id=dd.posted_inventory_id) AS open_quantity_milli,(SELECT count(*) FROM document_draft_lines dl JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') WHERE u.document_id=dd.posted_inventory_id) AS referenced_lines FROM document_drafts dd WHERE dd.kind='issue' AND dd.code='10.26.00001/PX';"
+      },
+      "sum": {
+        "queryDurationMs": 2.1774,
+        "rowsRead": 163,
+        "rowsReturned": 1,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.4756142857142857,
+        "rowsRead": 18
+      },
+      "count": 7,
+      "dimensions": {
+        "query": "SELECT CAST(coalesce(sum(CAST(json_extract(l.line_json,'$.quantity') AS INTEGER)*1000+CASE WHEN instr(json_extract(l.line_json,'$.quantity'),'.')>0 THEN CAST(substr(substr(json_extract(l.line_json,'$.quantity'),instr(json_extract(l.line_json,'$.quantity'),'.')+1)||'000',1,3) AS INTEGER) ELSE 0 END),0) AS TEXT) AS quantity_milli,json_group_array(DISTINCT coalesce(json_extract(d.labels_json,'$.\"unit:'||l.part_id||'\"'),'')) AS units,coalesce(sum(coalesce(json_extract(l.line_json,'$.recovery_classification'),CASE json_extract(l.line_json,'$.stock_state') WHEN 'pending_scrap' THEN 'CTL' ELSE 'CSD' END)='CSD'),0) AS CSD,coalesce(sum(coalesce(json_extract(l.line_json,'$.recovery_classification'),CASE json_extract(l.line_json,'$.stock_state') WHEN 'pending_scrap' THEN 'CTL' ELSE 'CSD' END)='CSC'),0) AS CSC,coalesce(sum(coalesce(json_extract(l.line_json,'$.recovery_classification'),CASE json_extract(l.line_json,'$.stock_state') WHEN 'pending_scrap' THEN 'CTL' ELSE 'CSD' END)='KSD'),0) AS KSD,coalesce(sum(coalesce(json_extract(l.line_json,'$.recovery_classification'),CASE json_extract(l.line_json,'$.stock_state') WHEN 'pending_scrap' THEN 'CTL' ELSE 'CSD' END)='CTL'),0) AS CTL FROM document_drafts d JOIN document_draft_lines l ON l.document_id=d.id WHERE d.kind='recovery' AND (d.deleted_at IS NULL OR ?='cancelled') AND d.business_at>=? AND d.business_at<?"
+      },
+      "sum": {
+        "queryDurationMs": 3.3293,
+        "rowsRead": 128,
+        "rowsReturned": 7,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.08677142857142857,
+        "rowsRead": 2
+      },
+      "count": 63,
+      "dimensions": {
+        "query": "INSERT INTO inventory_document_lines(id,document_id,line_number,part_id,sku_snapshot,part_name_snapshot,unit_snapshot,quantity_milli,unit_price_vnd_milli,amount_vnd,from_warehouse_id,to_warehouse_id,vehicle_id,vehicle_plate_snapshot,vehicle_odo_km,mount_position,is_opening_usage) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+      },
+      "sum": {
+        "queryDurationMs": 5.4666,
+        "rowsRead": 126,
+        "rowsReturned": 0,
+        "rowsWritten": 441
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.24420000000000003,
+        "rowsRead": 12
+      },
+      "count": 10,
+      "dimensions": {
+        "query": "SELECT line_id,serial_number FROM document_draft_serials WHERE document_id=? ORDER BY rowid"
+      },
+      "sum": {
+        "queryDurationMs": 2.442,
+        "rowsRead": 122,
+        "rowsReturned": 56,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2931,
+        "rowsRead": 4
+      },
+      "count": 28,
+      "dimensions": {
+        "query": "SELECT l.* FROM stock_lots l JOIN inventory_document_lines x ON x.id=l.source_line_id JOIN inventory_documents d ON d.id=x.document_id WHERE l.part_id=? AND l.warehouse_id=? AND l.stock_state=? AND l.remaining_quantity_milli>0 AND l.available_at<=? AND d.status='posted' ORDER BY l.available_at,l.source_line_id"
+      },
+      "sum": {
+        "queryDurationMs": 8.206800000000001,
+        "rowsRead": 112,
+        "rowsReturned": 28,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.3308454545454545,
+        "rowsRead": 9
+      },
+      "count": 11,
+      "dimensions": {
+        "query": "SELECT line_json FROM document_draft_lines WHERE document_id=? ORDER BY line_number"
+      },
+      "sum": {
+        "queryDurationMs": 3.6392999999999995,
+        "rowsRead": 107,
+        "rowsReturned": 96,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.17166470588235297,
+        "rowsRead": 2
+      },
+      "count": 51,
+      "dimensions": {
+        "query": "SELECT 1 FROM usage_serials a JOIN inventory_serials s ON s.part_id=a.part_id AND s.serial_key=a.serial_key WHERE a.usage_id=? AND a.part_id=? AND a.serial_key=? AND a.active=1 AND s.status='mounted'"
+      },
+      "sum": {
+        "queryDurationMs": 8.754900000000001,
+        "rowsRead": 102,
+        "rowsReturned": 51,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1946,
+        "rowsRead": 32
+      },
+      "count": 3,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM warehouses WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=warehouses.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ?"
+      },
+      "sum": {
+        "queryDurationMs": 0.5838,
+        "rowsRead": 96,
+        "rowsReturned": 3,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.7265,
+        "rowsRead": 32
+      },
+      "count": 3,
+      "dimensions": {
+        "query": "SELECT id, code, name, kind, location, type_label, capacity_milli, is_active, version FROM warehouses WHERE EXISTS(SELECT 1 FROM catalog_search s WHERE s.resource=? AND s.entity_id=warehouses.id AND s.normalized_text LIKE ? ESCAPE '\\') AND is_active = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 2.1795,
+        "rowsRead": 96,
+        "rowsReturned": 24,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2445,
+        "rowsRead": 12
+      },
+      "count": 8,
+      "dimensions": {
+        "query": "SELECT line_number,amount_vnd,quantity_milli,unit_price_vnd_milli FROM inventory_document_lines WHERE document_id=? ORDER BY line_number"
+      },
+      "sum": {
+        "queryDurationMs": 1.956,
+        "rowsRead": 96,
+        "rowsReturned": 96,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2645,
+        "rowsRead": 90
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM staff WHERE is_active = ?"
+      },
+      "sum": {
+        "queryDurationMs": 0.2645,
+        "rowsRead": 90,
+        "rowsReturned": 1,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.42783333333333334,
+        "rowsRead": 14
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "SELECT id, code, name, is_active, version FROM part_objects ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 2.567,
+        "rowsRead": 84,
+        "rowsReturned": 84,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.040850000000000004,
+        "rowsRead": 1
+      },
+      "count": 72,
+      "dimensions": {
+        "query": "UPDATE stock_usages SET open_quantity_milli=CASE WHEN version=? AND open_quantity_milli>=? THEN open_quantity_milli-? ELSE -1 END,open_value_vnd=open_value_vnd-?,version=version+1 WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 2.9412000000000003,
+        "rowsRead": 72,
+        "rowsReturned": 0,
+        "rowsWritten": 144
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1764285714285714,
+        "rowsRead": 2
+      },
+      "count": 28,
+      "dimensions": {
+        "query": "SELECT count(*) AS total, coalesce(sum(CASE WHEN d.status<>'cancelled' AND d.posted_inventory_id IS NOT NULL THEN 1 ELSE 0 END),0) AS posted_count,coalesce(sum(CASE WHEN d.status='cancelled' THEN 1 ELSE 0 END),0) AS cancelled_count, CASE WHEN count(*)=count(json_extract(d.totals_json,'$.net')) THEN CAST(coalesce(sum(json_extract(d.totals_json,'$.net')),0) AS TEXT) ELSE NULL END AS net,CASE WHEN count(*)=count(json_extract(d.totals_json,'$.vat')) THEN CAST(coalesce(sum(json_extract(d.totals_json,'$.vat')),0) AS TEXT) ELSE NULL END AS vat,CASE WHEN count(*)=count(json_extract(d.totals_json,'$.gross')) THEN CAST(coalesce(sum(json_extract(d.totals_json,'$.gross')),0) AS TEXT) ELSE NULL END AS gross FROM document_drafts d WHERE d.kind=? AND (d.deleted_at IS NULL OR ?='cancelled') AND d.business_at>=? AND d.business_at<?"
+      },
+      "sum": {
+        "queryDurationMs": 4.9399999999999995,
+        "rowsRead": 64,
+        "rowsReturned": 28,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0790258064516129,
+        "rowsRead": 1
+      },
+      "count": 62,
+      "dimensions": {
+        "query": "INSERT INTO document_draft_lines(id,document_id,line_number,part_id,line_json) VALUES (?,?,?,?,?)"
+      },
+      "sum": {
+        "queryDurationMs": 4.8996,
+        "rowsRead": 62,
+        "rowsReturned": 0,
+        "rowsWritten": 248
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.03788999999999999,
+        "rowsRead": 1
+      },
+      "count": 60,
+      "dimensions": {
+        "query": "UPDATE inventory_serials SET cost_vnd_milli=? WHERE part_id=? AND serial_key=? AND document_line_id=?"
+      },
+      "sum": {
+        "queryDurationMs": 2.2733999999999996,
+        "rowsRead": 60,
+        "rowsReturned": 0,
+        "rowsWritten": 60
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.24105,
+        "rowsRead": 1
+      },
+      "count": 60,
+      "dimensions": {
+        "query": "SELECT * FROM inventory_document_lines WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 14.463,
+        "rowsRead": 60,
+        "rowsReturned": 60,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.2764833333333334,
+        "rowsRead": 4
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "SELECT d.id,d.version,d.code,d.kind,d.business_at,CASE WHEN d.status='cancelled' THEN 'cancelled' WHEN d.posted_inventory_id IS NOT NULL THEN 'posted' ELSE d.status END AS status,d.totals_json,d.created_by,d.created_at,d.updated_at,u.display_name AS created_by_name,(SELECT count(*) FROM document_draft_lines l WHERE l.document_id=d.id) AS line_count,(SELECT json_group_array(json(l.line_json)) FROM document_draft_lines l WHERE l.document_id=d.id) AS summary_lines_json,(SELECT json_group_array(ds.serial_number) FROM document_draft_serials ds WHERE ds.document_id=d.id) AS serial_numbers_json,(SELECT eu.display_name FROM document_draft_events e JOIN app_users eu ON eu.id=e.actor_id WHERE e.document_id=d.id AND e.action='save' AND e.before_json IS NOT NULL ORDER BY e.created_at DESC,e.rowid DESC LIMIT ?) AS last_edited_by_name,d.labels_json,d.header_json,d.operation_state,CASE WHEN d.status<>'cancelled' AND d.deleted_at IS NULL AND d.posted_inventory_id IS NOT NULL AND ((d.kind='receipt' AND NOT (EXISTS(SELECT 1 FROM stock_source_allocations a JOIN inventory_document_lines l ON l.id=a.source_line_id WHERE l.document_id=d.posted_inventory_id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies a JOIN inventory_document_lines l ON l.id=a.source_line_id WHERE l.document_id=d.posted_inventory_id) OR EXISTS(SELECT 1 FROM inventory_document_lines l LEFT JOIN stock_lots s ON s.source_line_id=l.id WHERE l.document_id=d.posted_inventory_id AND (s.source_line_id IS NULL OR s.remaining_quantity_milli<>s.initial_quantity_milli)) OR EXISTS(SELECT 1 FROM document_draft_lines x JOIN inventory_document_lines l ON l.id=json_extract(x.line_json,'$.source_line_id') JOIN document_drafts other ON other.id=x.document_id WHERE l.document_id=d.posted_inventory_id AND other.id<>d.id AND other.status<>'cancelled' AND other.deleted_at IS NULL))) OR (d.kind='opening' AND json_extract(d.header_json,'$.opening_mode')='in_use' AND NOT (EXISTS(SELECT 1 FROM inventory_document_lines l WHERE l.document_id=d.posted_inventory_id AND (NOT EXISTS(SELECT 1 FROM opening_usage_lines ou WHERE ou.inventory_line_id=l.id) OR (SELECT count(*) FROM stock_usages u WHERE u.root_line_id=l.id)<>1 OR EXISTS(SELECT 1 FROM stock_usages u WHERE u.root_line_id=l.id AND (u.parent_usage_id IS NOT NULL OR u.open_quantity_milli<>u.quantity_milli)) OR EXISTS(SELECT 1 FROM stock_movements m WHERE m.document_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_lots lot WHERE lot.source_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies c WHERE c.source_line_id=l.id OR c.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_source_allocations a WHERE a.source_line_id=l.id OR a.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.origin_line_id=l.id AND f.inventory_line_id<>l.id) OR EXISTS(SELECT 1 FROM equipment_operations e JOIN stock_usages u ON u.id=e.from_usage_id OR u.id=e.to_usage_id WHERE u.root_line_id=l.id) OR EXISTS(SELECT 1 FROM retread_jobs j WHERE j.send_line_id=l.id OR j.received_line_id=l.id) OR EXISTS(SELECT 1 FROM usage_serials us JOIN stock_usages u ON u.id=us.usage_id WHERE u.root_line_id=l.id AND (us.active<>1 OR NOT EXISTS(SELECT 1 FROM inventory_serials s WHERE s.part_id=us.part_id AND s.serial_key=us.serial_key AND s.document_line_id=l.id AND s.status='mounted'))) OR EXISTS(SELECT 1 FROM document_draft_lines dl JOIN document_drafts other ON other.id=dl.document_id JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') WHERE u.root_line_id=l.id AND other.id<>d.id AND other.deleted_at IS NULL AND other.status<>'cancelled')))) AND coalesce(substr(d.business_at,1,7)>(SELECT max(period) FROM accounting_periods WHERE is_locked=1),1))) THEN 1 ELSE 0 END AS can_modify FROM document_drafts d JOIN app_users u ON u.id=d.created_by WHERE d.kind=? AND (d.deleted_at IS NULL OR ?='cancelled') ORDER BY d.business_at DESC,d.id DESC LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 15.3178,
+        "rowsRead": 56,
+        "rowsReturned": 1,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.41209999999999997,
+        "rowsRead": 9
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "SELECT json_group_array(json_object('id',\"id\",'code',\"code\",'type',\"type\",'business_date',\"business_date\",'status',\"status\",'supplier_id',\"supplier_id\",'receiver_staff_id',\"receiver_staff_id\",'partner_name_snapshot',\"partner_name_snapshot\",'invoice_number',\"invoice_number\",'created_by',\"created_by\",'posted_by',\"posted_by\",'posted_at',\"posted_at\",'reverses_document_id',\"reverses_document_id\",'idempotency_key',\"idempotency_key\",'request_hash',\"request_hash\",'source_reference',\"source_reference\",'notes',\"notes\",'created_at',\"created_at\")) AS value FROM (SELECT \"id\",\"code\",\"type\",\"business_date\",\"status\",\"supplier_id\",\"receiver_staff_id\",\"partner_name_snapshot\",\"invoice_number\",\"created_by\",\"posted_by\",\"posted_at\",\"reverses_document_id\",\"idempotency_key\",\"request_hash\",\"source_reference\",\"notes\",\"created_at\" FROM \"inventory_documents\" ORDER BY \"id\",\"code\",\"type\",\"business_date\",\"status\",\"supplier_id\",\"receiver_staff_id\",\"partner_name_snapshot\",\"invoice_number\",\"created_by\",\"posted_by\",\"posted_at\",\"reverses_document_id\",\"idempotency_key\",\"request_hash\",\"source_reference\",\"notes\",\"created_at\")"
+      },
+      "sum": {
+        "queryDurationMs": 2.4726,
+        "rowsRead": 54,
+        "rowsReturned": 6,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0713,
+        "rowsRead": 3
+      },
+      "count": 18,
+      "dimensions": {
+        "query": "INSERT INTO inventory_serials(part_id,serial_key,serial_number,warehouse_id,stock_state,status,document_line_id,cost_vnd_milli) VALUES (?,?,?,?,?,'in_stock',?,(SELECT unit_price_vnd_milli FROM inventory_document_lines WHERE id=?))"
+      },
+      "sum": {
+        "queryDurationMs": 1.2834,
+        "rowsRead": 54,
+        "rowsReturned": 0,
+        "rowsWritten": 54
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.0261,
+        "rowsRead": 49
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT dd.code,json_extract(dl.line_json,'$.target_type') AS target_type,CASE json_extract(dl.line_json,'$.target_type') WHEN 'vehicle' THEN (SELECT plate_number FROM vehicles WHERE id=json_extract(dl.line_json,'$.target_id')) ELSE (SELECT code FROM equipment WHERE id=json_extract(dl.line_json,'$.target_id')) END AS target_label,json_extract(dl.line_json,'$.to_position') AS position,count(*) AS line_count FROM document_drafts dd JOIN document_draft_lines dl ON dl.document_id=dd.id WHERE dd.kind='issue' AND dd.code='10.26.00001/PX' GROUP BY target_type,target_label,position;"
+      },
+      "sum": {
+        "queryDurationMs": 1.0261,
+        "rowsRead": 49,
+        "rowsReturned": 12,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2329390243902439,
+        "rowsRead": 1
+      },
+      "count": 41,
+      "dimensions": {
+        "query": "SELECT * FROM vehicles WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 9.5505,
+        "rowsRead": 41,
+        "rowsReturned": 41,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.3096666666666667,
+        "rowsRead": 13
+      },
+      "count": 3,
+      "dimensions": {
+        "query": "SELECT line_number,amount_vnd,unit_price_vnd_milli FROM inventory_document_lines WHERE document_id=? ORDER BY line_number"
+      },
+      "sum": {
+        "queryDurationMs": 0.929,
+        "rowsRead": 39,
+        "rowsReturned": 36,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.19461428571428568,
+        "rowsRead": 5
+      },
+      "count": 7,
+      "dimensions": {
+        "query": "SELECT count(*) AS count,coalesce(sum((CASE WHEN d.status='cancelled' THEN 'cancelled' WHEN d.posted_inventory_id IS NOT NULL THEN 'posted' ELSE d.status END)='posted'),0) AS posted,coalesce(sum((CASE WHEN d.status='cancelled' THEN 'cancelled' WHEN d.posted_inventory_id IS NOT NULL THEN 'posted' ELSE d.status END)='cancelled'),0) AS cancelled,CASE WHEN count(*)=count(json_extract(d.totals_json,'$.net')) THEN CAST(coalesce(sum(json_extract(d.totals_json,'$.net')),0) AS TEXT) ELSE NULL END AS net FROM document_drafts d WHERE d.kind='recovery' AND (d.deleted_at IS NULL OR ?='cancelled') AND d.business_at>=? AND d.business_at<? AND EXISTS(SELECT 1 FROM document_draft_lines l WHERE l.document_id=d.id  AND coalesce(json_extract(l.line_json,'$.recovery_classification'),CASE json_extract(l.line_json,'$.stock_state') WHEN 'pending_scrap' THEN 'CTL' ELSE 'CSD' END)=?)"
+      },
+      "sum": {
+        "queryDurationMs": 1.3622999999999998,
+        "rowsRead": 38,
+        "rowsReturned": 7,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0649,
+        "rowsRead": 19
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM part_groups"
+      },
+      "sum": {
+        "queryDurationMs": 0.1298,
+        "rowsRead": 38,
+        "rowsReturned": 2,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.4201,
+        "rowsRead": 35
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT *\n\t\tFROM \"d1_migrations\"\n\t\tORDER BY id"
+      },
+      "sum": {
+        "queryDurationMs": 0.4201,
+        "rowsRead": 35,
+        "rowsReturned": 35,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.9515,
+        "rowsRead": 17
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT d.*,u.display_name AS created_by_name,(SELECT json_group_array(json(l.line_json)) FROM document_draft_lines l WHERE l.document_id=d.id) AS lines FROM document_drafts d JOIN app_users u ON u.id=d.created_by WHERE d.kind='recovery' AND (d.deleted_at IS NULL OR ?='cancelled') AND d.business_at>=? AND d.business_at<? AND EXISTS(SELECT 1 FROM document_draft_lines l WHERE l.document_id=d.id  AND coalesce(json_extract(l.line_json,'$.recovery_classification'),CASE json_extract(l.line_json,'$.stock_state') WHEN 'pending_scrap' THEN 'CTL' ELSE 'CSD' END)=?) ORDER BY d.business_at DESC,d.id DESC LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 1.903,
+        "rowsRead": 34,
+        "rowsReturned": 2,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0272,
+        "rowsRead": 1
+      },
+      "count": 33,
+      "dimensions": {
+        "query": "UPDATE stock_balances SET quantity_milli=quantity_milli+?,value_vnd=value_vnd+? WHERE part_id=? AND warehouse_id=?"
+      },
+      "sum": {
+        "queryDurationMs": 0.8976,
+        "rowsRead": 33,
+        "rowsReturned": 0,
+        "rowsWritten": 33
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.4599,
+        "rowsRead": 1
+      },
+      "count": 33,
+      "dimensions": {
+        "query": "SELECT available_at FROM stock_lots WHERE part_id=? AND warehouse_id=? AND stock_state=? AND remaining_quantity_milli>0 AND available_at>? ORDER BY available_at DESC LIMIT ?"
+      },
+      "sum": {
+        "queryDurationMs": 15.176699999999999,
+        "rowsRead": 33,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2226,
+        "rowsRead": 1
+      },
+      "count": 33,
+      "dimensions": {
+        "query": "SELECT * FROM inventory_serials WHERE part_id=? AND serial_key=? AND warehouse_id=? AND stock_state=? AND status='in_stock'"
+      },
+      "sum": {
+        "queryDurationMs": 7.3458,
+        "rowsRead": 33,
+        "rowsReturned": 33,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.21994516129032254,
+        "rowsRead": 1
+      },
+      "count": 31,
+      "dimensions": {
+        "query": "UPDATE native_sessions SET idle_expires_at=min(expires_at,?) WHERE token_hash=?"
+      },
+      "sum": {
+        "queryDurationMs": 6.818299999999999,
+        "rowsRead": 31,
+        "rowsReturned": 0,
+        "rowsWritten": 31
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2158017857142857,
+        "rowsRead": 0
+      },
+      "count": 56,
+      "dimensions": {
+        "query": "SELECT last_no FROM document_counters WHERE period=? AND kind=?"
+      },
+      "sum": {
+        "queryDurationMs": 12.0849,
+        "rowsRead": 30,
+        "rowsReturned": 30,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.057499999999999996,
+        "rowsRead": 10
+      },
+      "count": 3,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM warehouses WHERE is_active = ?"
+      },
+      "sum": {
+        "queryDurationMs": 0.1725,
+        "rowsRead": 30,
+        "rowsReturned": 3,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.20024615384615385,
+        "rowsRead": 2
+      },
+      "count": 13,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM document_drafts d WHERE d.kind=? AND (d.deleted_at IS NULL OR ?='cancelled') AND coalesce(json_extract(d.header_json,'$.opening_mode'),'stock')=?"
+      },
+      "sum": {
+        "queryDurationMs": 2.6032,
+        "rowsRead": 29,
+        "rowsReturned": 13,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1924,
+        "rowsRead": 1
+      },
+      "count": 27,
+      "dimensions": {
+        "query": "SELECT 1 FROM usage_serials WHERE usage_id=? AND part_id=? AND serial_key=? AND active=1"
+      },
+      "sum": {
+        "queryDurationMs": 5.1948,
+        "rowsRead": 27,
+        "rowsReturned": 27,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1532,
+        "rowsRead": 1
+      },
+      "count": 27,
+      "dimensions": {
+        "query": "SELECT is_serialized,is_fuel FROM parts WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 4.1364,
+        "rowsRead": 27,
+        "rowsReturned": 27,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.6671,
+        "rowsRead": 25
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT id, code, name, phone, email, staff_rank, staff_type, unit_id, department_id, department, job_title, vehicle_plate, trailer_plate, is_active, version FROM staff WHERE is_active = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 1.6671,
+        "rowsRead": 25,
+        "rowsReturned": 25,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.13475,
+        "rowsRead": 1
+      },
+      "count": 24,
+      "dimensions": {
+        "query": "SELECT is_serialized FROM parts WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 3.234,
+        "rowsRead": 24,
+        "rowsReturned": 24,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1188,
+        "rowsRead": 2
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "UPDATE document_drafts SET posted_inventory_id=? WHERE id=? AND posted_inventory_id IS NULL"
+      },
+      "sum": {
+        "queryDurationMs": 1.4256,
+        "rowsRead": 24,
+        "rowsReturned": 0,
+        "rowsWritten": 24
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0742,
+        "rowsRead": 2
+      },
+      "count": 11,
+      "dimensions": {
+        "query": "UPDATE inventory_serials SET status='out',warehouse_id=NULL,document_line_id=? WHERE part_id=? AND serial_key=? AND status='in_stock' AND document_line_id=?"
+      },
+      "sum": {
+        "queryDurationMs": 0.8162,
+        "rowsRead": 22,
+        "rowsReturned": 0,
+        "rowsWritten": 22
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.3477,
+        "rowsRead": 10
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT * FROM parts WHERE id IN (?,?,?,?,?)"
+      },
+      "sum": {
+        "queryDurationMs": 0.6954,
+        "rowsRead": 20,
+        "rowsReturned": 10,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.5569625,
+        "rowsRead": 2
+      },
+      "count": 8,
+      "dimensions": {
+        "query": "SELECT d.*,u.display_name AS created_by_name FROM document_drafts d JOIN app_users u ON u.id=d.created_by WHERE d.id=?"
+      },
+      "sum": {
+        "queryDurationMs": 4.4557,
+        "rowsRead": 16,
+        "rowsReturned": 8,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2351,
+        "rowsRead": 4
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "SELECT id, code, name, rate_pct, is_active, notes, version FROM vat_rates WHERE is_active = ? ORDER BY rate_pct,id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 0.9404,
+        "rowsRead": 16,
+        "rowsReturned": 16,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1214,
+        "rowsRead": 2
+      },
+      "count": 8,
+      "dimensions": {
+        "query": "SELECT coalesce(sum(quantity_milli),0) AS quantity_milli,coalesce(sum(value_vnd),0) AS value_vnd FROM stock_buckets WHERE part_id=? AND (?='' OR warehouse_id=?) AND stock_state=?"
+      },
+      "sum": {
+        "queryDurationMs": 0.9712,
+        "rowsRead": 16,
+        "rowsReturned": 8,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.229,
+        "rowsRead": 2
+      },
+      "count": 7,
+      "dimensions": {
+        "query": "SELECT f.inventory_line_id,f.origin_line_id,f.reason FROM stock_lots l JOIN inventory_valuation_flags f ON f.inventory_line_id=l.source_line_id AND f.status='pending' WHERE l.part_id=? AND l.warehouse_id=? AND l.stock_state=? AND l.remaining_quantity_milli>0 AND EXISTS(SELECT 1 FROM inventory_serials s WHERE s.document_line_id=l.source_line_id AND s.part_id=l.part_id AND s.warehouse_id=l.warehouse_id AND s.status='in_stock' AND s.serial_key IN (?)) ORDER BY l.available_at,l.source_line_id LIMIT ?"
+      },
+      "sum": {
+        "queryDurationMs": 1.603,
+        "rowsRead": 14,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.31301538461538464,
+        "rowsRead": 1
+      },
+      "count": 13,
+      "dimensions": {
+        "query": "SELECT max(period) AS period FROM accounting_periods WHERE is_locked=1"
+      },
+      "sum": {
+        "queryDurationMs": 4.0692,
+        "rowsRead": 13,
+        "rowsReturned": 13,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0407,
+        "rowsRead": 1
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "UPDATE usage_serials SET active=0 WHERE usage_id=? AND part_id=? AND serial_key=? AND active=1"
+      },
+      "sum": {
+        "queryDurationMs": 0.4884,
+        "rowsRead": 12,
+        "rowsReturned": 0,
+        "rowsWritten": 12
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1635,
+        "rowsRead": 1
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "SELECT declared_at,installed_at,original_unit_price_known FROM opening_usage_lines WHERE inventory_line_id=?"
+      },
+      "sum": {
+        "queryDurationMs": 1.9620000000000002,
+        "rowsRead": 12,
+        "rowsReturned": 12,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2643,
+        "rowsRead": 1
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "SELECT * FROM warehouses WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 3.1715999999999998,
+        "rowsRead": 12,
+        "rowsReturned": 12,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.7415,
+        "rowsRead": 3
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "INSERT INTO document_drafts(id,code,kind,business_at,warehouse_id,to_warehouse_id,supplier_id,department_id,header_json,labels_json,totals_json,search_text,created_by,create_key,create_hash) SELECT ?,printf('%s.%s.%05d/%s',?,?,last_no,?)||?,?,?,?,?,?,?,?,?,?,?,?,?,? FROM document_counters WHERE period=? AND kind=?"
+      },
+      "sum": {
+        "queryDurationMs": 2.966,
+        "rowsRead": 12,
+        "rowsReturned": 0,
+        "rowsWritten": 28
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2913,
+        "rowsRead": 2
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "SELECT json_group_array(json_object('id',\"id\",'document_id',\"document_id\",'from_usage_id',\"from_usage_id\",'to_usage_id',\"to_usage_id\",'quantity_milli',\"quantity_milli\",'from_position',\"from_position\",'to_position',\"to_position\",'effective_at',\"effective_at\")) AS value FROM (SELECT \"id\",\"document_id\",\"from_usage_id\",\"to_usage_id\",\"quantity_milli\",\"from_position\",\"to_position\",\"effective_at\" FROM \"equipment_operations\" ORDER BY \"id\",\"document_id\",\"from_usage_id\",\"to_usage_id\",\"quantity_milli\",\"from_position\",\"to_position\",\"effective_at\")"
+      },
+      "sum": {
+        "queryDurationMs": 1.7478,
+        "rowsRead": 12,
+        "rowsReturned": 6,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0526,
+        "rowsRead": 1
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "INSERT INTO stock_buckets(part_id,warehouse_id,stock_state,quantity_milli,value_vnd) VALUES (?,?,'new',?,?) ON CONFLICT(part_id,warehouse_id,stock_state) DO UPDATE SET quantity_milli=quantity_milli+excluded.quantity_milli,value_vnd=value_vnd+excluded.value_vnd,version=version+1"
+      },
+      "sum": {
+        "queryDurationMs": 0.6312,
+        "rowsRead": 12,
+        "rowsReturned": 0,
+        "rowsWritten": 24
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.7235,
+        "rowsRead": 2
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "INSERT INTO inventory_document_lines(id,document_id,line_number,part_id,sku_snapshot,part_name_snapshot,unit_snapshot,quantity_milli,unit_price_vnd_milli,amount_vnd,to_warehouse_id,unit_price_numerator,unit_price_denominator) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)"
+      },
+      "sum": {
+        "queryDurationMs": 4.341,
+        "rowsRead": 12,
+        "rowsReturned": 0,
+        "rowsWritten": 42
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1952,
+        "rowsRead": 1
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "SELECT CASE WHEN (NOT EXISTS(SELECT 1 FROM accounting_periods WHERE is_locked=1 AND period>=?)) THEN 1 ELSE json('ISSUE_TARGET_REPAIR_GUARD_FAILED') END AS ok"
+      },
+      "sum": {
+        "queryDurationMs": 2.3424,
+        "rowsRead": 12,
+        "rowsReturned": 12,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0708,
+        "rowsRead": 3
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "DELETE FROM native_sessions WHERE expires_at<=? OR idle_expires_at<=?"
+      },
+      "sum": {
+        "queryDurationMs": 0.2832,
+        "rowsRead": 12,
+        "rowsReturned": 0,
+        "rowsWritten": 4
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.17861,
+        "rowsRead": 1
+      },
+      "count": 10,
+      "dimensions": {
+        "query": "SELECT name,staff_type,is_active FROM staff WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 1.7861,
+        "rowsRead": 10,
+        "rowsReturned": 10,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2824,
+        "rowsRead": 10
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT id, code, name, kind, location, type_label, capacity_milli, is_active, version FROM warehouses WHERE is_active = ? ORDER BY id LIMIT ? OFFSET ?"
+      },
+      "sum": {
+        "queryDurationMs": 0.2824,
+        "rowsRead": 10,
+        "rowsReturned": 10,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.3393,
+        "rowsRead": 1
+      },
+      "count": 10,
+      "dimensions": {
+        "query": "SELECT * FROM suppliers WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 3.393,
+        "rowsRead": 10,
+        "rowsReturned": 10,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1731,
+        "rowsRead": 1
+      },
+      "count": 9,
+      "dimensions": {
+        "query": "SELECT plate_number AS label,type FROM vehicles WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 1.5579,
+        "rowsRead": 9,
+        "rowsReturned": 9,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.16314,
+        "rowsRead": 1
+      },
+      "count": 5,
+      "dimensions": {
+        "query": "SELECT count(*) AS count,coalesce(sum((CASE WHEN d.status='cancelled' THEN 'cancelled' WHEN d.posted_inventory_id IS NOT NULL THEN 'posted' ELSE d.status END)='posted'),0) AS posted,coalesce(sum((CASE WHEN d.status='cancelled' THEN 'cancelled' WHEN d.posted_inventory_id IS NOT NULL THEN 'posted' ELSE d.status END)='cancelled'),0) AS cancelled,CASE WHEN count(*)=count(json_extract(d.totals_json,'$.net')) THEN CAST(coalesce(sum(json_extract(d.totals_json,'$.net')),0) AS TEXT) ELSE NULL END AS net FROM document_drafts d WHERE d.kind='recovery' AND (d.deleted_at IS NULL OR ?='cancelled') AND d.business_at>=? AND d.business_at<?"
+      },
+      "sum": {
+        "queryDurationMs": 0.8157,
+        "rowsRead": 9,
+        "rowsReturned": 5,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.4905,
+        "rowsRead": 2
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "SELECT c.* FROM native_credentials c JOIN app_users u ON u.id=c.user_id WHERE u.email=? COLLATE NOCASE AND u.is_active=1"
+      },
+      "sum": {
+        "queryDurationMs": 1.962,
+        "rowsRead": 8,
+        "rowsReturned": 4,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2501,
+        "rowsRead": 2
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "INSERT INTO native_login_limits(bucket,window_start,attempts) VALUES(?,?,1) ON CONFLICT(bucket) DO UPDATE SET attempts=CASE WHEN window_start=excluded.window_start THEN attempts+1 ELSE 1 END,window_start=excluded.window_start RETURNING attempts"
+      },
+      "sum": {
+        "queryDurationMs": 1.0004,
+        "rowsRead": 8,
+        "rowsReturned": 4,
+        "rowsWritten": 4
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2896,
+        "rowsRead": 1
+      },
+      "count": 8,
+      "dimensions": {
+        "query": "SELECT * FROM parts WHERE id IN (?)"
+      },
+      "sum": {
+        "queryDurationMs": 2.3168,
+        "rowsRead": 8,
+        "rowsReturned": 8,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.314,
+        "rowsRead": 2
+      },
+      "count": 4,
+      "dimensions": {
+        "query": "SELECT u.*,l.from_warehouse_id FROM stock_usages u JOIN inventory_document_lines l ON l.id=u.root_line_id WHERE u.id=? AND u.part_id=?"
+      },
+      "sum": {
+        "queryDurationMs": 1.256,
+        "rowsRead": 8,
+        "rowsReturned": 4,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.5398,
+        "rowsRead": 4
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT d.id AS draft_id,d.version,d.posted_inventory_id,i.status AS inventory_status,d.code,json_extract(d.header_json,'$.issue_details.vehicle_id') AS old_vehicle_id,json_extract(d.header_json,'$.issue_details.odo') AS old_odo,json_extract(d.header_json,'$.issue_details.trailer_number') AS trailer,(SELECT id FROM vehicles WHERE plate_number='51R-047.31' AND type='trailer') AS trailer_id,(SELECT max(period) FROM accounting_periods WHERE is_locked=1) AS locked_through FROM document_drafts d JOIN inventory_documents i ON i.id=d.posted_inventory_id WHERE d.kind='issue' AND d.code='10.26.00001/PX';"
+      },
+      "sum": {
+        "queryDurationMs": 0.5398,
+        "rowsRead": 4,
+        "rowsReturned": 1,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1834,
+        "rowsRead": 1
+      },
+      "count": 3,
+      "dimensions": {
+        "query": "SELECT quantity_milli,value_vnd FROM stock_buckets WHERE part_id=? AND warehouse_id=? AND stock_state=?"
+      },
+      "sum": {
+        "queryDurationMs": 0.5502,
+        "rowsRead": 3,
+        "rowsReturned": 3,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.4201,
+        "rowsRead": 1
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT name FROM departments WHERE id=?"
+      },
+      "sum": {
+        "queryDurationMs": 0.8402,
+        "rowsRead": 2,
+        "rowsReturned": 2,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.521,
+        "rowsRead": 1
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "SELECT CASE WHEN ((SELECT version FROM document_drafts WHERE id=?)=?) THEN 1 ELSE json('ISSUE_TARGET_REPAIR_GUARD_FAILED') END AS ok"
+      },
+      "sum": {
+        "queryDurationMs": 1.042,
+        "rowsRead": 2,
+        "rowsReturned": 2,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2571,
+        "rowsRead": 1
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "INSERT INTO document_counters(period,kind,last_no) VALUES (?,?,1) ON CONFLICT(period,kind) DO UPDATE SET last_no=last_no+1"
+      },
+      "sum": {
+        "queryDurationMs": 0.5142,
+        "rowsRead": 2,
+        "rowsReturned": 0,
+        "rowsWritten": 2
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2979,
+        "rowsRead": 2
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "UPDATE parts SET unit_price_vnd = ?, version = version + 1 WHERE id = ? AND version = ? RETURNING id"
+      },
+      "sum": {
+        "queryDurationMs": 0.2979,
+        "rowsRead": 2,
+        "rowsReturned": 1,
+        "rowsWritten": 1
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.15342857142857144,
+        "rowsRead": 0
+      },
+      "count": 14,
+      "dimensions": {
+        "query": "SELECT count(*) AS total FROM document_drafts d WHERE d.kind=? AND (d.deleted_at IS NULL OR ?='cancelled')"
+      },
+      "sum": {
+        "queryDurationMs": 2.148,
+        "rowsRead": 1,
+        "rowsReturned": 14,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1516,
+        "rowsRead": 1
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "SELECT id FROM parts WHERE sku=?"
+      },
+      "sum": {
+        "queryDurationMs": 0.1516,
+        "rowsRead": 1,
+        "rowsReturned": 1,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1019,
+        "rowsRead": 0
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "INSERT INTO stock_balances(part_id,warehouse_id,quantity_milli,value_vnd) VALUES (?,?,?,?) ON CONFLICT(part_id,warehouse_id) DO UPDATE SET quantity_milli=quantity_milli+excluded.quantity_milli,value_vnd=value_vnd+excluded.value_vnd"
+      },
+      "sum": {
+        "queryDurationMs": 0.6114,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 12
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.3192,
+        "rowsRead": 0
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "INSERT INTO audit_events (id, actor_id, action, entity_type, entity_id, before_json, after_json, request_id)\n    SELECT ?, ?, ?, ?, ?, ?, ?, ? WHERE changes() = 1"
+      },
+      "sum": {
+        "queryDurationMs": 1.3192,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 4
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1989,
+        "rowsRead": 0
+      },
+      "count": 3,
+      "dimensions": {
+        "query": "CREATE TRIGGER stock_book_movement_delete BEFORE DELETE ON stock_movements BEGIN\nUPDATE stock_book_months SET\n quantity_milli=quantity_milli-coalesce((SELECT sum(f.quantity_delta_milli) FROM stock_book_flow f WHERE f.status='posted' AND f.id=OLD.id AND substr(f.day,1,7)=period AND f.part_id=stock_book_months.part_id AND f.warehouse_id=stock_book_months.warehouse_id AND f.stock_state=stock_book_months.stock_state),0),\n movement_count=movement_count-coalesce((SELECT count(*) FROM stock_book_flow f WHERE f.status='posted' AND f.id=OLD.id AND substr(f.day,1,7)=period AND f.part_id=stock_book_months.part_id AND f.warehouse_id=stock_book_months.warehouse_id AND f.stock_state=stock_book_months.stock_state),0)\n WHERE part_id=OLD.part_id AND warehouse_id=OLD.warehouse_id AND stock_state=(SELECT stock_state FROM stock_book_flow WHERE id=OLD.id) AND period=(SELECT substr(day,1,7) FROM stock_book_flow WHERE id=OLD.id) AND EXISTS(SELECT 1 FROM stock_book_flow f WHERE f.status='posted' AND f.id=OLD.id AND substr(f.day,1,7)=period AND f.part_id=stock_book_months.part_id AND f.warehouse_id=stock_book_months.warehouse_id AND f.stock_state=stock_book_months.stock_state);\n DELETE FROM stock_book_months WHERE movement_count=0 AND part_id=OLD.part_id AND warehouse_id=OLD.warehouse_id;\nEND"
+      },
+      "sum": {
+        "queryDurationMs": 0.5967,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 3
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.17982380952380952,
+        "rowsRead": 0
+      },
+      "count": 21,
+      "dimensions": {
+        "query": "WITH opening AS (SELECT NULL AS part_id,NULL AS warehouse_id,NULL AS stock_state,0 AS opening_milli WHERE 0), source AS (\n SELECT m.id AS movement_id,m.part_id,m.warehouse_id,l.line_number,l.sku_snapshot AS sku,l.part_name_snapshot AS part_name,l.unit_snapshot AS unit,\n coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END) AS stock_state,d.business_date AS day,coalesce(rj.received_at,dd.business_at,d.business_date||'T00:00') AS business_at,d.posted_at,d.id AS document_id,dd.id AS draft_id,coalesce(dd.version,0) AS version,d.code,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 'retread_receive' ELSE coalesce(dd.kind,CASE d.type WHEN 'IN' THEN 'receipt' WHEN 'OUT' THEN 'issue' WHEN 'OPENING' THEN 'opening' WHEN 'RECOVERY' THEN 'recovery' WHEN 'TRANSFER' THEN 'warehouse_transfer' WHEN 'SCRAP' THEN 'liquidation' ELSE d.type END) END AS kind,\n w.code AS warehouse_code,m.quantity_delta_milli AS delta,\n CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS flow,\n d.id||':'||m.warehouse_id||':'||m.part_id||':'||coalesce(json_extract(dl.line_json,'$.stock_state'),CASE WHEN d.type='RECOVERY' THEN 'recovered' ELSE 'new' END)||':'||CASE WHEN m.quantity_delta_milli>0 THEN 'in' ELSE 'out' END AS group_key,\n dd.header_json,dd.labels_json,dl.id AS draft_line_id,dl.line_json,l.vehicle_plate_snapshot,l.vehicle_odo_km,\n u.target_type AS source_target_type,u.target_id AS source_target_id,ud.header_json AS source_header_json,ud.labels_json AS source_labels_json,\n coalesce(rj.serial_after,l.serial_number_snapshot,'') AS fallback_serial,\n CASE WHEN rj.received_line_id IS NOT NULL THEN 1 ELSE (SELECT count(*) FROM document_draft_serials ds WHERE ds.document_id=dd.id AND ds.line_id=dl.id) END AS serial_count,\n EXISTS(SELECT 1 FROM inventory_valuation_flags v WHERE v.inventory_line_id=l.id AND v.status='pending') AS pending\n FROM inventory_documents d JOIN inventory_document_lines l ON l.document_id=d.id JOIN stock_movements m ON m.document_line_id=l.id JOIN warehouses w ON w.id=m.warehouse_id\n LEFT JOIN retread_jobs rj ON rj.received_line_id=l.id\n LEFT JOIN document_drafts dd ON dd.posted_inventory_id=d.id OR (rj.document_id IS NOT NULL AND dd.id=rj.document_id)\n LEFT JOIN document_draft_lines dl ON dl.document_id=dd.id AND dl.line_number=l.line_number\n LEFT JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') LEFT JOIN document_drafts ud ON ud.posted_inventory_id=u.document_id\n WHERE d.status='posted' AND d.business_date>=? AND d.business_date<=? AND l.is_opening_usage=0),\n rows AS (SELECT s.* FROM source s WHERE 1 ),\n grouped AS (SELECT group_key,max(version) AS version,day,document_id,draft_id,code,kind,warehouse_id,warehouse_code,stock_state,part_id,sku,part_name,unit,flow,\n min(business_at) AS at,max(posted_at) AS posted_at,sum(CASE WHEN delta>0 THEN delta ELSE 0 END) AS in_milli,sum(CASE WHEN delta<0 THEN -delta ELSE 0 END) AS out_milli,sum(delta) AS delta,sum(serial_count) AS serial_count,sum(CASE WHEN serial_count>0 THEN serial_count ELSE 1 END) AS detail_count,max(pending) AS pending FROM rows GROUP BY group_key),\n numbered AS (SELECT g.*,NULL AS balance_milli FROM grouped g),\n matched AS (SELECT g.* FROM numbered g WHERE 1  ) SELECT NULL WHERE 0"
+      },
+      "sum": {
+        "queryDurationMs": 3.7763,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2697,
+        "rowsRead": 0
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "SELECT * FROM document_drafts WHERE create_key=?"
+      },
+      "sum": {
+        "queryDurationMs": 3.2363999999999997,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.147,
+        "rowsRead": 0
+      },
+      "count": 6,
+      "dimensions": {
+        "query": "CREATE TRIGGER stock_book_movement_insert AFTER INSERT ON stock_movements BEGIN\nINSERT INTO stock_book_months(period,part_id,warehouse_id,stock_state,quantity_milli,movement_count)\n SELECT substr(day,1,7),part_id,warehouse_id,stock_state,sum(quantity_delta_milli),count(*) FROM stock_book_flow WHERE status='posted' AND id=NEW.id\n GROUP BY substr(day,1,7),part_id,warehouse_id,stock_state\n ON CONFLICT(period,part_id,warehouse_id,stock_state) DO UPDATE SET quantity_milli=quantity_milli+excluded.quantity_milli,movement_count=movement_count+excluded.movement_count;\nEND"
+      },
+      "sum": {
+        "queryDurationMs": 0.8819999999999999,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 6
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.3996,
+        "rowsRead": 0
+      },
+      "count": 12,
+      "dimensions": {
+        "query": "INSERT INTO document_draft_events(id,document_id,actor_id,action,reason,before_json,after_json,request_id) VALUES (?,?,?,?,?,?,?,?)"
+      },
+      "sum": {
+        "queryDurationMs": 4.7952,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 36
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0327,
+        "rowsRead": 0
+      },
+      "count": 23,
+      "dimensions": {
+        "query": "INSERT INTO usage_serials(usage_id,part_id,serial_key,active) VALUES (?,?,?,1)"
+      },
+      "sum": {
+        "queryDurationMs": 0.7521,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 69
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0343,
+        "rowsRead": 0
+      },
+      "count": 27,
+      "dimensions": {
+        "query": "INSERT INTO stock_usages(id,root_line_id,document_id,parent_usage_id,part_id,quantity_milli,open_quantity_milli,open_value_vnd,target_type,target_id,position,started_at,odo_milli,hours_milli,version) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+      },
+      "sum": {
+        "queryDurationMs": 0.9260999999999999,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 81
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.22803636363636362,
+        "rowsRead": 0
+      },
+      "count": 11,
+      "dimensions": {
+        "query": "SELECT coalesce(sum(quantity_milli),0) AS quantity_milli,coalesce(sum(value_vnd),0) AS value_vnd FROM stock_balances WHERE part_id=? AND (?='' OR warehouse_id=?)"
+      },
+      "sum": {
+        "queryDurationMs": 2.5084,
+        "rowsRead": 0,
+        "rowsReturned": 11,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.11960588235294116,
+        "rowsRead": 0
+      },
+      "count": 17,
+      "dimensions": {
+        "query": "SELECT 1 FROM stock_lots l JOIN inventory_valuation_flags f ON f.inventory_line_id=l.source_line_id AND f.status='pending' WHERE l.part_id=? AND (?='' OR l.warehouse_id=?) AND (?='' OR l.stock_state=?) AND l.remaining_quantity_milli>0 LIMIT ?"
+      },
+      "sum": {
+        "queryDurationMs": 2.0332999999999997,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 1.5213,
+        "rowsRead": 0
+      },
+      "count": 2,
+      "dimensions": {
+        "query": "INSERT INTO audit_events(id,actor_id,action,entity_type,entity_id,after_json,request_id) VALUES(?,?,?,?,?,?,?)"
+      },
+      "sum": {
+        "queryDurationMs": 3.0426,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 8
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.1125,
+        "rowsRead": 0
+      },
+      "count": 1,
+      "dimensions": {
+        "query": "CREATE TABLE IF NOT EXISTS \"d1_migrations\"(\n\t\tid         INTEGER PRIMARY KEY AUTOINCREMENT,\n\t\tname       TEXT UNIQUE,\n\t\tapplied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL\n);"
+      },
+      "sum": {
+        "queryDurationMs": 0.1125,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2598909090909091,
+        "rowsRead": 0
+      },
+      "count": 11,
+      "dimensions": {
+        "query": "SELECT l.line_number,f.reason FROM inventory_valuation_flags f JOIN inventory_document_lines l ON l.id=f.inventory_line_id WHERE l.document_id=? AND f.status='pending'"
+      },
+      "sum": {
+        "queryDurationMs": 2.8588,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.0367,
+        "rowsRead": 0
+      },
+      "count": 33,
+      "dimensions": {
+        "query": "INSERT INTO stock_cost_dependencies(consumer_line_id,source_line_id) VALUES (?,?)"
+      },
+      "sum": {
+        "queryDurationMs": 1.2111,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 99
+      }
+    },
+    {
+      "avg": {
+        "queryDurationMs": 0.2436736842105263,
+        "rowsRead": 0
+      },
+      "count": 19,
+      "dimensions": {
+        "query": "SELECT serial_number FROM inventory_serials WHERE part_id=? AND status IN ('in_stock','mounted') AND (?='' OR document_line_id NOT IN (SELECT id FROM inventory_document_lines WHERE document_id=?)) AND serial_key IN (?)"
+      },
+      "sum": {
+        "queryDurationMs": 4.6297999999999995,
+        "rowsRead": 0,
+        "rowsReturned": 0,
+        "rowsWritten": 0
+      }
+    }
+  ],
+  "series": [
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T01:45:00Z"
+      },
+      "sum": {
+        "readQueries": 52,
+        "rowsRead": 9739,
+        "rowsWritten": 32,
+        "writeQueries": 12
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T01:50:00Z"
+      },
+      "sum": {
+        "readQueries": 62,
+        "rowsRead": 39007,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T01:55:00Z"
+      },
+      "sum": {
+        "readQueries": 8,
+        "rowsRead": 170,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T02:25:00Z"
+      },
+      "sum": {
+        "readQueries": 31,
+        "rowsRead": 10330,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T02:30:00Z"
+      },
+      "sum": {
+        "readQueries": 42,
+        "rowsRead": 28472,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T02:35:00Z"
+      },
+      "sum": {
+        "readQueries": 25,
+        "rowsRead": 14212,
+        "rowsWritten": 0,
+        "writeQueries": 0
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T02:40:00Z"
+      },
+      "sum": {
+        "readQueries": 35,
+        "rowsRead": 2614,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T02:45:00Z"
+      },
+      "sum": {
+        "readQueries": 302,
+        "rowsRead": 46193,
+        "rowsWritten": 406,
+        "writeQueries": 141
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T02:50:00Z"
+      },
+      "sum": {
+        "readQueries": 54,
+        "rowsRead": 46843,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T02:55:00Z"
+      },
+      "sum": {
+        "readQueries": 47,
+        "rowsRead": 27626,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T03:05:00Z"
+      },
+      "sum": {
+        "readQueries": 23,
+        "rowsRead": 6411,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T03:15:00Z"
+      },
+      "sum": {
+        "readQueries": 10,
+        "rowsRead": 70,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T03:35:00Z"
+      },
+      "sum": {
+        "readQueries": 5,
+        "rowsRead": 598,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T03:40:00Z"
+      },
+      "sum": {
+        "readQueries": 34,
+        "rowsRead": 554,
+        "rowsWritten": 0,
+        "writeQueries": 0
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T03:45:00Z"
+      },
+      "sum": {
+        "readQueries": 40,
+        "rowsRead": 9719,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T03:50:00Z"
+      },
+      "sum": {
+        "readQueries": 161,
+        "rowsRead": 2925,
+        "rowsWritten": 329,
+        "writeQueries": 113
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T03:55:00Z"
+      },
+      "sum": {
+        "readQueries": 14,
+        "rowsRead": 275,
+        "rowsWritten": 0,
+        "writeQueries": 0
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T04:00:00Z"
+      },
+      "sum": {
+        "readQueries": 6,
+        "rowsRead": 7303,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T04:05:00Z"
+      },
+      "sum": {
+        "readQueries": 6,
+        "rowsRead": 73,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T04:10:00Z"
+      },
+      "sum": {
+        "readQueries": 43,
+        "rowsRead": 19218,
+        "rowsWritten": 6,
+        "writeQueries": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T04:15:00Z"
+      },
+      "sum": {
+        "readQueries": 316,
+        "rowsRead": 158454,
+        "rowsWritten": 510,
+        "writeQueries": 163
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T04:20:00Z"
+      },
+      "sum": {
+        "readQueries": 18,
+        "rowsRead": 1913,
+        "rowsWritten": 0,
+        "writeQueries": 0
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T04:25:00Z"
+      },
+      "sum": {
+        "readQueries": 15,
+        "rowsRead": 11367,
+        "rowsWritten": 2,
+        "writeQueries": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T04:35:00Z"
+      },
+      "sum": {
+        "readQueries": 14,
+        "rowsRead": 468,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T04:40:00Z"
+      },
+      "sum": {
+        "readQueries": 11,
+        "rowsRead": 1847,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T05:25:00Z"
+      },
+      "sum": {
+        "readQueries": 11,
+        "rowsRead": 1847,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T06:25:00Z"
+      },
+      "sum": {
+        "readQueries": 14,
+        "rowsRead": 1864,
+        "rowsWritten": 11,
+        "writeQueries": 5
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T06:35:00Z"
+      },
+      "sum": {
+        "readQueries": 73,
+        "rowsRead": 64035,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T06:40:00Z"
+      },
+      "sum": {
+        "readQueries": 36,
+        "rowsRead": 146357,
+        "rowsWritten": 2,
+        "writeQueries": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T06:45:00Z"
+      },
+      "sum": {
+        "readQueries": 35,
+        "rowsRead": 33406,
+        "rowsWritten": 0,
+        "writeQueries": 0
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T06:55:00Z"
+      },
+      "sum": {
+        "readQueries": 13,
+        "rowsRead": 11360,
+        "rowsWritten": 2,
+        "writeQueries": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T07:00:00Z"
+      },
+      "sum": {
+        "readQueries": 11,
+        "rowsRead": 1847,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T07:20:00Z"
+      },
+      "sum": {
+        "readQueries": 15,
+        "rowsRead": 10380,
+        "rowsWritten": 2,
+        "writeQueries": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T07:25:00Z"
+      },
+      "sum": {
+        "readQueries": 159,
+        "rowsRead": 146821,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T07:30:00Z"
+      },
+      "sum": {
+        "readQueries": 26,
+        "rowsRead": 2506,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T07:35:00Z"
+      },
+      "sum": {
+        "readQueries": 38,
+        "rowsRead": 30238,
+        "rowsWritten": 0,
+        "writeQueries": 0
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T07:45:00Z"
+      },
+      "sum": {
+        "readQueries": 20,
+        "rowsRead": 7098,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T07:50:00Z"
+      },
+      "sum": {
+        "readQueries": 45,
+        "rowsRead": 33055,
+        "rowsWritten": 107,
+        "writeQueries": 31
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T07:55:00Z"
+      },
+      "sum": {
+        "readQueries": 78,
+        "rowsRead": 233197,
+        "rowsWritten": 139,
+        "writeQueries": 41
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T08:00:00Z"
+      },
+      "sum": {
+        "readQueries": 32,
+        "rowsRead": 32878,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T08:05:00Z"
+      },
+      "sum": {
+        "readQueries": 114,
+        "rowsRead": 50260,
+        "rowsWritten": 110,
+        "writeQueries": 23
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T08:10:00Z"
+      },
+      "sum": {
+        "readQueries": 9,
+        "rowsRead": 7326,
+        "rowsWritten": 1,
+        "writeQueries": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T08:15:00Z"
+      },
+      "sum": {
+        "readQueries": 5,
+        "rowsRead": 4875,
+        "rowsWritten": 0,
+        "writeQueries": 0
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T08:25:00Z"
+      },
+      "sum": {
+        "readQueries": 47,
+        "rowsRead": 19109,
+        "rowsWritten": 104,
+        "writeQueries": 28
+      }
+    },
+    {
+      "dimensions": {
+        "datetimeFiveMinutes": "2026-10-28T08:30:00Z"
+      },
+      "sum": {
+        "readQueries": 10,
+        "rowsRead": 17298,
+        "rowsWritten": 0,
+        "writeQueries": 0
+      }
+    }
+  ]
+}

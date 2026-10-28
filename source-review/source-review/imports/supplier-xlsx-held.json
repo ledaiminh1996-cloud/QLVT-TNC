@@ -1,0 +1,497 @@
+[
+  {
+    "A": "NCC01635",
+    "B": "Phụ Tùng Ô Tô Tám Sơn",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "2"
+  },
+  {
+    "A": "NCC03431",
+    "B": "Sửa Chữa Máy Lạnh Lưu Động Trần Văn Hiếu",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "18"
+  },
+  {
+    "A": "NCC01638",
+    "B": "Cơ Sở Vá Vỏ Công Danh",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "21"
+  },
+  {
+    "A": "NCC02187",
+    "B": "Cửa Hàng Tưởng Phốt",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "26"
+  },
+  {
+    "A": "NCC01995",
+    "B": "Cơ Điện Lạnh Thẩm Phát Sài Gòn Container Thermo King",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "53"
+  },
+  {
+    "A": "NCC03314",
+    "B": "NCC Tùng Hơi",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "73"
+  },
+  {
+    "A": "NCC01569",
+    "B": "Mua Lẻ",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "78"
+  },
+  {
+    "A": "NCC03379",
+    "B": "Điện Ô Tô Vũ Nguyễn",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "80"
+  },
+  {
+    "A": "NCC02879",
+    "B": "NCC Lẻ - Anh Hải",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "93"
+  },
+  {
+    "A": "NCC03204",
+    "B": "Vá Lốp Ô Tô Tài Lộc Phát",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "94"
+  },
+  {
+    "A": "NCC03532",
+    "B": "Dịch Vụ Sửa Chữa Lưu Động Trung Tấn",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "97"
+  },
+  {
+    "A": "NCC03601",
+    "B": "NCC Hùng Lan",
+    "C": "Công Viên Viettel",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "100"
+  },
+  {
+    "A": "NCC01707",
+    "B": "Nhà Phân Phối Vỏ Xe Minh Cường",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "101"
+  },
+  {
+    "A": "NCC03389",
+    "B": "Ngọc Lốp Kiot - 45",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "102"
+  },
+  {
+    "A": "NCC03332",
+    "B": "Điện Lạnh Trung Kiên",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "106"
+  },
+  {
+    "A": "NCC01667",
+    "B": "NCC Lẻ - Tô Lốp",
+    "C": "Cầu Vượt Trạm 2",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "107"
+  },
+  {
+    "A": "NCC01673",
+    "B": "Phụ Tùng Ô Tô Thiên Trúc",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "109"
+  },
+  {
+    "A": "NCC03325",
+    "B": "Tăng Thủy Hoa",
+    "C": "102C/20 Điện Biên Phủ, Phường Gia Định, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079072039786",
+    "tax_type": "s",
+    "row": "113"
+  },
+  {
+    "A": "NCC03583",
+    "B": "Công Ty TNHH XDTH Tiên Phong - Cửa Hàng Xăng Dầu Tiên Phong",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "147"
+  },
+  {
+    "A": "NCC01523",
+    "B": "Cửa hàng Tín Phong (Ngã Tư Ga)",
+    "C": "Ngã Tư Ga",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "160"
+  },
+  {
+    "A": "NCC03615",
+    "B": "Điện Ô Tô - Điện Lạnh Trọng",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "174"
+  },
+  {
+    "A": "NCC03608",
+    "B": "Garage Huy Hoàng",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "175"
+  },
+  {
+    "A": "NCC03614",
+    "B": "Cơ Sở Vá Vỏ Lốp Lâm Nhiên",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "182"
+  },
+  {
+    "A": "NCC01675",
+    "B": "Phụ Tùng Ô Tô Khả Ái",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "185"
+  },
+  {
+    "A": "NCC02974",
+    "B": "NCC Trần Văn Lâm (Anh Bé)",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "188"
+  },
+  {
+    "A": "NCC03656",
+    "B": "NCC Hùng Tài",
+    "C": "QL14B, Cách Ngã Ba Đại Hiệp 2km",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "202"
+  },
+  {
+    "A": "NCC03657",
+    "B": "Cơ Sở Vá Lốp Ô Tô Anh Tài",
+    "C": "Ngã Ba Koret Vina",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "212"
+  },
+  {
+    "A": "NCC01680",
+    "B": "Điện Lạnh Hồng Phúc",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "213"
+  },
+  {
+    "A": "NCC03675",
+    "B": "Xưởng Sửa Chữa Hải Đông",
+    "C": "Cổng Công Viên Viettel Logistic",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "222"
+  },
+  {
+    "A": "NCC03683",
+    "B": "NCC Vương Thuận",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "226"
+  },
+  {
+    "A": "NCC03667",
+    "B": "NCC Mạch Điện Anh Quang",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "228"
+  },
+  {
+    "A": "NCC01703",
+    "B": "Phụ Tùng Ô Tô Nhật Trường",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "243"
+  },
+  {
+    "A": "NCC02227",
+    "B": "NCC Lẻ - Anh Sơn",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "247"
+  },
+  {
+    "A": "NCC02852",
+    "B": "Ngô Xuân Kim",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "250"
+  },
+  {
+    "A": "NCC03154",
+    "B": "Phụ Tùng Ô Tô Túy Hoài",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "251"
+  },
+  {
+    "A": "NCC03694",
+    "B": "Hộ Kinh Doanh Mười Nhỏ",
+    "C": "140/6 Điện Biên Phủ, Phường Gia Định, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079072039786",
+    "tax_type": "s",
+    "row": "262"
+  },
+  {
+    "A": "NCC01669",
+    "B": "Vá Vỏ Hoàng Nghiệp",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "269"
+  },
+  {
+    "A": "NCC03050",
+    "B": "NCC Sửa Cont Anh Tính",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "271"
+  },
+  {
+    "A": "NCC03735",
+    "B": "Út Decal CB",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "279"
+  },
+  {
+    "A": "NCC03738",
+    "B": "Gara Đức Hùng",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "281"
+  },
+  {
+    "A": "NCC01678",
+    "B": "Bán Buôn Bán Lẻ Quang Tèo",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "296"
+  },
+  {
+    "A": "NCC03756",
+    "B": "NCC Nguyễn Bá Thành - Quận 7",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "301"
+  },
+  {
+    "A": "NCC03767",
+    "B": "Lốp Thế Tâm",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "308"
+  },
+  {
+    "A": "NCC01640",
+    "B": "Cơ Sở Vá Vỏ Văn Trùy",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "313"
+  },
+  {
+    "A": "NCC03862",
+    "B": "Xưởng Sửa Chữa Ô Tô Đức Chi",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "349"
+  },
+  {
+    "A": "NCC03833",
+    "B": "NCC Tô Tuấn Hạo",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "352"
+  },
+  {
+    "A": "NCC02530",
+    "B": "NCC BHLĐ Nguyễn Thị Hiền",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "359"
+  },
+  {
+    "A": "NCC03868",
+    "B": "Vá Lốp Lưu Động Dũng Lốp",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "360"
+  },
+  {
+    "A": "NCC03889",
+    "B": "Gara Ô Tô Hai Lúa",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "368"
+  },
+  {
+    "A": "NCC03859",
+    "B": "Vá Lốp Hướng Kiệt",
+    "C": "Chợ Trung Hòa, QL27, Km16",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "370"
+  },
+  {
+    "A": "NCC03905",
+    "B": "Điện Lạnh Ô Tô Sỹ Phát",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "374"
+  },
+  {
+    "A": "NCC03898",
+    "B": "Auto Service Center",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "389"
+  },
+  {
+    "A": "NCC03877",
+    "B": "Xưởng Sửa Chữa Ô Tô Trường",
+    "C": "Đường Tránh Phú Mỹ, Đoạn Qua Thôn Phú Thiện, TT. Phú Mỹ",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "391"
+  },
+  {
+    "A": "NCC03901",
+    "B": "Công Ty TNHH Thương Mại và Dịch Vụ Long Trường Giang",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "415"
+  },
+  {
+    "A": "NCC03935",
+    "B": "Garage Hữu Cầu",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "426"
+  }
+]

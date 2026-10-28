@@ -1,0 +1,434 @@
+[
+  {
+    "id": "7e990032-d9e5-53eb-97ca-06ea41cf0a21",
+    "code": "NCC01635",
+    "name": "Phụ Tùng Ô Tô Tám Sơn",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "980d9b27-5a0e-5d3e-87aa-d144bfe695bf",
+    "code": "NCC03431",
+    "name": "Sửa Chữa Máy Lạnh Lưu Động Trần Văn Hiếu",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "ccf5b7fe-25e0-5b2e-a3df-ecf51c15ddf7",
+    "code": "NCC01638",
+    "name": "Cơ Sở Vá Vỏ Công Danh",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "eb3d8041-d658-5532-8731-13a283d5a7ea",
+    "code": "NCC02187",
+    "name": "Cửa Hàng Tưởng Phốt",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "10e0104e-f407-5911-b403-93a89713cea2",
+    "code": "NCC01995",
+    "name": "Cơ Điện Lạnh Thẩm Phát Sài Gòn Container Thermo King",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "ed39f80b-584f-562f-95a9-d53cec9a7b4e",
+    "code": "NCC03314",
+    "name": "NCC Tùng Hơi",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "d2dcf23a-702f-5e0d-bb2c-a460a9a4eb99",
+    "code": "NCC01569",
+    "name": "Mua Lẻ",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "e702c9b6-43e0-585e-8641-b3af008af2ed",
+    "code": "NCC03379",
+    "name": "Điện Ô Tô Vũ Nguyễn",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "8a38f68e-e467-5244-94eb-55137b6def2b",
+    "code": "NCC02879",
+    "name": "NCC Lẻ - Anh Hải",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "a462801d-88cd-591d-a06b-3eacb6e48ea3",
+    "code": "NCC03204",
+    "name": "Vá Lốp Ô Tô Tài Lộc Phát",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "732edf3b-9a86-5270-9d0a-79ef3dad7758",
+    "code": "NCC03532",
+    "name": "Dịch Vụ Sửa Chữa Lưu Động Trung Tấn",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "f38e5382-b3ae-5ae2-8945-0f6714db98af",
+    "code": "NCC03601",
+    "name": "NCC Hùng Lan",
+    "tax_code": null,
+    "province_name": null,
+    "address": "Công Viên Viettel"
+  },
+  {
+    "id": "4666c8c6-160b-55db-9284-a467f511a028",
+    "code": "NCC01707",
+    "name": "Nhà Phân Phối Vỏ Xe Minh Cường",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "942e9ef6-ddb9-5c72-a4f4-84b74e67dba7",
+    "code": "NCC03389",
+    "name": "Ngọc Lốp Kiot - 45",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "86e9f71e-498b-5b89-ab1a-89305891ec75",
+    "code": "NCC03332",
+    "name": "Điện Lạnh Trung Kiên",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "107b5617-8e61-5d75-aad4-be99c6e2a980",
+    "code": "NCC01667",
+    "name": "NCC Lẻ - Tô Lốp",
+    "tax_code": null,
+    "province_name": null,
+    "address": "Cầu Vượt Trạm 2"
+  },
+  {
+    "id": "92e14dee-96cd-54a0-848e-27195b0cfb3f",
+    "code": "NCC01673",
+    "name": "Phụ Tùng Ô Tô Thiên Trúc",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "47e91771-0e53-5384-b0da-610d43b8a9ff",
+    "code": "NCC03583",
+    "name": "Công Ty TNHH XDTH Tiên Phong - Cửa Hàng Xăng Dầu Tiên Phong",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "56464858-e52d-560b-9f42-5f74aced93ac",
+    "code": "NCC01523",
+    "name": "Cửa hàng Tín Phong (Ngã Tư Ga)",
+    "tax_code": null,
+    "province_name": null,
+    "address": "Ngã Tư Ga"
+  },
+  {
+    "id": "4e5f78e3-51fd-5626-84a3-1d327e20d76b",
+    "code": "NCC03615",
+    "name": "Điện Ô Tô - Điện Lạnh Trọng",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "df9ecb5d-bb1d-53cd-b67c-f06319315f1a",
+    "code": "NCC03608",
+    "name": "Garage Huy Hoàng",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "a8c9b7e2-1a44-560e-8075-89f271f72024",
+    "code": "NCC03614",
+    "name": "Cơ Sở Vá Vỏ Lốp Lâm Nhiên",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "8633ebe6-ef80-58fe-96c2-bc2d8a097010",
+    "code": "NCC01675",
+    "name": "Phụ Tùng Ô Tô Khả Ái",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "252232d1-5d5f-5a60-9991-201afe53e752",
+    "code": "NCC02974",
+    "name": "NCC Trần Văn Lâm (Anh Bé)",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "4c5c6a0d-c8d7-59a8-b41b-2a2dcab45fd8",
+    "code": "NCC03656",
+    "name": "NCC Hùng Tài",
+    "tax_code": null,
+    "province_name": null,
+    "address": "QL14B, Cách Ngã Ba Đại Hiệp 2km"
+  },
+  {
+    "id": "ec1af9b8-9388-5425-aaf7-fb0a29c587c9",
+    "code": "NCC03657",
+    "name": "Cơ Sở Vá Lốp Ô Tô Anh Tài",
+    "tax_code": null,
+    "province_name": null,
+    "address": "Ngã Ba Koret Vina"
+  },
+  {
+    "id": "b2857803-b3cc-57c1-9ca2-e1abdc165343",
+    "code": "NCC01680",
+    "name": "Điện Lạnh Hồng Phúc",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "d9851c8a-eaf7-527d-adf6-3289418bc8cb",
+    "code": "NCC03675",
+    "name": "Xưởng Sửa Chữa Hải Đông",
+    "tax_code": null,
+    "province_name": null,
+    "address": "Cổng Công Viên Viettel Logistic"
+  },
+  {
+    "id": "7435d6a1-4206-56ee-a283-00e7c3eab196",
+    "code": "NCC03683",
+    "name": "NCC Vương Thuận",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "01210f50-7cef-54c2-9695-868aa32c88e7",
+    "code": "NCC03667",
+    "name": "NCC Mạch Điện Anh Quang",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "7898937b-9b0b-56ab-a405-69ba13b4f878",
+    "code": "NCC01703",
+    "name": "Phụ Tùng Ô Tô Nhật Trường",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "6f54b125-7b43-51b8-8eda-c5165951e493",
+    "code": "NCC02227",
+    "name": "NCC Lẻ - Anh Sơn",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "7d658671-d2ba-5ae9-a9ce-cabb38ec6f1e",
+    "code": "NCC02852",
+    "name": "Ngô Xuân Kim",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "e6e8d433-c040-54cc-aeec-1468ee46023b",
+    "code": "NCC03154",
+    "name": "Phụ Tùng Ô Tô Túy Hoài",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "5969915d-7c93-5f45-925e-54de87920a30",
+    "code": "NCC03694",
+    "name": "Hộ Kinh Doanh Mười Nhỏ",
+    "tax_code": "079072039786",
+    "province_name": "Hồ Chí Minh",
+    "address": "140/6 Điện Biên Phủ, Phường Gia Định"
+  },
+  {
+    "id": "5e56da7f-0b8f-55e1-808c-46a470798530",
+    "code": "NCC01669",
+    "name": "Vá Vỏ Hoàng Nghiệp",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "d3f51d40-dbd9-5424-80ee-a4329a1e4ad7",
+    "code": "NCC03050",
+    "name": "NCC Sửa Cont Anh Tính",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "4dcdf322-3291-5130-a751-ee910972dad9",
+    "code": "NCC03735",
+    "name": "Út Decal CB",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "2d6fd523-93e4-534d-83fc-7786a9f37b37",
+    "code": "NCC03738",
+    "name": "Gara Đức Hùng",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "d1f80015-7cd1-5a65-b2f9-4bd9570075b9",
+    "code": "NCC01678",
+    "name": "Bán Buôn Bán Lẻ Quang Tèo",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "704271ee-17f2-5b33-b766-fbed8d8f8806",
+    "code": "NCC03756",
+    "name": "NCC Nguyễn Bá Thành - Quận 7",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "262e844a-d699-5a20-b381-f042e2504663",
+    "code": "NCC03767",
+    "name": "Lốp Thế Tâm",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "bb6930ab-6810-5501-8343-e360ab7b44e6",
+    "code": "NCC01640",
+    "name": "Cơ Sở Vá Vỏ Văn Trùy",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "953eaa46-922c-5610-919b-85d9d685924f",
+    "code": "NCC03862",
+    "name": "Xưởng Sửa Chữa Ô Tô Đức Chi",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "6c5ffb16-31b3-5c93-b31f-1d775a8602aa",
+    "code": "NCC03833",
+    "name": "NCC Tô Tuấn Hạo",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "3cdee706-9cc4-5299-8c19-6592658bd9f2",
+    "code": "NCC02530",
+    "name": "NCC BHLĐ Nguyễn Thị Hiền",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "01749e78-873a-5281-8073-c7ac9b33d10d",
+    "code": "NCC03868",
+    "name": "Vá Lốp Lưu Động Dũng Lốp",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "020ceb69-2466-58a0-83b5-250b8b61001f",
+    "code": "NCC03889",
+    "name": "Gara Ô Tô Hai Lúa",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "c7095aa1-7c7f-5ae6-ac1c-f9490b056f1b",
+    "code": "NCC03859",
+    "name": "Vá Lốp Hướng Kiệt",
+    "tax_code": null,
+    "province_name": null,
+    "address": "Chợ Trung Hòa, QL27, Km16"
+  },
+  {
+    "id": "9926b73e-2b9e-5dd4-90fb-15ad3074a73b",
+    "code": "NCC03905",
+    "name": "Điện Lạnh Ô Tô Sỹ Phát",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "3e671707-630f-5b9c-a114-bddeeefcb1bc",
+    "code": "NCC03898",
+    "name": "Auto Service Center",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "99608732-8b91-5237-974e-fa58bfdaf6fb",
+    "code": "NCC03877",
+    "name": "Xưởng Sửa Chữa Ô Tô Trường",
+    "tax_code": null,
+    "province_name": null,
+    "address": "Đường Tránh Phú Mỹ, Đoạn Qua Thôn Phú Thiện, TT. Phú Mỹ"
+  },
+  {
+    "id": "ed7eaec4-1db4-5280-98c5-dd3324ce4add",
+    "code": "NCC03901",
+    "name": "Công Ty TNHH Thương Mại và Dịch Vụ Long Trường Giang",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  },
+  {
+    "id": "2e4cb5a1-c2d8-593e-a888-720c84853ea4",
+    "code": "NCC03935",
+    "name": "Garage Hữu Cầu",
+    "tax_code": null,
+    "province_name": null,
+    "address": null
+  }
+]

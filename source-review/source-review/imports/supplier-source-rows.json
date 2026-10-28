@@ -1,0 +1,3899 @@
+[
+  {
+    "A": "NCC01635",
+    "B": "Phụ Tùng Ô Tô Tám Sơn",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "2"
+  },
+  {
+    "A": "NCC01905",
+    "B": "Garage Tiến Đạt",
+    "C": "11A, Thôn Liên Thành, Xã Vĩnh Phương, Nha Trang, Tỉnh Khánh Hòa",
+    "D": "Tỉnh Khánh Hòa",
+    "E": "",
+    "tax_type": null,
+    "row": "3"
+  },
+  {
+    "A": "NCC01967",
+    "B": "Phụ tùng ô tô Bích Phương",
+    "C": "QL1A, Phước Lộc, Tuy Phước, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "4"
+  },
+  {
+    "A": "NCC02014",
+    "B": "Phụ tùng ô tô Tư Triều",
+    "C": "QL1A, Ngã Ba Phú Tài, TP. Quy Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "5"
+  },
+  {
+    "A": "NCC02275",
+    "B": "Công ty Cổ Phần Việt Phong Container",
+    "C": "31 Đường Số 3 B, Phường Tân Tạo, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0315243366",
+    "tax_type": "s",
+    "row": "6"
+  },
+  {
+    "A": "NCC02289",
+    "B": "Công Ty TNHH Cơ Khí Tuấn Tú",
+    "C": "731 Đỗ Xuân Hợp, Tổ 8, Khu Phố 2, Phường Phú Hữu, TP. Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0316690141",
+    "tax_type": "s",
+    "row": "7"
+  },
+  {
+    "A": "NCC03095",
+    "B": "Công Ty TNHH Garage - Điện Ô Tô Thiên Phát",
+    "C": "43/35/3 Đường Tân An, Khu Phố Tân An, Phường Tân Đông Hiệp, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3703255631",
+    "tax_type": "s",
+    "row": "8"
+  },
+  {
+    "A": "NCC03135",
+    "B": "Garage Hiệp Thành",
+    "C": "Quy Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "9"
+  },
+  {
+    "A": "NCC03205",
+    "B": "Hộ Kinh Doanh Cơ Khí Tùng Nhỏ",
+    "C": "1209 Đường Nguyễn Thị Định, Phường Cát Lái, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "051090006172",
+    "tax_type": "s",
+    "row": "10"
+  },
+  {
+    "A": "NCC03218",
+    "B": "Công Ty Cổ Phần Carmall Tyre",
+    "C": "3 Đường Số 32, Phường Bình Trưng, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0316162825",
+    "tax_type": "s",
+    "row": "11"
+  },
+  {
+    "A": "NCC03338",
+    "B": "Hộ Kinh Doanh Sửa Chữa Ô Tô Lịch",
+    "C": "165 Lê Hồng Phong, Tổ 35, Khu Phố Chiêu Liêu, Phường Dĩ An, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "042093021601",
+    "tax_type": "s",
+    "row": "12"
+  },
+  {
+    "A": "NCC03345",
+    "B": "Lốp Xe Long Hương",
+    "C": "586 ĐT741, Khu Phố Cống Xanh, Phường Vinh Tân, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "13"
+  },
+  {
+    "A": "NCC03410",
+    "B": "Cơ Sở Vá Vỏ Hoa Liễu",
+    "C": "Kiot 56 Trường Quân Sự Quân Đoàn 4, Bình Hòa, Thuận An, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "14"
+  },
+  {
+    "A": "NCC03424",
+    "B": "Cơ Sở Vá Vỏ Văn Sự",
+    "C": "360 Đường Mỹ Phước, Tân Vạn, Phường Định Hòa, TP. Thủ Dầu Một, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "15"
+  },
+  {
+    "A": "NCC03425",
+    "B": "Vá Vỏ Ô Tô Thành Đạt",
+    "C": "173, Sơn Hòa, Châu Thành, Tỉnh Vĩnh Long",
+    "D": "Tỉnh Vĩnh Long",
+    "E": "",
+    "tax_type": null,
+    "row": "16"
+  },
+  {
+    "A": "NCC03428",
+    "B": "Cơ Sở Làm Lốp Nô",
+    "C": "TT. Lăng Cô, Phú Lộc, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "17"
+  },
+  {
+    "A": "NCC03431",
+    "B": "Sửa Chữa Máy Lạnh Lưu Động Trần Văn Hiếu",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "18"
+  },
+  {
+    "A": "NCC03471",
+    "B": "NCC Anh Quốc",
+    "C": "01 Lạc Long Quân, TT. Lăng Cô, Phú Lộc, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "19"
+  },
+  {
+    "A": "NCC01521",
+    "B": "Cửa Hàng Hòa Turbo",
+    "C": "Ngã 3 621, Khu Phố Tân Lập, Phường Đông Hoa, Dĩ An, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "20"
+  },
+  {
+    "A": "NCC01638",
+    "B": "Cơ Sở Vá Vỏ Công Danh",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "21"
+  },
+  {
+    "A": "NCC02326",
+    "B": "Công Ty TNHH Một Thành Viên Xây Dựng Thương Mại Sản Xuất Minh Nguyên",
+    "C": "13/5 Nguyễn Thị Định, Phường Cát Lái, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0306683593",
+    "tax_type": "s",
+    "row": "22"
+  },
+  {
+    "A": "NCC02159",
+    "B": "NCC Lẻ - Anh Nhiều",
+    "C": "1221C Nguyễn Thị Định, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "23"
+  },
+  {
+    "A": "NCC03427",
+    "B": "Cửa Hàng Ngọc Linh",
+    "C": "QL14, Ấp Hiếu Cảm, TT. Chơn Thành, Huyện Chơn Thành, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "24"
+  },
+  {
+    "A": "NCC03472",
+    "B": "Cơ Sở Sửa Chữa Ô Tô Báo Nhân",
+    "C": "Lộc Trì, Phú Lộc, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "25"
+  },
+  {
+    "A": "NCC02187",
+    "B": "Cửa Hàng Tưởng Phốt",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "26"
+  },
+  {
+    "A": "NCC02356",
+    "B": "Công Ty Cổ Phần Anh Phát Petro",
+    "C": "306B Đường Bà Triệu, Phường Hàm Rồng, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "2802493498",
+    "tax_type": "s",
+    "row": "27"
+  },
+  {
+    "A": "NCC02757",
+    "B": "Công Ty TNHH Cung Ứng Vật Tư Xăng Dầu Hóa Chất PETROCHEM",
+    "C": "630/6/1/1 QL13, Khu Phố 4, Phường Hiệp Bình, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0314458873",
+    "tax_type": "s",
+    "row": "28"
+  },
+  {
+    "A": "NCC03081",
+    "B": "Công Ty TNHH Thương Mại Kỹ Thuật Cơ Điện Chí Anh",
+    "C": "243/32/10 Hoàng Diệu, Phường Khánh Hội, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0315961952",
+    "tax_type": "s",
+    "row": "29"
+  },
+  {
+    "A": "NCC03426",
+    "B": "CÔNG TY TNHH MTV-TM-DV Cửu Long Vương",
+    "C": "686A/5 Đường Mỹ Phước, Tân Vạn, Khu Phố 4, Phường An Phú, TP. Thuận An, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "30"
+  },
+  {
+    "A": "NCC03429",
+    "B": "Tiệm Làm Lốp Ô Tô Sách",
+    "C": "Đường Tránh TX. Đức Phổ, Tỉnh Quảng Ngãi",
+    "D": "Tỉnh Quảng Ngãi",
+    "E": "",
+    "tax_type": null,
+    "row": "31"
+  },
+  {
+    "A": "NCC03459",
+    "B": "Cửa Hàng Hoàng Thành",
+    "C": "Tổ Dân Phố Quần 1, Phường Xuân Lâm, TX. Nghi Sơn, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "32"
+  },
+  {
+    "A": "NCC03567",
+    "B": "Vá Vỏ Ô Tô Hương Trung Phát",
+    "C": "36/20 Đường Mỹ Phước Tân Vạn, Bình Chuẩn, Thuận An, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "33"
+  },
+  {
+    "A": "NCC02311",
+    "B": "Công Ty TNHH Phụ Tùng Hải Âu",
+    "C": "Thôn Trưng Trắc, Xã Như Quỳnh, Tỉnh Hưng Yên",
+    "D": "Tỉnh Hưng Yên",
+    "E": "0102717029",
+    "tax_type": "s",
+    "row": "34"
+  },
+  {
+    "A": "NCC02679",
+    "B": "Công Ty TNHH Auto Thái Bình Long",
+    "C": "65/4, Hồ Bá Phấn, Phường Phước Long, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0318065707",
+    "tax_type": "s",
+    "row": "35"
+  },
+  {
+    "A": "NCC03315",
+    "B": "Gara ô Tô Hữu Nguyên",
+    "C": "Tổ 3, Khu Hồng Phong, Phường Ninh Dương, TP. Móng Cái, Tỉnh Quảng Ninh",
+    "D": "Tỉnh Quảng Ninh",
+    "E": "",
+    "tax_type": null,
+    "row": "36"
+  },
+  {
+    "A": "NCC01525",
+    "B": "Cửa Hàng Anh Định",
+    "C": "Quận Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "37"
+  },
+  {
+    "A": "NCC01747",
+    "B": "Công Ty TNHH Đầu Tư Phát Triển Phúc Long",
+    "C": "46/1 Đỗ Mười, Khu Phố 1, Phường Thới An, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0313410075",
+    "tax_type": "s",
+    "row": "38"
+  },
+  {
+    "A": "NCC02163",
+    "B": "Công Ty TNHH Nam Ngọc Long",
+    "C": "16 Đường 225A, Phường Tăng Nhơn Phú, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0312767160",
+    "tax_type": "s",
+    "row": "39"
+  },
+  {
+    "A": "NCC03375",
+    "B": "Hộ Kinh Doanh Cơ Sở Cơ Khí Duân",
+    "C": "607A Đường QL13, Khu Phố 15, Phường Hiệp Bình, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "060060000118",
+    "tax_type": "s",
+    "row": "40"
+  },
+  {
+    "A": "NCC03442",
+    "B": "Làm Lốp Xuân Hiền",
+    "C": "Quảng Phú, Quảng Trạch, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "41"
+  },
+  {
+    "A": "NCC01695",
+    "B": "Công Ty TNHH Kỹ Thuật Dầu Khí Việt Mỹ",
+    "C": "36 Đường D18, Khu Phố 6, Phường Phước Long, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0314953966",
+    "tax_type": "s",
+    "row": "42"
+  },
+  {
+    "A": "NCC02147",
+    "B": "Công Ty TNHH Thiết Bị Phụ Tùng Khang Anh",
+    "C": "58 Đường 2, Khu Phố 3, Phường Tam Bình, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0313251435",
+    "tax_type": "s",
+    "row": "43"
+  },
+  {
+    "A": "NCC02681",
+    "B": "Công Ty TNHH Thương Mại Dịch Vụ An Phú Đức",
+    "C": "109 Nguyễn Bá Tòng, Phường Bảy Hiền, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0304165003",
+    "tax_type": "s",
+    "row": "44"
+  },
+  {
+    "A": "NCC03133",
+    "B": "Garage Quận",
+    "C": "Ngã 4 Phai Trần, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "45"
+  },
+  {
+    "A": "NCC03235",
+    "B": "Công Ty Cổ Phần Gas Tấn Tài",
+    "C": "35/20 Đường Thành Thái, Khu Phố Tân Cang, Phường Phước Tân, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3602717590",
+    "tax_type": "s",
+    "row": "46"
+  },
+  {
+    "A": "NCC03319",
+    "B": "Gara Nguyên Tiệp",
+    "C": "QL1A, TT. Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "47"
+  },
+  {
+    "A": "NCC00250",
+    "B": "Công Ty Cổ Phần Lốp Xe Việt",
+    "C": "18 Xa Lộ Hà Nội, Khu Phố Hiệp Thắng, Phường Đông Hòa, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3701098567",
+    "tax_type": "s",
+    "row": "48"
+  },
+  {
+    "A": "NCC03167",
+    "B": "Công Ty TNHH Trần Tín Phát",
+    "C": "322/16/1 Cách Mạng Tháng Tám, Phường Nhiêu Lộc, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0304152614",
+    "tax_type": "s",
+    "row": "49"
+  },
+  {
+    "A": "NCC01251",
+    "B": "Trần Minh Toàn (Cửa Hàng Minh Toàn)",
+    "C": "954 Nguyễn Thị Định, Khu Phố 3, Phường Thạnh Mỹ Lợi, Quận 2, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0312737952",
+    "tax_type": "s",
+    "row": "50"
+  },
+  {
+    "A": "NCC03255",
+    "B": "Công Ty TNHH Thương Mại Dịch Vụ Két Nước Phước Đạt",
+    "C": "25G/5 Đường Số 6, Khu Phố 26, Phường Hiệp Bình, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0319137961",
+    "tax_type": "s",
+    "row": "51"
+  },
+  {
+    "A": "NCC03076",
+    "B": "Công Ty TNHH Thương Mại Dịch Vụ Ô Tô Nam Tiến",
+    "C": "110/2B Đường ĐT743, Khu Phố Tân An, Phường Tân Đông Hiệp, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3703064235",
+    "tax_type": "s",
+    "row": "52"
+  },
+  {
+    "A": "NCC01995",
+    "B": "Cơ Điện Lạnh Thẩm Phát Sài Gòn Container Thermo King",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "53"
+  },
+  {
+    "A": "NCC01686",
+    "B": "Anh Hoàng Bost",
+    "C": "Ngã Tư Bình Phước, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "54"
+  },
+  {
+    "A": "NCC03022",
+    "B": "Gara Trần Quyết",
+    "C": "Cây Dầu Ngọc Khánh, Thanh Lương, Quang Thịnh, Lạng Giang, Tỉnh Bắc Ninh",
+    "D": "Tỉnh Bắc Ninh",
+    "E": "",
+    "tax_type": null,
+    "row": "55"
+  },
+  {
+    "A": "NCC02222",
+    "B": "Công Ty TNHH Thương Mại Văn Tới",
+    "C": "235/10 Nguyễn Công Trứ, Phường Bến Thành, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0313823273",
+    "tax_type": "s",
+    "row": "56"
+  },
+  {
+    "A": "NCC03441",
+    "B": "Garage Thành Lễ",
+    "C": "Ấp Mỹ Tướng, Mỹ Đức Tây, Cái Bè, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "",
+    "tax_type": null,
+    "row": "57"
+  },
+  {
+    "A": "NCC00529",
+    "B": "Công Ty TNHH Dầu Nhớt Và Hóa Chất Khang Việt",
+    "C": "24 Đường Số 5 Khu Dân Cư Tấn Trường, Khu Phố 2, Phường Phú Thuận, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0313838939",
+    "tax_type": "s",
+    "row": "58"
+  },
+  {
+    "A": "NCC02613",
+    "B": "Công Ty TNHH Tân Hoàng - TACO",
+    "C": "Km374, QL1A, Khu Kinh Tế Nghi Sơn, Phường Trúc Lâm, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "2801797888",
+    "tax_type": "s",
+    "row": "59"
+  },
+  {
+    "A": "NCC03439",
+    "B": "Công Ty TNHH Đầu Tư Thương Mại Dịch Vụ Xây Dựng Thịnh Phát",
+    "C": "02 Đường 69A, Phường Cát Lái, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0317620595",
+    "tax_type": "s",
+    "row": "60"
+  },
+  {
+    "A": "NCC03455",
+    "B": "Xưởng Sửa Chữa Ô Tô Minh Hiếu",
+    "C": "Cửa Khẩu Quốc Tế Tà Lùng, Xã Phục Hòa, Tỉnh Cao Bằng",
+    "D": "Tỉnh Cao Bằng",
+    "E": "",
+    "tax_type": null,
+    "row": "61"
+  },
+  {
+    "A": "NCC03464",
+    "B": "Cơ Sở Vá Vỏ Kế Thịnh",
+    "C": "Cảng Phú Hữu, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "62"
+  },
+  {
+    "A": "NCC02494",
+    "B": "Cửa Hàng Vật Tư Kim Khí Điện Nước Thịnh Phát",
+    "C": "172 Trương Văn Bang, Phường Thạnh Mỹ Lợi, TP. Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "63"
+  },
+  {
+    "A": "NCC01837",
+    "B": "Phụ tùng Ô tô Hồng Tư",
+    "C": "QL1A, Tứ Hạ, Hương Trà, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "64"
+  },
+  {
+    "A": "NCC03470",
+    "B": "Công Ty TNHH Đức Thắng",
+    "C": "Thôn Sậm, Xã Kép, Tỉnh Bắc Ninh",
+    "D": "Tỉnh Bắc Ninh",
+    "E": "2400275115",
+    "tax_type": "s",
+    "row": "65"
+  },
+  {
+    "A": "NCC02366",
+    "B": "Công Ty TNHH TM Xuất Nhập Khẩu Phương Giang Bình Thuận",
+    "C": "Lô 6/12 KCN Phan Thiết Giai Đoạn 2, Phường Bình Thuận, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "3400473983",
+    "tax_type": "s",
+    "row": "66"
+  },
+  {
+    "A": "NCC03457",
+    "B": "NCC Quang Thủy",
+    "C": "Khối 20, Phường Kỳ Lừa, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "67"
+  },
+  {
+    "A": "NCC03462",
+    "B": "Cửa Hàng Phụ Tùng Hưng Thịnh",
+    "C": "94 Phan Văn Bảy, Xã Hiệp Phước, Huyện Nhà Bè, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "68"
+  },
+  {
+    "A": "NCC03463",
+    "B": "Công Ty TNHH MTV DVTM Văn Hiệp",
+    "C": "995 Nguyễn Duy Trinh, Phường Phú Hữu, TP. Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "69"
+  },
+  {
+    "A": "NCC03450",
+    "B": "Tiệm Điện Ô Tô Nam Dương",
+    "C": "76 Đường Số 10, KCN Sóng Thần, Dĩ An, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "70"
+  },
+  {
+    "A": "NCC03456",
+    "B": "Vá Lốp Lưu Động Văn Đồng",
+    "C": "QL1A, Cầu Ngân Sơn, Tuy An, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "71"
+  },
+  {
+    "A": "NCC03069",
+    "B": "Điện Lạnh Ô Tô Container Việt",
+    "C": "QL1A, Mỹ Lộc, Phù Mỹ, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "72"
+  },
+  {
+    "A": "NCC03314",
+    "B": "NCC Tùng Hơi",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "73"
+  },
+  {
+    "A": "NCC03300",
+    "B": "Công Ty TNHH Ngô Phát Nguyễn",
+    "C": "208/1 QL1K, Khu Phố Tân Hòa, Phường Đông Hòa, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3703387155",
+    "tax_type": "s",
+    "row": "74"
+  },
+  {
+    "A": "NCC03458",
+    "B": "Gara Ô Tô Lý",
+    "C": "Km18, Cầu Mai Pha, Xã Mai Pha, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "75"
+  },
+  {
+    "A": "NCC00953",
+    "B": "Công Ty TNHH Thương Mại Dịch Vụ Máy Lạnh Thuận Phát",
+    "C": "844 QL52, Khu Phố 3, Phường Tăng Nhơn Phú, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0315335955",
+    "tax_type": "s",
+    "row": "76"
+  },
+  {
+    "A": "NCC03658",
+    "B": "Vỏ Lốp Ô Tô Toản",
+    "C": "Km29, QL1A, TT. Thuận Nam, Hàm Thuận Nam, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "77"
+  },
+  {
+    "A": "NCC01569",
+    "B": "Mua Lẻ",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "78"
+  },
+  {
+    "A": "NCC03333",
+    "B": "Điện Lạnh Container Linh",
+    "C": "Km12 Đường Tránh Vinh, Tỉnh Nghệ An",
+    "D": "Tỉnh Nghệ An",
+    "E": "",
+    "tax_type": null,
+    "row": "79"
+  },
+  {
+    "A": "NCC03379",
+    "B": "Điện Ô Tô Vũ Nguyễn",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "80"
+  },
+  {
+    "A": "NCC03475",
+    "B": "Cửa Hàng Xăng Dầu Quảng Thành",
+    "C": "QL1A, Phường Quảng Thành, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "81"
+  },
+  {
+    "A": "NCC00358",
+    "B": "Công Ty Cổ Phần Xăng Dầu Nam Sài Gòn",
+    "C": "37 Đường 60-TML, Phường Cát Lái, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0314149272",
+    "tax_type": "s",
+    "row": "82"
+  },
+  {
+    "A": "NCC03344",
+    "B": "Vá Vỏ Lưu Động Sáu",
+    "C": "Trạm Thu Phí Bến Lức, Tỉnh Tây Ninh",
+    "D": "Tỉnh Tây Ninh",
+    "E": "",
+    "tax_type": null,
+    "row": "83"
+  },
+  {
+    "A": "NCC02321",
+    "B": "Công Ty TNHH Một Thành Viên Madin - Chi Nhánh Bình Dương",
+    "C": "180 Đường Thống Nhất, Khu Phố Hiệp Thắng, Phường Đông Hòa, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "4300744670-001",
+    "tax_type": "s",
+    "row": "84"
+  },
+  {
+    "A": "NCC03084",
+    "B": "Điện Lạnh Container Treo Văn Thông",
+    "C": "Tuyến Tránh Cái Lậy, Bình Long, Bình Phú C, Cái Lậy, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "",
+    "tax_type": null,
+    "row": "85"
+  },
+  {
+    "A": "NCC03143",
+    "B": "Xưởng Sửa Chữa Ô Tô Đầu Kéo Út Bình Định",
+    "C": "Km6+300, QL1A, Thôn Nài Pai, Xã Thụy Hùng, Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "86"
+  },
+  {
+    "A": "NCC03570",
+    "B": "Gara Ô Tô Quang Bảy",
+    "C": "KDC Lạc Sơn, Phường Thái Học, TP. Chí Linh, TP. Hải Phòng",
+    "D": "TP. Hải Phòng",
+    "E": "",
+    "tax_type": null,
+    "row": "87"
+  },
+  {
+    "A": "NCC02188",
+    "B": "Cửa Hàng Nguyễn Nhuần",
+    "C": "1037 Nguyễn Thị Định, Phường Cát Lái, Quận 2, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "88"
+  },
+  {
+    "A": "NCC02194",
+    "B": "Cửa Hàng Thiết Bị Phụ Tùng Ô Tô Thanh",
+    "C": "926 Nguyễn Thị Định, Phường Thạnh Mỹ Lợi, Quận 2, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "89"
+  },
+  {
+    "A": "NCC02373",
+    "B": "Cửa Hàng Minh Hưng",
+    "C": "39B Đường 2, Phường Cát Lái, TP. Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "90"
+  },
+  {
+    "A": "NCC02853",
+    "B": "Hộ kinh doanh Nguyễn Thị Thanh Tuyền",
+    "C": "1221C Nguyễn Thị Định, Khu Phố 22, Phường Cát Lái, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079189029737",
+    "tax_type": "s",
+    "row": "91"
+  },
+  {
+    "A": "NCC03467",
+    "B": "Decal Lam Hùng",
+    "C": "324 Nguyễn Thị Định, Thạnh Mỹ Lợi, Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "92"
+  },
+  {
+    "A": "NCC02879",
+    "B": "NCC Lẻ - Anh Hải",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "93"
+  },
+  {
+    "A": "NCC03204",
+    "B": "Vá Lốp Ô Tô Tài Lộc Phát",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "94"
+  },
+  {
+    "A": "NCC03617",
+    "B": "NCC Hiếu Hương",
+    "C": "QL1A, Cây Dầu Thủ Đức, Phai Trần, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "95"
+  },
+  {
+    "A": "NCC03227",
+    "B": "CHI NHÁNH CÁT LÁI - CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ NGỌC LỐP Ô TÔ",
+    "C": "99 Võ Chí Công, Phường Phước Long, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3603170487-002",
+    "tax_type": "s",
+    "row": "96"
+  },
+  {
+    "A": "NCC03532",
+    "B": "Dịch Vụ Sửa Chữa Lưu Động Trung Tấn",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "97"
+  },
+  {
+    "A": "NCC03479",
+    "B": "Công Ty TNHH Phụ Tùng Hector",
+    "C": "Tổ Dân Phố Đường Trưỡng (tại nhà ông Vũ Văn Dần), Phường Nam Triệu, TP. Hải Phòng",
+    "D": "TP. Hải Phòng",
+    "E": "0202013918",
+    "tax_type": "s",
+    "row": "98"
+  },
+  {
+    "A": "NCC03364",
+    "B": "Hộ Kinh Doanh Vá Vỏ Nhân",
+    "C": "10 Lê Phụng Hiểu, Cát Lái, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0314059124",
+    "tax_type": "s",
+    "row": "99"
+  },
+  {
+    "A": "NCC03601",
+    "B": "NCC Hùng Lan",
+    "C": "Công Viên Viettel",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "100"
+  },
+  {
+    "A": "NCC01707",
+    "B": "Nhà Phân Phối Vỏ Xe Minh Cường",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "101"
+  },
+  {
+    "A": "NCC03389",
+    "B": "Ngọc Lốp Kiot - 45",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "102"
+  },
+  {
+    "A": "NCC03568",
+    "B": "Gara Hoàn Hảo",
+    "C": "QL13, 22 Hoa Lư, Lộc Thạnh, Lộc Ninh, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "103"
+  },
+  {
+    "A": "NCC03294",
+    "B": "Điện Ô Tô Mười",
+    "C": "QL1A, Phường Xuân Lâm, TX. Nghi Sơn, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "104"
+  },
+  {
+    "A": "NCC03189",
+    "B": "Công Ty TNHH Thương Mại Dủ Khang",
+    "C": "23 Lô V, Đường Số 1, Phường An Lạc, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0317191466",
+    "tax_type": "s",
+    "row": "105"
+  },
+  {
+    "A": "NCC03332",
+    "B": "Điện Lạnh Trung Kiên",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "106"
+  },
+  {
+    "A": "NCC01667",
+    "B": "NCC Lẻ - Tô Lốp",
+    "C": "Cầu Vượt Trạm 2",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "107"
+  },
+  {
+    "A": "NCC01599",
+    "B": "Phụ Tùng Ô Tô Tư Triều 2",
+    "C": "QL1A, Phú Mỹ 2, Phước Lộc, Tuy Phước, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "108"
+  },
+  {
+    "A": "NCC01673",
+    "B": "Phụ Tùng Ô Tô Thiên Trúc",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "109"
+  },
+  {
+    "A": "NCC03228",
+    "B": "Công Ty TNHH MTV Petrolimex Sài Gòn",
+    "C": "15 Lê Duẩn, Phường Sài Gòn, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0300555450",
+    "tax_type": "s",
+    "row": "110"
+  },
+  {
+    "A": "NCC03594",
+    "B": "Cửa Hàng Vỏ Xe Ô Tô Thanh Cường",
+    "C": "Khóm 3, Phường 1, TX. Ngã Năm, TP. Cần Thơ",
+    "D": "TP. Cần Thơ",
+    "E": "",
+    "tax_type": null,
+    "row": "111"
+  },
+  {
+    "A": "NCC03287",
+    "B": "Công Ty TNHH MTV Petrolimex Đồng Nai",
+    "C": "104 Đường Hà Huy Giáp, Phường Trấn Biên, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3600247325",
+    "tax_type": "s",
+    "row": "112"
+  },
+  {
+    "A": "NCC03325",
+    "B": "Tăng Thủy Hoa",
+    "C": "102C/20 Điện Biên Phủ, Phường Gia Định, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079072039786",
+    "tax_type": "s",
+    "row": "113"
+  },
+  {
+    "A": "NCC03551",
+    "B": "Công Ty TNHH MTV Petrolimex Gia Lai",
+    "C": "85 Đường Trần Hưng Đạo, Phường Quy Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "4100259821",
+    "tax_type": "s",
+    "row": "114"
+  },
+  {
+    "A": "NCC00421",
+    "B": "Công Ty CP Xăng Dầu Tín Nghĩa",
+    "C": "Tầng 3, 96 Đường Hà Huy Giáp, Phường Trấn Biên, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3601038204",
+    "tax_type": "s",
+    "row": "115"
+  },
+  {
+    "A": "NCC03157",
+    "B": "Công Ty Cổ Phần Dalufood",
+    "C": "Tỉnh Lộ 664, Làng Ia Tong, Xã Ia Hrung, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "5901212697",
+    "tax_type": "s",
+    "row": "116"
+  },
+  {
+    "A": "NCC03248",
+    "B": "Công Ty TNHH MTV Petrolimex Quảng Ngãi",
+    "C": "122 Đường Đinh Tiên Hoàng, Phường Cẩm Thành, Tỉnh Quảng Ngãi",
+    "D": "Tỉnh Quảng Ngãi",
+    "E": "4300298507",
+    "tax_type": "s",
+    "row": "117"
+  },
+  {
+    "A": "NCC03328",
+    "B": "Công Ty TNHH MTV Petrolimex Đồng Tháp",
+    "C": "488 Đinh Bộ Lĩnh, Phường Mỹ Phong, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "1200100370",
+    "tax_type": "s",
+    "row": "118"
+  },
+  {
+    "A": "NCC03547",
+    "B": "Công Ty TNHH MTV Trạm Xăng Dầu Hải Vân",
+    "C": "Tổ 10, Khu Phố Hiếu Cảm, Phường Chơn Thành, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3800626955",
+    "tax_type": "s",
+    "row": "119"
+  },
+  {
+    "A": "NCC03548",
+    "B": "Công Ty TNHH MTV Petrolimex Quảng Ninh",
+    "C": "Khu 1, Phường Bãi Cháy, Tỉnh Quảng Ninh",
+    "D": "Tỉnh Quảng Ninh",
+    "E": "5700101690",
+    "tax_type": "s",
+    "row": "120"
+  },
+  {
+    "A": "NCC03549",
+    "B": "Công Ty TNHH Xăng Dầu Tây Nam S.W.P",
+    "C": "Toà Nhà 678, 67 Đường Hoàng Văn Thái, Phường Tân Mỹ, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0315022575",
+    "tax_type": "s",
+    "row": "121"
+  },
+  {
+    "A": "NCC03550",
+    "B": "Công Ty TNHH Một Thành Viên Xăng Dầu Đức Quang",
+    "C": "Thôn 7, Xã Tân Khai, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3801198847",
+    "tax_type": "s",
+    "row": "122"
+  },
+  {
+    "A": "NCC03552",
+    "B": "Công Ty TNHH MTV Petrolimex Lạng Sơn",
+    "C": "6, Tổ 9, Khối 18, Phường Đông Kính, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "4900933292",
+    "tax_type": "s",
+    "row": "123"
+  },
+  {
+    "A": "NCC03553",
+    "B": "Công Ty TNHH MTV Thương Mại Xuất Nhập Khẩu Phong Cúc",
+    "C": "QL13, Tổ 6, Khu Phố 2, Phường Chơn Thành, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3801105183",
+    "tax_type": "s",
+    "row": "124"
+  },
+  {
+    "A": "NCC03554",
+    "B": "Công Ty TNHH Thương Mại Hồ Bửu",
+    "C": "99 Đường Huỳnh Văn Luỹ, Khu Phố 3, Phường Phú Lợi, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3701629627",
+    "tax_type": "s",
+    "row": "125"
+  },
+  {
+    "A": "NCC03555",
+    "B": "Công Ty TNHH Thương Mại Và Dịch Vụ Vân Trúc",
+    "C": "71/1G, Khu Phố Đồng An 2, Phường Bình Hòa, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3700714012",
+    "tax_type": "s",
+    "row": "126"
+  },
+  {
+    "A": "NCC03556",
+    "B": "Công Ty TNHH Thương Mại Dịch Vụ Dầu Khí Phụng Hoàng",
+    "C": "42, Tổ 6, Ấp 1, Xã Trừ Văn Thố, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3700334846",
+    "tax_type": "s",
+    "row": "127"
+  },
+  {
+    "A": "NCC03557",
+    "B": "Doanh Nghiệp Tư Nhân Minh Hiếu",
+    "C": "Ấp Quí Thạnh, Xã Tân Phú, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "1200225228",
+    "tax_type": "s",
+    "row": "128"
+  },
+  {
+    "A": "NCC03558",
+    "B": "Công Ty TNHH MTV Petrolimex Vĩnh Long",
+    "C": "641 Đường Trần Phú, Phường Phước Hậu, Tỉnh Vĩnh Long",
+    "D": "Tỉnh Vĩnh Long",
+    "E": "1500207131",
+    "tax_type": "s",
+    "row": "129"
+  },
+  {
+    "A": "NCC03559",
+    "B": "Công TY TNHH Thanh Phong Phú Cường",
+    "C": "671 Đường Cách Mạng Tháng Tám, Tổ 14, Khu Phố 3, Phường Thủ Dầu Một, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3701856027",
+    "tax_type": "s",
+    "row": "130"
+  },
+  {
+    "A": "NCC03560",
+    "B": "Tổng Công Ty Thương Mại Xuất Nhập Khẩu Thanh Lễ - CTCP",
+    "C": "63 Đường Yersin, Phường Thủ Dầu Một, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3700146458",
+    "tax_type": "s",
+    "row": "131"
+  },
+  {
+    "A": "NCC03562",
+    "B": "Chi Nhánh Petrolimex Bình Dương - Công Ty TNHH MTV Petrolimex Sài Gòn",
+    "C": "8 Đường Cách Mạng Tháng 8, Phường Thủ Dầu Một, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0300555450-008",
+    "tax_type": "s",
+    "row": "132"
+  },
+  {
+    "A": "NCC03588",
+    "B": "Công Ty TNHH TMDV Đăng Khôi Auto",
+    "C": "65/4 Hồ Bá Phấn, Phường Phước Long, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0319289795",
+    "tax_type": "s",
+    "row": "133"
+  },
+  {
+    "A": "NCC02995",
+    "B": "Công Ty TNHH Sản Xuất Thương Mại Cao Su Hoàng Minh",
+    "C": "30 Đường Số 2, Khu Dân Cư Phú Lợi, Phường Bình Đông, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0312247820",
+    "tax_type": "s",
+    "row": "134"
+  },
+  {
+    "A": "NCC03036",
+    "B": "Công Ty TNHH Phương Thuỷ Tây Nguyên",
+    "C": "Thôn Xuân Đoàn, Xã Phú Xuân, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "6001754723",
+    "tax_type": "s",
+    "row": "135"
+  },
+  {
+    "A": "NCC03411",
+    "B": "Điện Lạnh Xe Đầu Kéo Mỹ - Nam Hiệp",
+    "C": "Phường Hoài Đức, TX. Hoài Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "136"
+  },
+  {
+    "A": "NCC03561",
+    "B": "Chi Nhánh Công Ty TNHH Thương Mại Dịch Vụ Hiệp Quế",
+    "C": "155 Nguyễn Văn Tạo, Ấp 3, Xã Hiệp Phước, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0303172752-001",
+    "tax_type": "s",
+    "row": "137"
+  },
+  {
+    "A": "NCC03595",
+    "B": "Tiệm Lốp Phương Lâm",
+    "C": "Tổ 7, Phường Nghĩa Phú, TP. Gia Nghĩa, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "138"
+  },
+  {
+    "A": "NCC03163",
+    "B": "Công Ty TNHH Bảo Long Đắk Nông",
+    "C": "Thôn Quảng Tiến, Xã Quảng Sơn, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "6400382516",
+    "tax_type": "s",
+    "row": "139"
+  },
+  {
+    "A": "NCC03387",
+    "B": "Vá Vỏ Hữu Giàu",
+    "C": "Đường Võ Chí Công, Phường Thạnh Mỹ Lợi, TP. Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "140"
+  },
+  {
+    "A": "NCC03563",
+    "B": "Công Ty TNHH Xuất Nhập Khẩu Nga Châu",
+    "C": "Thôn Bình Hòa 3, Phường Cư Bao, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "6001802984",
+    "tax_type": "s",
+    "row": "141"
+  },
+  {
+    "A": "NCC03591",
+    "B": "Vá Vỏ Hưng Thịnh",
+    "C": "Tổ 1, Thanh Hòa, Xã Thanh Lương, TX. Bình Long, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "142"
+  },
+  {
+    "A": "NCC03605",
+    "B": "Gara Ô Tô Minh Quân",
+    "C": "QL1A, Cầu Vượt Thủy Phù, TX. Hương Thủy, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "143"
+  },
+  {
+    "A": "NCC03612",
+    "B": "Vá Vỏ Sương Mai",
+    "C": "Đường Vào Cao Tốc Tiền Giang, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "",
+    "tax_type": null,
+    "row": "144"
+  },
+  {
+    "A": "NCC02501",
+    "B": "Garage Sơn",
+    "C": "133/2A Bình Quới, Phường 27, Quận Bình Thạnh, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0303741744",
+    "tax_type": "s",
+    "row": "145"
+  },
+  {
+    "A": "NCC02294",
+    "B": "Công Ty TNHH TM-DV Thép Nam Thịnh",
+    "C": "263 Hoàng Hữu Nam, Phường Tân Phú, TP. Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0311485413",
+    "tax_type": "s",
+    "row": "146"
+  },
+  {
+    "A": "NCC03583",
+    "B": "Công Ty TNHH XDTH Tiên Phong - Cửa Hàng Xăng Dầu Tiên Phong",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "147"
+  },
+  {
+    "A": "NCC03584",
+    "B": "Công Ty Cổ Phần Tập Đoàn 68",
+    "C": "Tổ 7, Phường Châu Sơn, Tỉnh Ninh Bình",
+    "D": "Tỉnh Ninh Bình",
+    "E": "0700246295",
+    "tax_type": "s",
+    "row": "148"
+  },
+  {
+    "A": "NCC03606",
+    "B": "NCC Tấn Tài",
+    "C": "Chợ Hòa Khánh, Cái Bè, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "",
+    "tax_type": null,
+    "row": "149"
+  },
+  {
+    "A": "NCC02524",
+    "B": "Công Ty TNHH TMDV Xăng Dầu Châu Thành",
+    "C": "Ấp Hòa, Xã Long Định, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "1200253539",
+    "tax_type": "s",
+    "row": "150"
+  },
+  {
+    "A": "NCC03571",
+    "B": "DNTN Trạm Xăng Dầu Phước Thành",
+    "C": "Đường ĐT741, Xã Phước Hòa, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "3700540454",
+    "tax_type": "s",
+    "row": "151"
+  },
+  {
+    "A": "NCC03581",
+    "B": "Chi Nhánh TP. Hồ Chí Minh Công Ty Cổ Phần Thiết Bị Xăng Dầu Petrolimex",
+    "C": "Lô T5-1, Đường D2, Khu Công Nghệ Cao, Phường Tăng Nhơn Phú, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0100108102-009",
+    "tax_type": "s",
+    "row": "152"
+  },
+  {
+    "A": "NCC03607",
+    "B": "Gara Ô Tô Ý Phát",
+    "C": "Tuyến Tránh TX. Cai Lậy, Ấp Thanh Bình, Thanh Hòa, TX. Cai Lậy, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "",
+    "tax_type": null,
+    "row": "153"
+  },
+  {
+    "A": "NCC03440",
+    "B": "Chi Nhánh Petrolimex Ninh Thuận - Công Ty TNHH MTV Petrolimex Khánh Hòa",
+    "C": "24 Quang Trung, Phường Phan Rang, Tỉnh Khánh Hòa",
+    "D": "Tỉnh Khánh Hòa",
+    "E": "4200240380-011",
+    "tax_type": "s",
+    "row": "154"
+  },
+  {
+    "A": "NCC03574",
+    "B": "Chi Nhánh Công Ty Cổ Phần Đầu Tư Xây Dựng Và Dịch Vụ Kho Bãi Phú Tài",
+    "C": "Góc Đường Số 10, Đại Lộ Độc Lập, Khu Căn Cứ 301, Phường Dĩ An, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0304853183-001",
+    "tax_type": "s",
+    "row": "155"
+  },
+  {
+    "A": "NCC03576",
+    "B": "Công Ty Cổ Phần Thương Mại Xuất Nhập Khẩu Thủ Đức",
+    "C": "231 Võ Văn Ngân, Phường Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0301444626",
+    "tax_type": "s",
+    "row": "156"
+  },
+  {
+    "A": "NCC03582",
+    "B": "Công Ty TNHH MTV Petrolimex Cần Thơ",
+    "C": "Tầng 14-15 Tòa Nhà Xổ Số Kiến Thiết Cần Thơ, 29 Cách Mạng Th, Phường Ninh Kiều, TP. Cần Thơ",
+    "D": "TP. Cần Thơ",
+    "E": "1800158559",
+    "tax_type": "s",
+    "row": "157"
+  },
+  {
+    "A": "NCC03578",
+    "B": "Chi Nhánh 2 Công Ty TNHH Thương Mại Xăng Dầu Tân Vạn",
+    "C": "Thửa Đất Số 516, Tờ Bản Đồ Số 150, Đường Mỹ Phước, Tân Vạn, Khu Phố Bình Thuận 2, Phường Thuận Giao, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0314562539-001",
+    "tax_type": "s",
+    "row": "158"
+  },
+  {
+    "A": "NCC03579",
+    "B": "Chi nhánh Petrolimex Phú Yên – Công Ty TNHH MTV Petrolimex Đắk Lắk",
+    "C": "138C Lê Lợi, Phường Tuy Hòa, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "6000235027-018",
+    "tax_type": "s",
+    "row": "159"
+  },
+  {
+    "A": "NCC01523",
+    "B": "Cửa hàng Tín Phong (Ngã Tư Ga)",
+    "C": "Ngã Tư Ga",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "160"
+  },
+  {
+    "A": "NCC02112",
+    "B": "Công Ty Cổ Phần Phát Triển Nam Phi Long",
+    "C": "379 Nguyễn Công Trứ, Phường Bến Thành, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0302918999",
+    "tax_type": "s",
+    "row": "161"
+  },
+  {
+    "A": "NCC03580",
+    "B": "Công Ty TNHH Một Thành Viên Thiên Hộ",
+    "C": "Ấp Mỹ Tường B, Xã Hậu Mỹ, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "1200420042",
+    "tax_type": "s",
+    "row": "162"
+  },
+  {
+    "A": "NCC03602",
+    "B": "Điện Ô Tô Hiệu",
+    "C": "92 Lê Lợi, TT. Phù Mỹ, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "163"
+  },
+  {
+    "A": "NCC03609",
+    "B": "Gara Ô Tô Trường Vũ",
+    "C": "98 Kim Phụng, Phường Xuân Hương, Hương Trà, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "164"
+  },
+  {
+    "A": "NCC03267",
+    "B": "Chi Nhánh Petrolimex Bình Thuận - Công Ty TNHH MTV Petrolimex Lâm Đồng",
+    "C": "13 Đường 19/4, Phường Hàm Thắng, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "5800000689-030",
+    "tax_type": "s",
+    "row": "165"
+  },
+  {
+    "A": "NCC03616",
+    "B": "NCC Nghiệp Lốp",
+    "C": "Tổ 3, Khu Phố Hồng Phong, Ninh Dương, Móng Cái, Tỉnh Quảng Ninh",
+    "D": "Tỉnh Quảng Ninh",
+    "E": "",
+    "tax_type": null,
+    "row": "166"
+  },
+  {
+    "A": "NCC03268",
+    "B": "Chi Nhánh Petrolimex Bến Tre - Công Ty TNHH MTV Petrolimex Vĩnh Long",
+    "C": "199B Nguyễn Đình Chiểu, Khu Phố 1, Phường Phú Khương, Tỉnh Vĩnh Long",
+    "D": "Tỉnh Vĩnh Long",
+    "E": "1500207131-103",
+    "tax_type": "s",
+    "row": "167"
+  },
+  {
+    "A": "NCC03590",
+    "B": "Chi Nhánh DNTN Vân Trúc",
+    "C": "100/1G, Khu Phố Đồng An 2, Phường Bình Hòa, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0302323293-002",
+    "tax_type": "s",
+    "row": "168"
+  },
+  {
+    "A": "NCC03327",
+    "B": "Chi Nhánh Petrolimex Đắk Nông - Công Ty TNHH MTV Petrolimex Lâm Đồng",
+    "C": "Km845, QL14, Phường Nam Gia Nghĩa, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "5800000689-029",
+    "tax_type": "s",
+    "row": "169"
+  },
+  {
+    "A": "NCC02824",
+    "B": "Công Ty TNHH Thương Mại và Xuất Khẩu Passion Fruit",
+    "C": "Thôn 9, Xã Pơng Drang, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "6001725521",
+    "tax_type": "s",
+    "row": "170"
+  },
+  {
+    "A": "NCC03613",
+    "B": "Gara Văn Vỹ",
+    "C": "Tổ Dân Phố 8, Chân Đèo Bảo Lộc, Đại Lào, Bảo Lộc, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "171"
+  },
+  {
+    "A": "NCC03598",
+    "B": "Công Ty TNHH Dịch Vụ Tân Tiến Nghĩa",
+    "C": "QL1A, Tổ 3, Khu Vực 8, Phường Quy Nhơn Tây, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "4101539814",
+    "tax_type": "s",
+    "row": "172"
+  },
+  {
+    "A": "NCC03611",
+    "B": "Cơ Sở Vá Xăm Lốp Ô Tô Hoàn Lý",
+    "C": "Km22, QL14, Cư M'gar, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "173"
+  },
+  {
+    "A": "NCC03615",
+    "B": "Điện Ô Tô - Điện Lạnh Trọng",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "174"
+  },
+  {
+    "A": "NCC03608",
+    "B": "Garage Huy Hoàng",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "175"
+  },
+  {
+    "A": "NCC03603",
+    "B": "Công Ty TNHH Hỗ Trợ Hợp Phát",
+    "C": "83/120 Năm Châu, Phường Bảy Hiền, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0317143198",
+    "tax_type": "s",
+    "row": "176"
+  },
+  {
+    "A": "NCC03025",
+    "B": "Công Ty TNHH Trang Hoàng TN",
+    "C": "13 Đường Nguyễn Chánh, Phường Cư Bao, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "6001764520",
+    "tax_type": "s",
+    "row": "177"
+  },
+  {
+    "A": "NCC03358",
+    "B": "Nguyễn Hoàng",
+    "C": "431 Điện Biên Phủ, Phường Thạnh Mỹ Tây, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "091079014793",
+    "tax_type": "s",
+    "row": "178"
+  },
+  {
+    "A": "NCC03596",
+    "B": "Công Ty Cổ Phần Tropivina Daklak",
+    "C": "Thôn Đoàn Kết, Xã Ea Kar, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "6001772930",
+    "tax_type": "s",
+    "row": "179"
+  },
+  {
+    "A": "NCC03636",
+    "B": "Điện Ô Tô - Điện Lạnh Vương Quốc",
+    "C": "22 An Dương Vương, Tổ 11, Khu Vực 4, Phường Bùi Thị Xuân, Quy Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "180"
+  },
+  {
+    "A": "NCC03604",
+    "B": "Hộ Kinh Doanh Ngô Xuân Phương",
+    "C": "Sạp 56 Chợ Dân Sinh, Phường Bến Thành, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079172002806",
+    "tax_type": "s",
+    "row": "181"
+  },
+  {
+    "A": "NCC03614",
+    "B": "Cơ Sở Vá Vỏ Lốp Lâm Nhiên",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "182"
+  },
+  {
+    "A": "NCC03660",
+    "B": "Vá Vỏ Lưu Động 24/24 Thuận",
+    "C": "Cát Lái, Quận 2, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "183"
+  },
+  {
+    "A": "NCC03659",
+    "B": "Vá Vỏ 24/24 Dũng II",
+    "C": "QL1A, Km12, Hàm Kiệm, Hàm Thuận Nam, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "184"
+  },
+  {
+    "A": "NCC01675",
+    "B": "Phụ Tùng Ô Tô Khả Ái",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "185"
+  },
+  {
+    "A": "NCC03610",
+    "B": "Cửa Hàng Kim Khí Tổng Hợp Huỳnh Minh",
+    "C": "QL13, Tổ 2, Thanh Trung, Thanh Lương, TX. Bình Long, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "186"
+  },
+  {
+    "A": "NCC02244",
+    "B": "Cửa Hàng Dủ Khang",
+    "C": "137, Tạ Uyên, Phường 04, Quận 11, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "187"
+  },
+  {
+    "A": "NCC02974",
+    "B": "NCC Trần Văn Lâm (Anh Bé)",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "188"
+  },
+  {
+    "A": "NCC03637",
+    "B": "Trung Tâm Sửa Chữa Và Bảo Hành Điện Lạnh A-Chính",
+    "C": "Đồng Đăng, Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "189"
+  },
+  {
+    "A": "NCC00993",
+    "B": "Công Ty TNHH Thương Mại Thanh Kim Long",
+    "C": "51 Đoàn Như Hài, Phường Xóm Chiếu, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0301438580",
+    "tax_type": "s",
+    "row": "190"
+  },
+  {
+    "A": "NCC03197",
+    "B": "Công Ty TNHH Trúc Lam Linh",
+    "C": "64 Phan Chu Trinh, Xã Cư Jút, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "6400446015",
+    "tax_type": "s",
+    "row": "191"
+  },
+  {
+    "A": "NCC03400",
+    "B": "NCC Hưng Ngọc",
+    "C": "Ki Ốt 34, Bãi Xe Bảo Nguyên, Cửa Khẩu Tân Thanh, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "192"
+  },
+  {
+    "A": "NCC03621",
+    "B": "Công Ty TNHH Đầu Tư Liên Hiệp SAV",
+    "C": "18, Ngách 445/50A Lạc Long Quân, Phường Tây Hồ, TP. Hà Nội",
+    "D": "TP. Hà Nội",
+    "E": "0107563164",
+    "tax_type": "s",
+    "row": "193"
+  },
+  {
+    "A": "NCC03638",
+    "B": "Cửa Hàng Màn Cửa Thanh Hoa",
+    "C": "130A, Ấp 2, Long Thời, Nhà Bè, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "194"
+  },
+  {
+    "A": "NCC00518",
+    "B": "Công Ty TNHH Cung Ứng Vật Tư Hàng Hải Á Châu",
+    "C": "95/11 Đường Số 17, Khu Phố 4, Phường Tân Thuận, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0315475134",
+    "tax_type": "s",
+    "row": "195"
+  },
+  {
+    "A": "NCC01606",
+    "B": "Phụ Tùng Ô Tô Tư Triều 3",
+    "C": "QL1A, Phước Lộc, Tuy Phước, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "196"
+  },
+  {
+    "A": "NCC03647",
+    "B": "Công Ty TNHH MTV Xăng Dầu Ngô Đồng",
+    "C": "QL1A, Hải Thượng, Hải Lăng, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "197"
+  },
+  {
+    "A": "NCC03716",
+    "B": "Lốp Phan Lâm",
+    "C": "Bãi Đất Cạnh Cây Xăng Xứ Lạng, Khối Đồng Én, Phường Tam Thanh, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "198"
+  },
+  {
+    "A": "NCC03661",
+    "B": "Cơ Sở Vá Vỏ Ô Tô Hữu Trúc",
+    "C": "209A, Khu Phố 2, Đường Võ Văn Kiệt, Phường An Lạc, Bình Tân, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "199"
+  },
+  {
+    "A": "NCC01872",
+    "B": "Tiệm Bin Điện",
+    "C": "QL1A Đối Diện Quán Cơm Hoàng Long, Lăng Cô, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "200"
+  },
+  {
+    "A": "NCC03399",
+    "B": "Garage Ô Tô Nguyên",
+    "C": "QL1A, Gio Linh, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "201"
+  },
+  {
+    "A": "NCC03656",
+    "B": "NCC Hùng Tài",
+    "C": "QL14B, Cách Ngã Ba Đại Hiệp 2km",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "202"
+  },
+  {
+    "A": "NCC03125",
+    "B": "Garage Ô Tô Dũng Sĩ",
+    "C": "Đối Điện Cây Xăng Mới, Thôn Nài Pài, Thụy Hùng, Huyện Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "203"
+  },
+  {
+    "A": "NCC03308",
+    "B": "Lâm Lốp",
+    "C": "Cầu Sài Hồ 1, Thôn Bản Dù, Vân Thủy, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "204"
+  },
+  {
+    "A": "NCC03620",
+    "B": "Chi Nhánh Petrolimex Đông Hà - Công Ty TNHH MTV Petrolimex Quảng Trị",
+    "C": "2 Lê Lợi, Phường Nam Đông Hà, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "3100105749-042",
+    "tax_type": "s",
+    "row": "205"
+  },
+  {
+    "A": "NCC03033",
+    "B": "Công Ty TNHH Tiến Lốp Ô Tô",
+    "C": "Hàm Thuận Nam, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "206"
+  },
+  {
+    "A": "NCC03648",
+    "B": "NCC Tâm Hậu",
+    "C": "26, Bến Xe Tân Thanh, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "207"
+  },
+  {
+    "A": "NCC03023",
+    "B": "Điện Lạnh Thermo King Đà Nẵng",
+    "C": "TP. Đà Nẵng",
+    "D": "TP. Đà Nẵng",
+    "E": "",
+    "tax_type": null,
+    "row": "208"
+  },
+  {
+    "A": "NCC03643",
+    "B": "Hộ Kinh Doanh Trung Lọc Nhớt",
+    "C": "51 Phó Đức Chính, Phường Bến Thành, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079183015751",
+    "tax_type": "s",
+    "row": "209"
+  },
+  {
+    "A": "NCC03644",
+    "B": "Công Ty TNHH Thương Mại An Thọ Phát",
+    "C": "Km6 + 300, QL1A, Thôn Nà Pài, Xã Đồng Đăng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "4900934585",
+    "tax_type": "s",
+    "row": "210"
+  },
+  {
+    "A": "NCC03645",
+    "B": "Cơ Sở Vá Vỏ Vàng",
+    "C": "Ấp Mỹ Tường, Mỹ Đức Tây, Cái Bè, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "",
+    "tax_type": null,
+    "row": "211"
+  },
+  {
+    "A": "NCC03657",
+    "B": "Cơ Sở Vá Lốp Ô Tô Anh Tài",
+    "C": "Ngã Ba Koret Vina",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "212"
+  },
+  {
+    "A": "NCC01680",
+    "B": "Điện Lạnh Hồng Phúc",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "213"
+  },
+  {
+    "A": "NCC02790",
+    "B": "Gara Tuấn Thanh",
+    "C": "Km374, QL1A, TX. Nghi Sơn, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "214"
+  },
+  {
+    "A": "NCC03651",
+    "B": "NCC Pháp Huế",
+    "C": "223 Lạc Long Quân, Lăng Cô, Phú Lộc, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "215"
+  },
+  {
+    "A": "NCC03422",
+    "B": "Công Ty TNHH MTV Petrolimex Quảng Trị",
+    "C": "118 Đường Hữu Nghị, Phường Đồng Hới, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "3100105749",
+    "tax_type": "s",
+    "row": "216"
+  },
+  {
+    "A": "NCC03693",
+    "B": "Công Ty TNHH và TMDV Lâm Hải",
+    "C": "Tổ Dân Phố Văn Sơn, Phường Hải Lĩnh, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "217"
+  },
+  {
+    "A": "NCC03292",
+    "B": "Công Ty TNHH Lý Trang",
+    "C": "Đường Phụ Số 6, Khu Đô Thị Phú Lộc 1, Khối 14, Phường Kỳ Lừa, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "4900930492",
+    "tax_type": "s",
+    "row": "218"
+  },
+  {
+    "A": "NCC03723",
+    "B": "Cửa Hàng Phụ Tùng Ô Tô Huyền Bảo Thanh",
+    "C": "68, Km15, QL1A, Tổ 4, Khối 10, TT. Cao Lộc, Huyện Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "219"
+  },
+  {
+    "A": "NCC03316",
+    "B": "Gara Sửa Chữa Nhân",
+    "C": "Cây Xăng Thảo My, Đường Hồng Lĩnh, Tỉnh Hà Tĩnh",
+    "D": "Tỉnh Hà Tĩnh",
+    "E": "",
+    "tax_type": null,
+    "row": "220"
+  },
+  {
+    "A": "NCC03685",
+    "B": "Nội Thất Trung Hưng",
+    "C": "291 Nguyễn Thị Định, Bình Trưng Tây, Quận 2, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "221"
+  },
+  {
+    "A": "NCC03675",
+    "B": "Xưởng Sửa Chữa Hải Đông",
+    "C": "Cổng Công Viên Viettel Logistic",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "222"
+  },
+  {
+    "A": "NCC03654",
+    "B": "Công Ty Cổ Phần Đầu Tư Và Phát Triển INDEL",
+    "C": "164 Đường Quang Trung, Phường Hà Đông, TP. Hà Nội",
+    "D": "TP. Hà Nội",
+    "E": "0105810347",
+    "tax_type": "s",
+    "row": "223"
+  },
+  {
+    "A": "NCC03238",
+    "B": "Gara Ô Tô Trọng Luyến",
+    "C": "Dốc Ông Phật, Tổ 2, Phường Bùi Thị Xuân, Quy Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "224"
+  },
+  {
+    "A": "NCC02964",
+    "B": "Chi Nhánh Công Ty Cổ Phần Công Nghệ F5",
+    "C": "248 Hoàng Hoa Thám, Phường Bảy Hiền, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0102028438-001",
+    "tax_type": "s",
+    "row": "225"
+  },
+  {
+    "A": "NCC03683",
+    "B": "NCC Vương Thuận",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "226"
+  },
+  {
+    "A": "NCC03701",
+    "B": "Công Ty TNHH Lốp Hiếu Uyên",
+    "C": "Km10, Thôn Dân Ohus, Xã Hàm Kiệm, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "227"
+  },
+  {
+    "A": "NCC03667",
+    "B": "NCC Mạch Điện Anh Quang",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "228"
+  },
+  {
+    "A": "NCC03681",
+    "B": "Gara Ô Tô Thường",
+    "C": "Ngã 4 Phai Trần, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "229"
+  },
+  {
+    "A": "NCC03700",
+    "B": "Cơ Sở Vỏ Xe Ô Tô Lâm Quang Hùng",
+    "C": "Xuân Tâm, Xuân Lộc, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "230"
+  },
+  {
+    "A": "NCC03706",
+    "B": "Cửa Hàng Xăng Dầu Số 4 Đá Dầm",
+    "C": "Thôn Bạch Thạch, Xã Lộc An, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "231"
+  },
+  {
+    "A": "NCC03715",
+    "B": "Xưởng Cơ Khí Tổng Hợp Lam Hải",
+    "C": "Ngã Ba Khe Ve, Xã Tân Thành, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "232"
+  },
+  {
+    "A": "NCC03719",
+    "B": "Gara Ô Tô Đức Huy",
+    "C": "KKT Nghi Sơn Trúc Lâm, TX. Nghi Sơn, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "233"
+  },
+  {
+    "A": "NCC03720",
+    "B": "Công Ty TNHH Thương Mại Tổng Hợp Hà Vy",
+    "C": "Bản Ốc, Xã Dân Hóa, Minh Hóa, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "234"
+  },
+  {
+    "A": "NCC03673",
+    "B": "Chi Nhánh Công Ty CP Xăng Dầu Dầu Khí Vũng Áng Tại Tỉnh Quảng Trị",
+    "C": "Đường Phạm Văn Đồng, Tổ Dân Phố Diêm Thượng, Phường Đồng Hới, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "3000413193-001",
+    "tax_type": "s",
+    "row": "235"
+  },
+  {
+    "A": "NCC03687",
+    "B": "Lốp Tùng Khánh",
+    "C": "Thôn Thanh Lương, Xã Kép, Tỉnh Bắc Ninh",
+    "D": "Tỉnh Bắc Ninh",
+    "E": "",
+    "tax_type": null,
+    "row": "236"
+  },
+  {
+    "A": "NCC03714",
+    "B": "Cửa Hàng Thủy Kiên",
+    "C": "Công Ty Honda Phúc Yên, Tỉnh Phú Thọ",
+    "D": "Tỉnh Phú Thọ",
+    "E": "",
+    "tax_type": null,
+    "row": "237"
+  },
+  {
+    "A": "NCC03680",
+    "B": "NCC Gara Tấn Huế",
+    "C": "QL12A, Bản Ốc, Xã Dân Hóa, Huyện Minh Hóa, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "238"
+  },
+  {
+    "A": "NCC03682",
+    "B": "Công Ty TNHH 1 TV DV Cứu Hộ Giao Thông 116 Miền Nam",
+    "C": "58/26A Đường Số 9, Khu Phố 55, Phường Linh Xuân, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0319176128",
+    "tax_type": "s",
+    "row": "239"
+  },
+  {
+    "A": "NCC03686",
+    "B": "Điện Ô Tô - Xe Mỹ Nghĩa Trường",
+    "C": "QL1A, Cầu Đỏ, TP. Đà Nẵng",
+    "D": "TP. Đà Nẵng",
+    "E": "",
+    "tax_type": null,
+    "row": "240"
+  },
+  {
+    "A": "NCC03703",
+    "B": "Vá Vỏ VRC-PRO",
+    "C": "QL51, Khu Phố Phước Lập, Phường Phú Mỹ, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "241"
+  },
+  {
+    "A": "NCC03691",
+    "B": "Đại Lý Vietruck Lào Cai",
+    "C": "Bãi KB2, Kim Thành, Tỉnh Lào Cai",
+    "D": "Tỉnh Lào Cai",
+    "E": "",
+    "tax_type": null,
+    "row": "242"
+  },
+  {
+    "A": "NCC01703",
+    "B": "Phụ Tùng Ô Tô Nhật Trường",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "243"
+  },
+  {
+    "A": "NCC01858",
+    "B": "Gara Thuận Nguyễn",
+    "C": "Ngã Ba Sa Lung, Vĩnh Chấp, Vĩnh Linh, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "244"
+  },
+  {
+    "A": "NCC03704",
+    "B": "Trí Vá Vỏ",
+    "C": "Võ Chí Công, Quận 2, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "245"
+  },
+  {
+    "A": "NCC03708",
+    "B": "Công Ty TNHH TMDV XNK VRC-PRO",
+    "C": "Đường Mòn Hồ Chí Minh, Hương Bình, Tỉnh Hà Tĩnh",
+    "D": "Tỉnh Hà Tĩnh",
+    "E": "",
+    "tax_type": null,
+    "row": "246"
+  },
+  {
+    "A": "NCC02227",
+    "B": "NCC Lẻ - Anh Sơn",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "247"
+  },
+  {
+    "A": "NCC03730",
+    "B": "Gara Ô Tô Hậu Hơi",
+    "C": "Thôn Đổng Én, Xã Hoàng Đồng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "248"
+  },
+  {
+    "A": "NCC03718",
+    "B": "Cửa Hàng Hùng Liên",
+    "C": "1673/20, Phường Nam Sơn, TP. Tam Điệp, Tỉnh Ninh Bình",
+    "D": "Tỉnh Ninh Bình",
+    "E": "",
+    "tax_type": null,
+    "row": "249"
+  },
+  {
+    "A": "NCC02852",
+    "B": "Ngô Xuân Kim",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "250"
+  },
+  {
+    "A": "NCC03154",
+    "B": "Phụ Tùng Ô Tô Túy Hoài",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "251"
+  },
+  {
+    "A": "NCC03692",
+    "B": "Điện Ô Tô Phương",
+    "C": "19 Đường Cư Xá Lilama Trường Thọ, Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "252"
+  },
+  {
+    "A": "NCC03707",
+    "B": "Công Ty TNHH TMDV Thermo King ",
+    "C": "Bãi Xe KB2, Cửa Khẩu Kim Thành, TP. Lào Cai, Tỉnh Lào Cai",
+    "D": "Tỉnh Lào Cai",
+    "E": "",
+    "tax_type": null,
+    "row": "253"
+  },
+  {
+    "A": "NCC03688",
+    "B": "Công Ty TNHH Thanh Trung Phát",
+    "C": "163 Đường Tạ Uyên, Phường Minh Phụng, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0318048476",
+    "tax_type": "s",
+    "row": "254"
+  },
+  {
+    "A": "NCC03695",
+    "B": "Công Ty TNHH Sửa Chữa Khôi Nguyên",
+    "C": "415/3 Võ Nguyên Giáp, Khu Phố 14, Phường Bình Trưng, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0319380349",
+    "tax_type": "s",
+    "row": "255"
+  },
+  {
+    "A": "NCC03717",
+    "B": "Garage Ô Tô Phúc Huy",
+    "C": "Tổ Dân Phố Giáp Trung, Hưng Trà, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "256"
+  },
+  {
+    "A": "NCC03731",
+    "B": "Phụ Tùng Thành Lộc",
+    "C": "Ngã Tư Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "257"
+  },
+  {
+    "A": "NCC03724",
+    "B": "Gara Dũng Sơn",
+    "C": "Cầu Hà Vi, Xã Dân Hóa, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "258"
+  },
+  {
+    "A": "NCC01597",
+    "B": "Cửa Hàng Phụ Tùng Ô Tô Đại Nam",
+    "C": "2578 Đại Lộ Hùng Vương, TP. Cam Ranh, Tỉnh Khánh Hòa",
+    "D": "Tỉnh Khánh Hòa",
+    "E": "",
+    "tax_type": null,
+    "row": "259"
+  },
+  {
+    "A": "NCC03727",
+    "B": "Gara Ô Tô Minh Dũ Bình Định",
+    "C": "Trạm Dừng Nghỉ QL1A, Tam Lung, Thôn Nhất Tâm, Xã Đồng Đăng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "260"
+  },
+  {
+    "A": "NCC01628",
+    "B": "Công Ty TNHH Săm Lốp Ô Tô Tiến luân",
+    "C": "Tân Thành 52, TT. Tân Thành, Bắc Tân Uyên, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "261"
+  },
+  {
+    "A": "NCC03694",
+    "B": "Hộ Kinh Doanh Mười Nhỏ",
+    "C": "140/6 Điện Biên Phủ, Phường Gia Định, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079072039786",
+    "tax_type": "s",
+    "row": "262"
+  },
+  {
+    "A": "NCC03711",
+    "B": "Công Ty TNHH Xuất Nhập Khẩu OVAN",
+    "C": "12/9G Lô N, Cao Ốc Bình Khánh, Đường Lương Định Của, Phường Bình Trưng, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0312017520",
+    "tax_type": "s",
+    "row": "263"
+  },
+  {
+    "A": "NCC03794",
+    "B": "Cơ Sở Vá Vỏ Xe Lưu Động Hoàng Thúy",
+    "C": "Bến Xe Miền Đông Mới, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "264"
+  },
+  {
+    "A": "NCC01871",
+    "B": "Vá Vỏ Hoàng Phúc",
+    "C": "B11/19C, Khu Phố 2, Tân Túc, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "265"
+  },
+  {
+    "A": "NCC03419",
+    "B": "Công Ty Cổ Phần Công Nghệ Ô Tô Xuân Thành",
+    "C": "Lô Số 58, Đại Lộ Võ Nguyên Giáp, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "2803149836",
+    "tax_type": "s",
+    "row": "266"
+  },
+  {
+    "A": "NCC03712",
+    "B": "Garage Ô Tô Điệp Đức",
+    "C": "Tổ 4, Khu Vực 8, Phường Quy Nhơn Tây, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "267"
+  },
+  {
+    "A": "NCC03709",
+    "B": "Công Ty TNHH Phụ Tùng Ô Tô Á Âu",
+    "C": "928 QL1A, Khu Phố 4, Phường Linh Xuân, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0313190239",
+    "tax_type": "s",
+    "row": "268"
+  },
+  {
+    "A": "NCC01669",
+    "B": "Vá Vỏ Hoàng Nghiệp",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "269"
+  },
+  {
+    "A": "NCC03737",
+    "B": "Hộ Kinh Doang Garage Auto",
+    "C": "Thôn Thanh Long, Xã Tân Thành, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "270"
+  },
+  {
+    "A": "NCC03050",
+    "B": "NCC Sửa Cont Anh Tính",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "271"
+  },
+  {
+    "A": "NCC03728",
+    "B": "Huy Hoàng Auto",
+    "C": "Ấp 1, Tân Lập, Bình Phú, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "272"
+  },
+  {
+    "A": "NCC03729",
+    "B": "Sửa Chữa Ô Tô Thanh Hùng",
+    "C": "Ấp 2, Đồng Tâm, Xã Đồng Phú, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "273"
+  },
+  {
+    "A": "NCC03744",
+    "B": "Anh Nguyên Auto",
+    "C": "Cửa Khẩu Kim Thành, Tỉnh Lào Cai",
+    "D": "Tỉnh Lào Cai",
+    "E": "",
+    "tax_type": null,
+    "row": "274"
+  },
+  {
+    "A": "NCC03273",
+    "B": "Gara Ô Tô Nông Chiến",
+    "C": "Đồng Đăng, Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "275"
+  },
+  {
+    "A": "NCC03732",
+    "B": "Công Ty TNHH Toàn Nhân",
+    "C": "61/38 Võ Mười, Phường Quy Nhơn Nam, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "4101630220",
+    "tax_type": "s",
+    "row": "276"
+  },
+  {
+    "A": "NCC02614",
+    "B": "Công Ty Cổ Phần Xăng Dầu Dầu Khí Vũng Áng",
+    "C": "417 Đường Trần Phú, Phường Thạch Linh, TP. Hà Tĩnh, Tỉnh Hà Tĩnh",
+    "D": "Tỉnh Hà Tĩnh",
+    "E": "3000413193",
+    "tax_type": "s",
+    "row": "277"
+  },
+  {
+    "A": "NCC03272",
+    "B": "Cửa Hàng Phụ Tùng Ô Tô Huynh Trang",
+    "C": "Đối Điện Cây Xăng Số 7 Dốc Quýt, Đồng Đăng, Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "278"
+  },
+  {
+    "A": "NCC03735",
+    "B": "Út Decal CB",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "279"
+  },
+  {
+    "A": "NCC03736",
+    "B": "Xưởng Cơ Khí Tổng Hợp Anh Đức",
+    "C": "Đường Mòn HCM, Thôn Ngọc Bội, Xã Phúc Trạch, Tỉnh Hà Tĩnh",
+    "D": "Tỉnh Hà Tĩnh",
+    "E": "",
+    "tax_type": null,
+    "row": "280"
+  },
+  {
+    "A": "NCC03738",
+    "B": "Gara Đức Hùng",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "281"
+  },
+  {
+    "A": "NCC03739",
+    "B": "NCC - Đức Sơn",
+    "C": "Đường Tránh Vinh, Xóm 8, Hưng Lợi, Hưng Nguyên, Tỉnh Nghệ An",
+    "D": "Tỉnh Nghệ An",
+    "E": "",
+    "tax_type": null,
+    "row": "282"
+  },
+  {
+    "A": "NCC03207",
+    "B": "Gara Ô Tô Lý Huế",
+    "C": "QL1A, Xã Thụy Hùng, Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "283"
+  },
+  {
+    "A": "NCC03741",
+    "B": "Công Ty Cổ Phần TM&DV Ô Tô Phước Vinh",
+    "C": "17A Đường Mai Hắc Đế, Phường Quán Bàu, TP. Vinh, Tỉnh Nghệ An",
+    "D": "Tỉnh Nghệ An",
+    "E": "",
+    "tax_type": null,
+    "row": "284"
+  },
+  {
+    "A": "NCC03742",
+    "B": "NCC - Đức Thống",
+    "C": "Chalo, Minh Hóa, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "285"
+  },
+  {
+    "A": "NCC03751",
+    "B": "Vá Vỏ Thành Công",
+    "C": "Km8, Trường Xuân, Đắk Song, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "286"
+  },
+  {
+    "A": "NCC03752",
+    "B": "Gara Ô Tô Xuân Khoa",
+    "C": "Thôn 10, Xã Nam Bình, Đắk Song, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "287"
+  },
+  {
+    "A": "NCC03793",
+    "B": "Cơ Sở Vá Vỏ Lưu Động Trung Thành",
+    "C": "Ấp Bố Lá, Trạm Thu Phí Phước Hòa, Phú Giáo, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "288"
+  },
+  {
+    "A": "NCC03749",
+    "B": "Công Ty TNHH Thương Mại Dịch Vụ Xây Dựng 247",
+    "C": "181F Đường Bình Thới, Phường Bình Thới, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0314114047",
+    "tax_type": "s",
+    "row": "289"
+  },
+  {
+    "A": "NCC03761",
+    "B": "Cơ Sở Điện Lạnh Ô Tô Đạt",
+    "C": "Long Thạnh, Xuân Lộc, Sông Cầu, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "290"
+  },
+  {
+    "A": "NCC03795",
+    "B": "Garage Ô Tô Phúc Thịnh",
+    "C": "Thôn 8, Nam Bình, Đắk Song, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "291"
+  },
+  {
+    "A": "NCC03772",
+    "B": "Gara Ô Tô Hùng Hiệp Phát",
+    "C": "Thôn 4 Quỳnh Giang, Xã Quỳnh Lưu, Tỉnh Nghệ An",
+    "D": "Tỉnh Nghệ An",
+    "E": "",
+    "tax_type": null,
+    "row": "292"
+  },
+  {
+    "A": "NCC03776",
+    "B": "Sửa Chữa Container Lạnh Hải Đường",
+    "C": "Khe Ve, Cha Lo, Minh Hóa, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "293"
+  },
+  {
+    "A": "NCC03783",
+    "B": "Garage A Dược",
+    "C": "Tân Lập, Sông Hinh, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "294"
+  },
+  {
+    "A": "NCC03787",
+    "B": "Điện Ô Tô - Điện Lạnh Duy Tuấn",
+    "C": "QL1A, Ấp 2, Xuân Hòa, Xuân Lộc, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "295"
+  },
+  {
+    "A": "NCC01678",
+    "B": "Bán Buôn Bán Lẻ Quang Tèo",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "296"
+  },
+  {
+    "A": "NCC02983",
+    "B": "Công Ty Cổ Phần Xuất Nhập Khẩu Thiên Mã",
+    "C": "516 Đường Hoàng Hữu Nam, Phường Long Bình, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0315327577",
+    "tax_type": "s",
+    "row": "297"
+  },
+  {
+    "A": "NCC03754",
+    "B": "Hộ Kinh Doanh Cơ Khí Quang",
+    "C": "880 Song Hành Xa Lộ Hà Nội, XLHN, Tăng Nhơn Phú, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "298"
+  },
+  {
+    "A": "NCC03755",
+    "B": "Công Ty Cổ Phần Xuất Nhập Khẩu Cơ Giới Sài Gòn",
+    "C": "38 Đường Lô C, Khu Phố 3, Phường Tam Bình, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0317795210",
+    "tax_type": "s",
+    "row": "299"
+  },
+  {
+    "A": "NCC03813",
+    "B": "Cửa Hàng Lương Ngọc",
+    "C": "Thanh Tân, Đồng Đăng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "300"
+  },
+  {
+    "A": "NCC03756",
+    "B": "NCC Nguyễn Bá Thành - Quận 7",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "301"
+  },
+  {
+    "A": "NCC03760",
+    "B": "Công Ty TNHH Xuất Nhập Khẩu Sky Ocean Food",
+    "C": "Cụm Công Nghiệp Krông Búk, Xã Pơng Đrang, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "6001725271",
+    "tax_type": "s",
+    "row": "302"
+  },
+  {
+    "A": "NCC03765",
+    "B": "Hộ Kinh Doanh Cửa Hàng Hiệp Lợi",
+    "C": "137 Tạ Uyên, Phường Minh Phụng, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079051002580",
+    "tax_type": "s",
+    "row": "303"
+  },
+  {
+    "A": "NCC03798",
+    "B": "HKD Cửa Hàng Liên Khanh",
+    "C": "Tổ 5, Khu Phố Tân Lộc, Phường Tân Phước, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "8011161557-001",
+    "tax_type": "s",
+    "row": "304"
+  },
+  {
+    "A": "NCC01831",
+    "B": "Phụ tùng ô tô Hoàng Yến",
+    "C": "QL1A, Ngã Ba Phú Tài, TP. Quy Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "305"
+  },
+  {
+    "A": "NCC01867",
+    "B": "Tiệm Vá Lốp Xe Tuyết Mai",
+    "C": "Trúc Sơn, Cư Jút, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "306"
+  },
+  {
+    "A": "NCC03768",
+    "B": "NCC - Viết Phi",
+    "C": "Khối 12, Xã Hương Khê, Tỉnh Hà Tĩnh",
+    "D": "Tỉnh Hà Tĩnh",
+    "E": "",
+    "tax_type": null,
+    "row": "307"
+  },
+  {
+    "A": "NCC03767",
+    "B": "Lốp Thế Tâm",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "308"
+  },
+  {
+    "A": "NCC03769",
+    "B": "NCC - Giang Béo",
+    "C": "Đường Lê Đức Thọ, Liêm Chung, Phủ Lý, Cách Nút Giao Liêm Tuyến 500m, Tỉnh Ninh Bình",
+    "D": "Tỉnh Ninh Bình",
+    "E": "",
+    "tax_type": null,
+    "row": "309"
+  },
+  {
+    "A": "NCC03770",
+    "B": "Xưởng Sửa Chữa Ô Tô Xuân Trường",
+    "C": "Cầu Hương Sơn, Xã Ké, Tỉnh Bắc Ninh",
+    "D": "Tỉnh Bắc Ninh",
+    "E": "",
+    "tax_type": null,
+    "row": "310"
+  },
+  {
+    "A": "NCC03782",
+    "B": "NCC - Quang Chính",
+    "C": "Cầu Vượt Đường Tránh Huế, Phường Phú Bài, TP. Huế",
+    "D": "TP. Huế",
+    "E": "",
+    "tax_type": null,
+    "row": "311"
+  },
+  {
+    "A": "NCC03788",
+    "B": "Gara Ô Tô Thành Tài",
+    "C": "Tổ Dân Phố Lan Trà, Phường Trúc Lâm, TX. Nghi Sơn, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "312"
+  },
+  {
+    "A": "NCC01640",
+    "B": "Cơ Sở Vá Vỏ Văn Trùy",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "313"
+  },
+  {
+    "A": "NCC03777",
+    "B": "Gara Ô Tô Khánh Tích",
+    "C": "Xóm 5, Phúc Đồng, Hương Bình, Tỉnh Hà Tĩnh",
+    "D": "Tỉnh Hà Tĩnh",
+    "E": "",
+    "tax_type": null,
+    "row": "314"
+  },
+  {
+    "A": "NCC03784",
+    "B": "Điện Ô Tô Phi Hùng",
+    "C": "681 QL20, Trần Cao Vân, Bàu Hàm, Thống Nhất, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "315"
+  },
+  {
+    "A": "NCC03800",
+    "B": "Gara Phương Tùng (Sài Gòn)",
+    "C": "Ngã 4 Phai Trần, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "316"
+  },
+  {
+    "A": "NCC03100",
+    "B": "Cơ Điện Lạnh Trọng Thái",
+    "C": "Ngã 3 Ma Mèo, Tân Mỹ, Văn Lãng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "317"
+  },
+  {
+    "A": "NCC03812",
+    "B": "Garage Ô Tô Hà Cường",
+    "C": "Khu Phố 5, Phường Bắc Sơn, TX. Bỉm Sơn, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "318"
+  },
+  {
+    "A": "NCC03241",
+    "B": "Garage Hiếu",
+    "C": "Đường Tránh An Nhơn, Phường Nhơn Thành, TX. An Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "319"
+  },
+  {
+    "A": "NCC01836",
+    "B": "Cơ Điện Lạnh Ô tô Thuận Phát",
+    "C": "QL1A, Đường Mới, Diên Toàn, Diên Khánh, Tỉnh Khánh Hòa",
+    "D": "Tỉnh Khánh Hòa",
+    "E": "",
+    "tax_type": null,
+    "row": "320"
+  },
+  {
+    "A": "NCC03781",
+    "B": "Công Ty TNHH Một Thành Viên Cao Su Thiên Phúc",
+    "C": "129, Thôn 1, Xã Bù Đăng, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3801203744",
+    "tax_type": "s",
+    "row": "321"
+  },
+  {
+    "A": "NCC03791",
+    "B": "Vá Vỏ Lưu Động Hưng Phát",
+    "C": "TT. Lai Uyên, Bàu Bàng, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "322"
+  },
+  {
+    "A": "NCC03155",
+    "B": "Công Ty TNHH Sản Xuất Thương Mại Dịch Vụ Ngân Kiều",
+    "C": "220 Tân Thành, Phường Chợ Lớn, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0318755757",
+    "tax_type": "s",
+    "row": "323"
+  },
+  {
+    "A": "NCC03789",
+    "B": "Gara Ô Tô Thanh",
+    "C": "70 Bùi Tá Hàn, Ngũ Hành Sơn, TP. Đà Nẵng",
+    "D": "TP. Đà Nẵng",
+    "E": "",
+    "tax_type": null,
+    "row": "324"
+  },
+  {
+    "A": "NCC03804",
+    "B": "Công Ty TNHH MTV Ô Tô Gia Bảo",
+    "C": "Đường Phú Riềng Đỏ, Phường Bình Phước, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "325"
+  },
+  {
+    "A": "NCC03790",
+    "B": "Cửa Hàng Vỏ Xe Trung Hiếu",
+    "C": "Đường 3 Tháng 2, Khu Vực 6, TP. Ngã Bảy, TP. Cần Thơ",
+    "D": "TP. Cần Thơ",
+    "E": "",
+    "tax_type": null,
+    "row": "326"
+  },
+  {
+    "A": "NCC03792",
+    "B": "Auto Phong Lê",
+    "C": "Đường Tránh Phía Đông, Phường Ea Kao, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "327"
+  },
+  {
+    "A": "NCC03796",
+    "B": "Lốp Ô Tô Bình Quyết",
+    "C": "Xã Thuận An, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "328"
+  },
+  {
+    "A": "NCC03797",
+    "B": "Vá Vỏ Lưu Động Điệp 89",
+    "C": "KCN Cái Mé, Tân Phước, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "329"
+  },
+  {
+    "A": "NCC01906",
+    "B": "Phụ Tùng Ô Tô Tuấn Sỹ",
+    "C": "Phú Mỹ 2, Phước Lộc, Tuy Phước, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "330"
+  },
+  {
+    "A": "NCC03805",
+    "B": "Điện Máy Thắng Lợi",
+    "C": "190B Hùng Vương, Phường Ka Long, Tỉnh Quảng Ninh",
+    "D": "Tỉnh Quảng Ninh",
+    "E": "",
+    "tax_type": null,
+    "row": "331"
+  },
+  {
+    "A": "NCC02848",
+    "B": "Công Ty TNHH Thương Mại Xăng Dầu Hiệp Thịnh",
+    "C": "47 Nguyễn Thông, Phường Phú Thủy, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "3400265888",
+    "tax_type": "s",
+    "row": "332"
+  },
+  {
+    "A": "NCC03814",
+    "B": "NCC Viên Đà Nẵng",
+    "C": "Khu Ga, TT. Đồng Đăng, Cao Lộc, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "333"
+  },
+  {
+    "A": "NCC02174",
+    "B": "Cửa Hàng Phụ Tùng Ô Tô Lê Trung",
+    "C": "312 Điện Biên Phủ, Phường 22, Quận Bình Thạnh, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0301803603",
+    "tax_type": "s",
+    "row": "334"
+  },
+  {
+    "A": "NCC03827",
+    "B": "Vỏ Xe Ô Tô Vinh",
+    "C": "Khu Phố Ông Trịnh, Phường Tân Phước, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "335"
+  },
+  {
+    "A": "NCC01968",
+    "B": "Garage Thuận - Hòa",
+    "C": "Long Thạnh, Xuân Lộc, Sông Cầu, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "336"
+  },
+  {
+    "A": "NCC03815",
+    "B": "Cửa Hàng Tài Thảo",
+    "C": "QL1A, Đối Diện Cây Xăng Dốc Quýt, Đồng Đăng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "337"
+  },
+  {
+    "A": "NCC03850",
+    "B": "Đức Chung Decal",
+    "C": "Thôn Văn Yên, Phường Đào Duy Từ, Nghi Sơn, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "338"
+  },
+  {
+    "A": "NCC03823",
+    "B": "Gara Minh",
+    "C": "Điện Biên Phủ, Phường Nam Đông Hà, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "339"
+  },
+  {
+    "A": "NCC03824",
+    "B": "Công Ty TNHH MTV-TM-DV Nam Trung Phong",
+    "C": "Km19, QL20, Xã Phú Lợi, Định Quán, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "340"
+  },
+  {
+    "A": "NCC03825",
+    "B": "CN Phụ Tùng Ô Tô Tiến Mơ",
+    "C": "Cửa Đồng, Bình Xuyên, Tỉnh Phú Thọ",
+    "D": "Tỉnh Phú Thọ",
+    "E": "",
+    "tax_type": null,
+    "row": "341"
+  },
+  {
+    "A": "NCC03858",
+    "B": "NCC Quỳnh Như",
+    "C": "Cầu Đắk Tít, Phường Nghĩa Phú, TP. Gia Nghĩa, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "342"
+  },
+  {
+    "A": "NCC01446",
+    "B": "Công Ty TNHH Dịch Vụ Và Thương Mại Tân Nam Chinh",
+    "C": "483/67 Lê Văn Sỹ, Phường Nhiêu Lộc, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0303955513",
+    "tax_type": "s",
+    "row": "343"
+  },
+  {
+    "A": "NCC03856",
+    "B": "Vá Vỏ Dung -  Phúc",
+    "C": "Đồng Tâm, Đồng Phú, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "344"
+  },
+  {
+    "A": "NCC03857",
+    "B": "NCC - Anh Cu",
+    "C": "Thôn Bình An, Xã Hòa Phú (Hòa Khánh Cũ), Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "345"
+  },
+  {
+    "A": "NCC03388",
+    "B": "Lốp Ô Tô Thảo",
+    "C": "Km19, Hàm Cường, Hàm Thuận Nam, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "346"
+  },
+  {
+    "A": "NCC03828",
+    "B": "Công Ty TNHH Trọng Tín Nghi Sơn",
+    "C": "QL1A, Cầu Hổ, Thôn Thông Bái, Xã Trường Lâm, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "347"
+  },
+  {
+    "A": "NCC03829",
+    "B": "Công Ty TNHH Dịch Vụ và Thương Mại Anh Hải",
+    "C": "594 Võ Nguyên Giáp, Phường An Nhơn Nam, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "348"
+  },
+  {
+    "A": "NCC03862",
+    "B": "Xưởng Sửa Chữa Ô Tô Đức Chi",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "349"
+  },
+  {
+    "A": "NCC01926",
+    "B": "Xưởng sữa chữa ô tô Sơn Quân",
+    "C": "87 Đường Vòng Vạn Mỹ, Ngô Quyền, TP. Hải Phòng",
+    "D": "TP. Hải Phòng",
+    "E": "",
+    "tax_type": null,
+    "row": "350"
+  },
+  {
+    "A": "NCC03834",
+    "B": "Công Ty TNHH TM và DV Kỹ Thuật Hoàng Kim",
+    "C": "171/43 Trần Bá Giao, Khu Phố 22, Phường An Nhơn, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0314107988",
+    "tax_type": "s",
+    "row": "351"
+  },
+  {
+    "A": "NCC03833",
+    "B": "NCC Tô Tuấn Hạo",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "352"
+  },
+  {
+    "A": "NCC03836",
+    "B": "NCC - Thụy Lốp",
+    "C": "Vị Trí Vòng Xuyến Mai Sơn, Yên Mô, Tỉnh Ninh Bình",
+    "D": "Tỉnh Ninh Bình",
+    "E": "",
+    "tax_type": null,
+    "row": "353"
+  },
+  {
+    "A": "NCC03837",
+    "B": "Gara Ô Tô Lê Tam",
+    "C": "Bản Ốc, Xã Dân Hóa, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "354"
+  },
+  {
+    "A": "NCC01399",
+    "B": "Vá Vỏ Khôi Nguyên",
+    "C": "Đường K1 Nối Dài, Khu Công Nghiệp Cát Lái 2, Phường Thạnh Mỹ Lợi, Quận 2, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "355"
+  },
+  {
+    "A": "NCC03138",
+    "B": "Công Ty TNHH Trường Sa",
+    "C": "7/22 Đường TL 08, Khu Phố 3, Phường An Phú Đông, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0304946261",
+    "tax_type": "s",
+    "row": "356"
+  },
+  {
+    "A": "NCC03861",
+    "B": "Cơ Sở Vá vỏ Lưu Động 24/24 Anh Thọ 622",
+    "C": "Đường Số 1, Phường Trường Thọ, TP. Thủ Đức, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "357"
+  },
+  {
+    "A": "NCC02374",
+    "B": "Công Ty TNHH Quốc Tế Anh Hoàn",
+    "C": "184/14 Nguyễn Xí, Phường Bình Thạnh, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0313786423",
+    "tax_type": "s",
+    "row": "358"
+  },
+  {
+    "A": "NCC02530",
+    "B": "NCC BHLĐ Nguyễn Thị Hiền",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "359"
+  },
+  {
+    "A": "NCC03868",
+    "B": "Vá Lốp Lưu Động Dũng Lốp",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "360"
+  },
+  {
+    "A": "NCC03867",
+    "B": "Gara Ô Tô Hải Đông",
+    "C": "Thôn Quán Thanh, Xã Chi Lăng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "361"
+  },
+  {
+    "A": "NCC03869",
+    "B": "Công Ty CP Phụ Tùng Và Thiết Bị Điện Thành An",
+    "C": "QL1A, Khối 2, TT. Xuân An, Nghi Xuân, Tỉnh Hà Tĩnh",
+    "D": "Tỉnh Hà Tĩnh",
+    "E": "",
+    "tax_type": null,
+    "row": "362"
+  },
+  {
+    "A": "NCC03311",
+    "B": "Máy Phát Điện Kubota Tây Nguyên",
+    "C": "21A Đường 14A, Hòa Thuận, Buôn Ma Thuột, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "363"
+  },
+  {
+    "A": "NCC03848",
+    "B": "Garage Ô Tô Hoàng Hội",
+    "C": "Khu Thương Mại Kim Thành, Duyên Hải, Tỉnh Lào Cai",
+    "D": "Tỉnh Lào Cai",
+    "E": "",
+    "tax_type": null,
+    "row": "364"
+  },
+  {
+    "A": "NCC03849",
+    "B": "Đại Lý Phụ Tùng Hùng Thúy",
+    "C": "Phường Trúc Lâm, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "365"
+  },
+  {
+    "A": "NCC03860",
+    "B": "Dịch Vụ Vá Lốp Thuận Uyên",
+    "C": "Thôn Đắk Tâm, Xã Đắk Lao, Đắk Mil, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "366"
+  },
+  {
+    "A": "NCC03745",
+    "B": "Cửa Hàng Long Biên",
+    "C": "Dốc Quýt, TT. Đồng Đăng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "367"
+  },
+  {
+    "A": "NCC03889",
+    "B": "Gara Ô Tô Hai Lúa",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "368"
+  },
+  {
+    "A": "NCC03918",
+    "B": "Cơ Khí Văn Tại",
+    "C": "Km23, QL26, Thôn Tân Mỹ, Xã Ea Knuếc, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "369"
+  },
+  {
+    "A": "NCC03859",
+    "B": "Vá Lốp Hướng Kiệt",
+    "C": "Chợ Trung Hòa, QL27, Km16",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "370"
+  },
+  {
+    "A": "NCC03871",
+    "B": "Cửa Hàng Công Lý",
+    "C": "Cây Dầu Thụy Hùng, Đồng Đăng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "371"
+  },
+  {
+    "A": "NCC03893",
+    "B": "NCC Trung Ngọt",
+    "C": "Ki Ốt 39, Bãi Xe Bảo Nguyên, Tân Thanh, Văn Lãng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "372"
+  },
+  {
+    "A": "NCC03894",
+    "B": "Gara Hồ Huỳnh 3",
+    "C": "Km23, QL26, Xã Ea Kênh, Huyện Krông Pắc, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "373"
+  },
+  {
+    "A": "NCC03905",
+    "B": "Điện Lạnh Ô Tô Sỹ Phát",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "374"
+  },
+  {
+    "A": "NCC03920",
+    "B": "NCC Hân Lốp",
+    "C": "Phú Riềng Đỏ, Phường Bình Phước, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "375"
+  },
+  {
+    "A": "NCC03339",
+    "B": "Cơ Sở Vá Vỏ Ô Tô Thế Anh",
+    "C": "Ấp Tân Lợi, Xã Bắc Tân Uyên, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "376"
+  },
+  {
+    "A": "NCC03891",
+    "B": "Gara Hồ Huỳnh",
+    "C": "Đường Trành Cai Lậy, Tổ 5, Ấp Hòa Trí, Phường Cai Lậy, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "",
+    "tax_type": null,
+    "row": "377"
+  },
+  {
+    "A": "NCC03907",
+    "B": "Điện Ô Tô - Điện Lạnh Hiếu",
+    "C": "Km51, QL26, Ea Kar, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "378"
+  },
+  {
+    "A": "NCC03923",
+    "B": "Vá Lốp Phong Phú",
+    "C": "Đắk Ru, Đắk R'Lấp, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "379"
+  },
+  {
+    "A": "NCC03927",
+    "B": "Tiệm Vá Vỏ Thực Vá Ép",
+    "C": "Thôn Minh Tâm, Xã Bù Đăng, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "380"
+  },
+  {
+    "A": "NCC03247",
+    "B": "Công Ty TNHH MTV Petrolimex Huế",
+    "C": "48 Hùng Vương, Phường Thuận Hóa, TP. Huế",
+    "D": "TP. Huế",
+    "E": "3300100988",
+    "tax_type": "s",
+    "row": "381"
+  },
+  {
+    "A": "NCC03870",
+    "B": "Điện Đầu Kéo Mỹ Nguyên Phát",
+    "C": "QL1A, Phú Mỹ 2, Phước Lộc, Tuy Phước, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "382"
+  },
+  {
+    "A": "NCC03928",
+    "B": "Garage Ô Tô Duy Hải",
+    "C": "QL14, TP. Gia Nghĩa, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "383"
+  },
+  {
+    "A": "NCC02514",
+    "B": "Garage Ô Tô Tân Tiến Nghĩa",
+    "C": "491 Thủ Khoa Huân, Phường Thanh Hải, TP. Phan Thiết, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "3401102188",
+    "tax_type": "s",
+    "row": "384"
+  },
+  {
+    "A": "NCC03381",
+    "B": "Garage Cơ Khí Ô Tô Toàn Phát",
+    "C": "Km13, Hàm Kiệm, Hàm Thuận Nam, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "385"
+  },
+  {
+    "A": "NCC01598",
+    "B": "Cửa Hàng Bình Điện Ắc Quy Lượng",
+    "C": "944 Nguyễn Thị Định, Phường Thạnh Mỹ Lợi, Quận 2, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "386"
+  },
+  {
+    "A": "NCC01963",
+    "B": "Điện ô tô xe Mỹ (Mân)",
+    "C": "Phan Thiết, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "387"
+  },
+  {
+    "A": "NCC03897",
+    "B": "Cửa Hàng Lâm Phú Thọ",
+    "C": "Thôn 6, Xã An Phú, TP. Pleiku, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "388"
+  },
+  {
+    "A": "NCC03898",
+    "B": "Auto Service Center",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "389"
+  },
+  {
+    "A": "NCC03875",
+    "B": "Garage Quyên",
+    "C": "Tây Sơn, TP. Quy Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "390"
+  },
+  {
+    "A": "NCC03877",
+    "B": "Xưởng Sửa Chữa Ô Tô Trường",
+    "C": "Đường Tránh Phú Mỹ, Đoạn Qua Thôn Phú Thiện, TT. Phú Mỹ",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "391"
+  },
+  {
+    "A": "NCC03926",
+    "B": "Vá Vỏ Ô Tô Trần Thảo",
+    "C": "Bình Thạnh, Lấp Vó, Tỉnh Đồng Tháp",
+    "D": "Tỉnh Đồng Tháp",
+    "E": "",
+    "tax_type": null,
+    "row": "392"
+  },
+  {
+    "A": "NCC01914",
+    "B": "Sửa Chữa Ô Tô Chín",
+    "C": "QL1A, Ngoài Ngã Ba Chùa Vàng 500m, Phù Cát, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "393"
+  },
+  {
+    "A": "NCC03236",
+    "B": "Công Ty TNHH MTV Petrolimex Đắk Lắk",
+    "C": "06 Đường Nguyễn Tất Thành, Phường Buôn Ma Thuột, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "6000235027",
+    "tax_type": "s",
+    "row": "394"
+  },
+  {
+    "A": "NCC03886",
+    "B": "Phụ Tùng Ô Tô Ánh Đỏ",
+    "C": "QL1A, TT. Diêu Trì, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "395"
+  },
+  {
+    "A": "NCC03896",
+    "B": "HẢI NGHĨA (NGUYỄN THÀNH CÔNG)",
+    "C": "105 Xa Lộ Hà Nội, Khu Phố Tân Lập, Phường Đông Hòa, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "079086020476",
+    "tax_type": "s",
+    "row": "396"
+  },
+  {
+    "A": "NCC03906",
+    "B": "Gara Sửa Chữa Ô Tô Lưu Động Tuấn Minh",
+    "C": "Tổ Dân Phố Sài Phi, Minh Đức, Mỹ Hào, Tỉnh Hưng Yên",
+    "D": "Tỉnh Hưng Yên",
+    "E": "",
+    "tax_type": null,
+    "row": "397"
+  },
+  {
+    "A": "NCC03916",
+    "B": "Tâm Thành Phát Generator",
+    "C": "Hải Bình, TX. Nghi Sơn, Tỉnh Thanh Hóa",
+    "D": "Tỉnh Thanh Hóa",
+    "E": "",
+    "tax_type": null,
+    "row": "398"
+  },
+  {
+    "A": "NCC03343",
+    "B": "Vá Vỏ Lưu Động - Khánh Vy",
+    "C": "135A Nguyễn Hữu Thọ, Ấp 3, Xã Long Thời, Huyện Nhà Bè, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "399"
+  },
+  {
+    "A": "NCC03884",
+    "B": "Công Ty Cổ Phần Đầu Tư Xây Dựng Và Dịch Vụ Kho Bãi Phú Tài - Chi Nhánh An Phú",
+    "C": "577/5, Khu Phố 4, Phường An Phú, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0304853183-006",
+    "tax_type": "s",
+    "row": "400"
+  },
+  {
+    "A": "NCC03895",
+    "B": "Garage Sửa Chữa Ô Tô Bình",
+    "C": "Tổ 3, Khu Vực 8, Phường Bùi Thị Xuân, TP. Quy Nhơn, Tỉnh Gia Lai",
+    "D": "Tỉnh Gia Lai",
+    "E": "",
+    "tax_type": null,
+    "row": "401"
+  },
+  {
+    "A": "NCC03925",
+    "B": "Garage Hùng Cường 119",
+    "C": "Ấp 1, Xã Phú Tân, Huyện Định Quán, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "",
+    "tax_type": null,
+    "row": "402"
+  },
+  {
+    "A": "NCC03246",
+    "B": "Công Ty TNHH MTV Petrolimex Khánh Hòa",
+    "C": "10B Nguyễn Thiện Thuật, Phường Nha Trang, Tỉnh Khánh Hòa",
+    "D": "Tỉnh Khánh Hòa",
+    "E": "4200240380",
+    "tax_type": "s",
+    "row": "403"
+  },
+  {
+    "A": "NCC03885",
+    "B": "Chi Nhánh Số 24 - Công Ty Cổ Phần Vật Tư - Xăng Dầu",
+    "C": "Ấp 5, Xã Mỹ Hạnh, Tỉnh Tây Ninh",
+    "D": "Tỉnh Tây Ninh",
+    "E": "0300450673-025",
+    "tax_type": "s",
+    "row": "404"
+  },
+  {
+    "A": "NCC03887",
+    "B": "Chi Nhánh Petrolimex Bình Phước - Công Ty TNHH MTV Petrolimex Đồng Nai",
+    "C": "298 QL14, Phường Bình Phước, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3600247325-040",
+    "tax_type": "s",
+    "row": "405"
+  },
+  {
+    "A": "NCC03892",
+    "B": "Garage Ô Tô Hoàng Thiện",
+    "C": "Đèo Cù Mông, TX. Sông Trầu, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "406"
+  },
+  {
+    "A": "NCC03890",
+    "B": "Cửa Hàng Xăm Lốp Long Thiên",
+    "C": "Bãi Xe Bảo Nguyên, Xã Tân Thanh, Huyện Văn Lãng, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "407"
+  },
+  {
+    "A": "NCC03912",
+    "B": "Garage vũ",
+    "C": "Ngã 4 Phai Trần, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "408"
+  },
+  {
+    "A": "NCC03917",
+    "B": "Điện Lạnh Triều Hiền",
+    "C": "72, Tổ 3, Khối 25, Phường Kỳ Lừa, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "409"
+  },
+  {
+    "A": "NCC03924",
+    "B": "Vá Vỏ Lưu Động 68",
+    "C": "Đường Tạo Lực, Ấp 8, Xã Phú Giáo, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "410"
+  },
+  {
+    "A": "NCC03577",
+    "B": "Chi nhánh Petrolimex Vũng Tàu - Công ty TNHH MTV Petrolimex Sài Gòn",
+    "C": "12 Đường Hoàng Hoa Thám, Phường Vũng Tàu, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0300555450-009",
+    "tax_type": "s",
+    "row": "411"
+  },
+  {
+    "A": "NCC03888",
+    "B": "Công Ty TNHH TM - DV Kim Đại Long",
+    "C": "8 S3, Khu Dân Cư An Hoà 2, Khu Phố 12, Phường Trấn Biên, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3600829108",
+    "tax_type": "s",
+    "row": "412"
+  },
+  {
+    "A": "NCC03899",
+    "B": "Bách Hóa Lào - Thái Hồng Vân 2 (My Con)",
+    "C": "Km9, Thôn Vĩnh An, Xã Hiếu Giang, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "413"
+  },
+  {
+    "A": "NCC03900",
+    "B": "Gara Ô Tô Hoàn Trọc",
+    "C": "Đường 10, KCN An Xá, Tỉnh Ninh Bình",
+    "D": "Tỉnh Ninh Bình",
+    "E": "",
+    "tax_type": null,
+    "row": "414"
+  },
+  {
+    "A": "NCC03901",
+    "B": "Công Ty TNHH Thương Mại và Dịch Vụ Long Trường Giang",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "415"
+  },
+  {
+    "A": "NCC03902",
+    "B": "Sửa Chửa Container Lạnh Hải Dương",
+    "C": "Kheve, Chalo, Minh Hóa, Tỉnh Quảng Trị",
+    "D": "Tỉnh Quảng Trị",
+    "E": "",
+    "tax_type": null,
+    "row": "416"
+  },
+  {
+    "A": "NCC03903",
+    "B": "Điện Ô Tô Văn Tịnh",
+    "C": "184 Nguyễn Tất Thành, Phường Tuy Hòa, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "417"
+  },
+  {
+    "A": "NCC03904",
+    "B": "Garage Ô Tô Ba Ốm",
+    "C": "Bến Xe Liên Tỉnh Đắk Lắk, 71 Nguyễn Chí Thanh, TP. Buôn Ma Thuột, Tỉnh Đắk Lắk",
+    "D": "Tỉnh Đắk Lắk",
+    "E": "",
+    "tax_type": null,
+    "row": "418"
+  },
+  {
+    "A": "NCC03911",
+    "B": "NCC Khánh Phú Xuyên",
+    "C": "Đầu Bãi Cây Xăng Dầu Xứ Lạng, QL1A, Thôn Đổng Én, Phường Tam Thanh, Tỉnh Lạng Sơn",
+    "D": "Tỉnh Lạng Sơn",
+    "E": "",
+    "tax_type": null,
+    "row": "419"
+  },
+  {
+    "A": "NCC03921",
+    "B": "Lốp Ô Tô Hoàng Giang",
+    "C": "DX001, Phường Bình Dương, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "",
+    "tax_type": null,
+    "row": "420"
+  },
+  {
+    "A": "NCC03909",
+    "B": "Công Ty CP Thương Mại Dịch Vụ Và Xuất Nhập Khẩu Phát An Khang",
+    "C": "Km30+900 Quốc Lộ 281, Thôn Đồng Lâm, Xã Gia Hanh, Tỉnh Hà Tĩnh",
+    "D": "Tỉnh Hà Tĩnh",
+    "E": "3002076419",
+    "tax_type": "s",
+    "row": "421"
+  },
+  {
+    "A": "NCC03919",
+    "B": "Tiệm Lốp Thanh Bình",
+    "C": "Thôn 6, Kiến Thành, Đắk R'Lấp, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "422"
+  },
+  {
+    "A": "NCC03932",
+    "B": "Trung Tâm Lốp Và Chăm Sóc Xe Trần Đức",
+    "C": "QL14, Tổ 7, Phường Nghĩa, TP. Gia Nghĩa, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "423"
+  },
+  {
+    "A": "NCC03922",
+    "B": "Lốp Ô Tô Vinh",
+    "C": "Km14, Hàm Kiệm, Hàm Thuận Nam, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "",
+    "tax_type": null,
+    "row": "424"
+  },
+  {
+    "A": "NCC02791",
+    "B": "Công Ty Cổ Phần Vận Tải Và Dịch Vụ Petrolimex Thừa Thiên Huế",
+    "C": "13 Trần Thanh Mại, Phường An Đông, TP. Huế",
+    "D": "TP. Huế",
+    "E": "3300338405",
+    "tax_type": "s",
+    "row": "425"
+  },
+  {
+    "A": "NCC03935",
+    "B": "Garage Hữu Cầu",
+    "C": "",
+    "D": "",
+    "E": "",
+    "tax_type": null,
+    "row": "426"
+  },
+  {
+    "A": "NCC03936",
+    "B": "Phụ Tùng Bình Minh",
+    "C": "QL05, KCN Đại An, TP. Hải Phòng",
+    "D": "TP. Hải Phòng",
+    "E": "",
+    "tax_type": null,
+    "row": "427"
+  },
+  {
+    "A": "NCC03938",
+    "B": "Công Ty TNHH Thương Mại Ninol",
+    "C": "193 Tạ Uyên, Phường Minh Phụng, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0315341839",
+    "tax_type": "s",
+    "row": "428"
+  },
+  {
+    "A": "NCC03939",
+    "B": "Công Ty TNHH Thương Mại Đầu Tư Mai Lan Anh",
+    "C": "A1 Đường N6, Phường An Khánh, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0319421041",
+    "tax_type": "s",
+    "row": "429"
+  },
+  {
+    "A": "NCC03940",
+    "B": "Công Ty TNHH Một Thành Viên Thương Mại Thiên Sơn Hải",
+    "C": "QL14, Thôn Sao Bộng, Xã Nghĩa Trung, Tỉnh Đồng Nai",
+    "D": "Tỉnh Đồng Nai",
+    "E": "3801307694",
+    "tax_type": "s",
+    "row": "430"
+  },
+  {
+    "A": "NCC03942",
+    "B": "Công Ty TNHH Thương Mại Sản Xuất Long Thủy",
+    "C": "Thôn 6, Xã Bảo Lâm 2, Tỉnh Lâm Đồng",
+    "D": "Tỉnh Lâm Đồng",
+    "E": "5801313758",
+    "tax_type": "s",
+    "row": "431"
+  },
+  {
+    "A": "NCC05000",
+    "B": "Công Ty TNHH Thương Mại Dịch Vụ 2FLY",
+    "C": "Tầng 3, TT2-23, Khu Liền Kề IEC, Xã Tứ Hiệp, Huyện Thanh Trì, TP. Hà Nội",
+    "D": "TP. Hà Nội",
+    "E": "0110668424",
+    "tax_type": "s",
+    "row": "432"
+  },
+  {
+    "A": "NCC05001",
+    "B": "Công Ty TNHH Igotel",
+    "C": "Số 15 Nguyễn Lương Bằng, Phường Tân Mỹ, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0315625894",
+    "tax_type": "s",
+    "row": "433"
+  },
+  {
+    "A": "NCC05002",
+    "B": "Công Ty TNHH Thương Mại Dịch Vụ Mai Lan Anh",
+    "C": "227 Lý Thái Tổ, Phường Vườn Lài, TP. Hồ Chí Minh",
+    "D": "TP. Hồ Chí Minh",
+    "E": "0303940362",
+    "tax_type": "s",
+    "row": "434"
+  }
+]

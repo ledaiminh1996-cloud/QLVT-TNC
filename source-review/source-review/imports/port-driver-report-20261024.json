@@ -1,0 +1,45 @@
+{
+  "new_drivers": 13,
+  "port_drivers": 14,
+  "total_drivers": 80,
+  "linked_tractors": 75,
+  "held": [
+    {
+      "plate": "50H-236.90",
+      "name": "Đinh Hùng Dũng"
+    },
+    {
+      "plate": "50H-048.95",
+      "name": "Trần Trung Hiếu"
+    },
+    {
+      "plate": "51D-155.69",
+      "name": "Nguyễn Tuấn Luận"
+    },
+    {
+      "plate": "50H-296.03",
+      "name": "Nguyễn Văn Lập"
+    },
+    {
+      "plate": "50H-042.16",
+      "name": "Nguyễn Anh Tuấn"
+    },
+    {
+      "plate": "50H-166.26",
+      "name": "Nguyễn Thái Vũ"
+    },
+    {
+      "plate": "50H-212.43",
+      "name": "Nguyễn Văn Nam"
+    }
+  ],
+  "multiple_tractors": [
+    {
+      "name": "Nguyễn Hoàng Anh",
+      "plates": [
+        "50H-113.08",
+        "50H-090.93"
+      ]
+    }
+  ]
+}

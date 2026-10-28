@@ -1,0 +1,362 @@
+{
+  "imported_drivers": 67,
+  "assigned": [
+    {
+      "code": "TNC0049",
+      "name": "Đinh Công Bộ",
+      "plate": "50H-202.47"
+    },
+    {
+      "code": "TNC0052",
+      "name": "Đinh Văn Nam",
+      "plate": "50H-113.35"
+    },
+    {
+      "code": "TNC0612",
+      "name": "Nguyễn Hoàng Anh",
+      "plate": "50H-090.93"
+    },
+    {
+      "code": "TNC0080",
+      "name": "Trần Văn Đức",
+      "plate": "50H-211.03"
+    },
+    {
+      "code": "TNC0087",
+      "name": "Đặng Ngọc Hà",
+      "plate": "50H-212.50"
+    },
+    {
+      "code": "TNC0095",
+      "name": "Trần Mạnh Bảo",
+      "plate": "50H-201.97"
+    },
+    {
+      "code": "TNC0104",
+      "name": "Nguyễn Thành Toại",
+      "plate": "50H-092.24"
+    },
+    {
+      "code": "TNC0142",
+      "name": "Lê Hồng Sơn",
+      "plate": "50H-113.87"
+    },
+    {
+      "code": "TNC0148",
+      "name": "Mai Văn Thành",
+      "plate": "50H-114.50"
+    },
+    {
+      "code": "TNC0289",
+      "name": "Nguyễn Văn Ni",
+      "plate": "50H-113.48"
+    },
+    {
+      "code": "TNC0347",
+      "name": "Nguyễn Văn Kha",
+      "plate": "50E-085.50"
+    },
+    {
+      "code": "TNC0621",
+      "name": "Nguyễn Văn Hạnh",
+      "plate": "51D-160.44"
+    },
+    {
+      "code": "TNC0647",
+      "name": "Hoàng Văn Huy",
+      "plate": "50H-048.53"
+    },
+    {
+      "code": "TNC0350",
+      "name": "Giản Tư Tâm",
+      "plate": "50H-110.99"
+    },
+    {
+      "code": "TNC0437",
+      "name": "Trịnh Văn Tuấn",
+      "plate": "50H-092.83"
+    },
+    {
+      "code": "TNC0441",
+      "name": "Nguyễn Văn Phúc",
+      "plate": "50H-092.18"
+    },
+    {
+      "code": "TNC0444",
+      "name": "Hà Xuân Bình",
+      "plate": "50H-237.32"
+    },
+    {
+      "code": "TNC0446",
+      "name": "Nguyễn Văn Tiên",
+      "plate": "50H-089.56"
+    },
+    {
+      "code": "TNC0451",
+      "name": "Nguyễn Trung Thành",
+      "plate": "50H-166.26"
+    },
+    {
+      "code": "TNC0454",
+      "name": "Lê Văn Cường",
+      "plate": "50H-077.00"
+    },
+    {
+      "code": "TNC0456",
+      "name": "Trần Nguyễn Nam Khang",
+      "plate": "51D-308.50"
+    },
+    {
+      "code": "TNC0467",
+      "name": "Nguyễn Công Thanh",
+      "plate": "50H-239.44"
+    },
+    {
+      "code": "TNC0484",
+      "name": "Nguyễn Văn Kinh",
+      "plate": "50H-211.09"
+    },
+    {
+      "code": "TNC0488",
+      "name": "Nguyễn Ngọc Minh",
+      "plate": "50H-210.85"
+    },
+    {
+      "code": "TNC0495",
+      "name": "Nguyễn Đình Sĩ",
+      "plate": "50H-091.40"
+    },
+    {
+      "code": "TNC0683",
+      "name": "Phan Hồng Phú",
+      "plate": "50H-074.18"
+    },
+    {
+      "code": "TNC0498",
+      "name": "Chung Thanh Tùng",
+      "plate": "50H-050.80"
+    },
+    {
+      "code": "TNC0510",
+      "name": "Nguyễn Trung Tín",
+      "plate": "50H-227.03"
+    },
+    {
+      "code": "TNC0512",
+      "name": "Nguyễn Minh Vũ",
+      "plate": "50H-113.92"
+    },
+    {
+      "code": "TNC0516",
+      "name": "Bùi Xuân Vương",
+      "plate": "50H-074.17"
+    },
+    {
+      "code": "TNC0558",
+      "name": "Nguyễn Văn Cương",
+      "plate": "50H-092.33"
+    },
+    {
+      "code": "TNC0569",
+      "name": "Đỗ Bá Thắng",
+      "plate": "51D-154.99"
+    },
+    {
+      "code": "TNC0643",
+      "name": "Hồ Ngọc Minh Phong",
+      "plate": "50H-112.41"
+    },
+    {
+      "code": "TNC0562",
+      "name": "Võ Trường Nguyên",
+      "plate": "50H-208.54"
+    },
+    {
+      "code": "TNC0581",
+      "name": "Mai Chánh Thành",
+      "plate": "51D-602.93"
+    },
+    {
+      "code": "TNC0501",
+      "name": "Phan Trọng Định",
+      "plate": "51D-190.53"
+    },
+    {
+      "code": "TNC0583",
+      "name": "Trần Văn Tuyên",
+      "plate": "51D-182.56"
+    },
+    {
+      "code": "TNC0658",
+      "name": "Trần Quang Hùng",
+      "plate": "50H-113.08"
+    },
+    {
+      "code": "TNC0661",
+      "name": "Lâm Trường Sơn",
+      "plate": "50H-210.67"
+    },
+    {
+      "code": "TNC0663",
+      "name": "Phạm Minh Hùng",
+      "plate": "50H-209.74"
+    },
+    {
+      "code": "TNC0664",
+      "name": "Trần Duy Nhật Quang",
+      "plate": "50H-074.63"
+    },
+    {
+      "code": "TNC0690",
+      "name": "Võ Thành Bảo",
+      "plate": "50H-074.47"
+    },
+    {
+      "code": "TNC0701",
+      "name": "Nguyễn Hòi",
+      "plate": "50H-111.26"
+    },
+    {
+      "code": "TNC0703",
+      "name": "Phan Thuận Bình",
+      "plate": "51D-183.44"
+    },
+    {
+      "code": "TNC0710",
+      "name": "Nguyễn Đức Trị",
+      "plate": "50H-046.07"
+    },
+    {
+      "code": "TNC0713",
+      "name": "Hà Phi Hùng",
+      "plate": "50H-052.07"
+    },
+    {
+      "code": "TNC0719",
+      "name": "Nguyễn Huy Hoàng",
+      "plate": "50H-076.49"
+    },
+    {
+      "code": "TNC0728",
+      "name": "Đỗ Văn Thiện",
+      "plate": "51D-154.64"
+    },
+    {
+      "code": "TNC0729",
+      "name": "Trần Duy Đức",
+      "plate": "51D-147.29"
+    },
+    {
+      "code": "TNC0732",
+      "name": "Mai Chấn Bôn",
+      "plate": "50H-048.18"
+    },
+    {
+      "code": "TNC0734",
+      "name": "Trần Thanh Dương",
+      "plate": "50H-208.95"
+    },
+    {
+      "code": "TNC0735",
+      "name": "Nguyễn Trung Hiếu",
+      "plate": "50H-208.67"
+    },
+    {
+      "code": "TNC0737",
+      "name": "Nguyễn Thanh Nhàn",
+      "plate": "50H-242.86"
+    },
+    {
+      "code": "TNC0711",
+      "name": "Trần Ngọc Viễn",
+      "plate": "50H-153.43"
+    },
+    {
+      "code": "TNC0742",
+      "name": "Hồ Tuấn Vũ",
+      "plate": "50H-048.95"
+    },
+    {
+      "code": "TNC0752",
+      "name": "Trương Văn Phú",
+      "plate": "50H-048.91"
+    },
+    {
+      "code": "TNC0757",
+      "name": "Bùi Hữu Tuấn",
+      "plate": "50H-048.32"
+    },
+    {
+      "code": "TNC0760",
+      "name": "Phạm Nhật Tân",
+      "plate": "50H-092.54"
+    },
+    {
+      "code": "TNC0761",
+      "name": "Trần Minh Tuấn",
+      "plate": "50H-045.43"
+    },
+    {
+      "code": "TNC0766",
+      "name": "Trần Tiến Quý",
+      "plate": "50H-045.67"
+    }
+  ],
+  "held": [
+    {
+      "code": "TNC0598",
+      "name": "Nguyễn Tiến Bình",
+      "plate": "50E-088.76",
+      "reason": "missing_vehicle"
+    },
+    {
+      "code": "TNC0618",
+      "name": "Nguyễn Văn Lộc",
+      "plate": "50E-087.85",
+      "reason": "missing_vehicle"
+    },
+    {
+      "code": "TNC0704",
+      "name": "Nguyễn Ái Thực",
+      "plate": "51D-155.07",
+      "reason": "duplicate_plate"
+    },
+    {
+      "code": "TNC0730",
+      "name": "Trần Quang Vũ",
+      "plate": "51D-155.07",
+      "reason": "duplicate_plate"
+    },
+    {
+      "code": "TNC0733",
+      "name": "Nguyễn Trí Thiện",
+      "plate": "50E-034.78",
+      "reason": "missing_vehicle"
+    },
+    {
+      "code": "TNC0762",
+      "name": "Nguyễn Thành Đôn",
+      "plate": "50E-033.35",
+      "reason": "missing_vehicle"
+    },
+    {
+      "code": "TNC0765",
+      "name": "Trần Nguyên Giáp",
+      "plate": "50E-032.79",
+      "reason": "missing_vehicle"
+    }
+  ],
+  "skipped_missing_code": [
+    {
+      "_row": "68",
+      "A": "67",
+      "B": "",
+      "C": "Nguyễn Tấn Luận",
+      "D": "0974595376",
+      "E": "51D-155.69",
+      "F": "",
+      "G": "",
+      "H": "Tài xế đường dài"
+    }
+  ]
+}

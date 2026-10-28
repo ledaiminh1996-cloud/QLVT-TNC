@@ -1,0 +1,31 @@
+from pathlib import Path
+Path('shared/openingDetails.ts').write_text('''export interface OpeningDetails {driver_id:string;driver_name:string;vehicle_id:string;vehicle_plate:string;trailer_number:string;generator_code:string}
+export const emptyOpeningDetails=():OpeningDetails=>({driver_id:"",driver_name:"",vehicle_id:"",vehicle_plate:"",trailer_number:"",generator_code:""});
+export function parseOpeningDetails(value:unknown):OpeningDetails{
+ if(!value||typeof value!=="object"||Array.isArray(value))throw new Error("Thông tin tài xế đầu kỳ không hợp lệ.");
+ const result=emptyOpeningDetails();
+ for(const [key,raw]of Object.entries(value)){if(!Object.hasOwn(result,key)||typeof raw!=="string"||raw.length>(key.endsWith("_id")?128:256)||(key.endsWith("_id")&&raw&&!/^[a-zA-Z0-9_-]+$/.test(raw)))throw new Error("Thông tin tài xế đầu kỳ không hợp lệ.");result[key as keyof OpeningDetails]=raw.trim();}
+ return result;
+}
+''',encoding='utf-8')
+p=Path('shared/documents.ts');s=p.read_text(encoding='utf-8');s='import {parseOpeningDetails,type OpeningDetails} from "./openingDetails.ts";\n'+s;s=s.replace('  opening_mode?:"stock"|"in_use";','  opening_mode?:"stock"|"in_use";\n  opening_details?:OpeningDetails;');s=s.replace('  "opening_mode",','  "opening_mode",\n  "opening_details",');needle='  if (kind === "receipt")\n    d.invoice_number';s=s.replace(needle,'  if(v.opening_details!==undefined){if(kind!=="opening"||d.opening_mode!=="in_use")throw new Error("Thông tin tài xế chỉ dùng cho đầu kỳ đang sử dụng.");d.opening_details=parseOpeningDetails(v.opening_details);}\n'+needle);p.write_text(s,encoding='utf-8')
+p=Path('worker/src/openingManagement.ts');p.write_text('''import type {Env,User} from "./types.ts";
+import {ApiError} from "./http.ts";
+/** Mounted opening sources follow creator access; warehouse-origin issues retain warehouse permissions. */
+export const sourceAccessSql=(line="l",opening="ou")=>`((${opening}.inventory_line_id IS NOT NULL AND EXISTS(SELECT 1 FROM inventory_documents origin WHERE origin.id=${line}.document_id AND origin.created_by=?)) OR (${opening}.inventory_line_id IS NULL AND EXISTS(SELECT 1 FROM document_warehouse_access wa WHERE wa.user_id=? AND wa.warehouse_id=${line}.from_warehouse_id)))`;
+export async function checkSourceAccess(env:Env,user:User,rootId:string){if(user.role!=="warehouse")return;const allowed=await env.DB.prepare("SELECT 1 FROM inventory_document_lines l LEFT JOIN opening_usage_lines ou ON ou.inventory_line_id=l.id WHERE l.id=? AND "+sourceAccessSql()).bind(rootId,user.id,user.id).first();if(!allowed)throw new ApiError(403,"SOURCE_SCOPE","Nguồn đầu kỳ không thuộc tài khoản hoặc kho xuất chưa được cấp quyền.");}
+''',encoding='utf-8')
+p=Path('worker/src/documents.ts');s=p.read_text(encoding='utf-8').replace('managementUnit,openingUnits,checkOpeningUnits,sourceAccessSql,checkSourceAccess','sourceAccessSql,checkSourceAccess').replace('  await checkOpeningUnits(env,user,draft);\n','');a=s.index('  if(draft.kind==="opening"&&draft.opening_mode==="in_use")for(');b=s.index('  return labels;',a);s=s[:a]+s[b:];a=s.index('  if(request.method==="GET"&&id==="opening-unit")');b=s.index('  if(request.method==="POST"&&id==="recovery-price")',a);s=s[:a]+s[b:];s=s.replace('  const old = previous?.draft;','''  const old = previous?.draft;
+  if(draft.kind==="opening"&&draft.opening_mode==="in_use"&&draft.opening_details){
+    const info=draft.opening_details;
+    const context=await issueContext(env,"","",info.driver_id);
+    if(info.vehicle_id&&info.vehicle_id!==context.vehicle_id)return fail("Xe được phân công cho tài xế đã thay đổi. Chọn lại tài xế.");
+    draft.opening_details={driver_id:context.driver_id,driver_name:context.driver_name,vehicle_id:context.vehicle_id,vehicle_plate:context.vehicle_plate,trailer_number:context.trailer_number,generator_code:context.other};
+  }''',1);s=s.replace('        ...(r.kind==="opening"&&head.opening_mode==="in_use"?{management_unit_label:[...new Set(summaryLines.map(l=>labels["managing_unit_label:"+l.target_type+":"+l.target_id]||"Chưa xác định"))].join("; ")}:{ }),','');p.write_text(s,encoding='utf-8')
+p=Path('worker/src/catalogs.ts');s=p.read_text(encoding='utf-8').replace(' managing_unit_id:idRef,',' ').replace('...equipmentMetadata, managing_unit_id:idRef, plate_number:','...equipmentMetadata, plate_number:');a=s.index('  if (["vehicles","equipment"].includes(resource) && values.managing_unit_id)');b=s.index("  if (resource === 'vehicles' && values.assigned_driver_id)",a);s=s[:a]+s[b:];p.write_text(s,encoding='utf-8')
+p=Path('src/api/catalogFields.ts');s=p.read_text(encoding='utf-8').replace('  {key:"managing_unit_id",label:"Đơn vị quản lý",lookup:"org-units",nullable:true},\n','');p.write_text(s,encoding='utf-8')
+p=Path('src/api/equipmentFormFields.ts');s=p.read_text(encoding='utf-8');s='\n'.join(l for l in s.split('\n')if 'keys.splice(keys.indexOf("notes")' not in l);p.write_text(s,encoding='utf-8')
+p=Path('src/components/UserManagement.tsx');s=p.read_text(encoding='utf-8');s=s.replace('unit_ids:row?.units?.map(u=>u.id)??[],','').replace('[units,setUnits]=useState<CatalogRow[]>(),[unitError,setUnitError]=useState(""),','').replace('||!units','');s=s.replace(",unit_ids:values.role==='warehouse'?values.unit_ids:[]",'');s='\n'.join(l for l in s.split('\n')if "loadCatalogRows(api,'org-units'" not in l and '<legend className="px-1 text-xs font-semibold">Đơn vị quản lý vật tư' not in l);p.write_text(s,encoding='utf-8')
+p=Path('shared/userAccess.ts');s=p.read_text(encoding='utf-8').replace('Lập chứng từ tại kho được cấp; theo dõi vật tư đang sử dụng theo đơn vị được cấp.','Lập chứng từ tại kho được cấp; theo dõi vật tư đầu kỳ đang sử dụng do mình khai báo.');p.write_text(s,encoding='utf-8')
+p=Path('src/documents/DocumentList.tsx');s=p.read_text(encoding='utf-8').replace('<th>{kind==="opening"&&openingMode==="in_use"?"Đơn vị quản lý":"Kho"}</th>','{!(kind==="opening"&&openingMode==="in_use")&&<th>Kho</th>}');a=s.index('                          <td title={kind==="opening"&&openingMode==="in_use"?row.management_unit_label');b=s.index('                          <td title={row.partner_label}>',a);s=s[:a]+'''                          {!(kind==="opening"&&openingMode==="in_use")&&<td title={row.warehouse_label}>{row.warehouse_label||"—"}</td>}
+'''+s[b:];p.write_text(s,encoding='utf-8')

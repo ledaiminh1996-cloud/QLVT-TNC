@@ -1,0 +1,70 @@
+[
+  {
+    "filter": {},
+    "before_sql": 4,
+    "after_sql": 2,
+    "before_vm_steps": 123500,
+    "after_vm_steps": 28100,
+    "reduction_percent": 77.2
+  },
+  {
+    "filter": {
+      "q": "50H-110.99"
+    },
+    "before_sql": 4,
+    "after_sql": 2,
+    "before_vm_steps": 292100,
+    "after_vm_steps": 103300,
+    "reduction_percent": 64.6
+  },
+  {
+    "filter": {
+      "q": "51R-047.31"
+    },
+    "before_sql": 4,
+    "after_sql": 2,
+    "before_vm_steps": 305100,
+    "after_vm_steps": 103500,
+    "reduction_percent": 66.1
+  },
+  {
+    "filter": {
+      "q": "B65006700"
+    },
+    "before_sql": 4,
+    "after_sql": 2,
+    "before_vm_steps": 288000,
+    "after_vm_steps": 102600,
+    "reduction_percent": 64.4
+  },
+  {
+    "filter": {
+      "q": "does-not-exist"
+    },
+    "before_sql": 4,
+    "after_sql": 2,
+    "before_vm_steps": 331700,
+    "after_vm_steps": 101300,
+    "reduction_percent": 69.5
+  },
+  {
+    "filter": {
+      "q": "%"
+    },
+    "before_sql": 4,
+    "after_sql": 2,
+    "before_vm_steps": 331600,
+    "after_vm_steps": 101400,
+    "reduction_percent": 69.4
+  },
+  {
+    "filter": {
+      "q": "_"
+    },
+    "before_sql": 4,
+    "after_sql": 2,
+    "before_vm_steps": 331700,
+    "after_vm_steps": 101300,
+    "reduction_percent": 69.5
+  }
+]

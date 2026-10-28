@@ -1,0 +1,8 @@
+CREATE TABLE mount_positions (
+ id TEXT PRIMARY KEY NOT NULL,
+ code TEXT NOT NULL COLLATE NOCASE UNIQUE,
+ name TEXT NOT NULL,
+ notes TEXT,
+ is_active INTEGER NOT NULL DEFAULT 1 CHECK(is_active IN (0,1)),
+ version INTEGER NOT NULL DEFAULT 1 CHECK(version>=1)
+);

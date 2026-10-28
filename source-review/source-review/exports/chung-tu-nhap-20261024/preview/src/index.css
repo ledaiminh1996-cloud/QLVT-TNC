@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@import "./dark-theme.css";
+@import "./fonts.css";
+
+@theme {
+ --font-sans: "Inter Variable", "Segoe UI", Arial, sans-serif;
+ --font-mono: "JetBrains Mono Variable", Consolas, "Liberation Mono", monospace;
+}
+
+@layer base {
+ html { font-family:var(--font-sans); }
+ body { font-family:var(--font-sans); }
+ button, input, select, textarea { font-family:inherit; }
+}
+
+/* Monospace is reserved for identifiers, not measurements or ordinary text. */
+.font-mono { font-size:11px; line-height:16px; font-variant-ligatures:none; }
+.font-mono::placeholder { font-family:var(--font-sans); }
+
+/* Keep action headings and button groups aligned across catalog tables. */
+.catalog-actions-cell {
+  width: 1%;
+  padding: 12px 16px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.catalog-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.catalog-actions > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* Keep every VT-TB list column visible on desktop; long names wrap. */
+.parts-list-table table { width: 100%; min-width: 1000px; table-layout: fixed; white-space: normal; }
+.parts-list-table th, .parts-list-table td { padding: 10px 8px; white-space: normal; overflow-wrap: anywhere; vertical-align: middle; }
+.parts-list-table th { line-height: 1.4; }
+.parts-list-table td:nth-child(7), .parts-list-table td:nth-child(8) { text-align: right; font-variant-numeric: tabular-nums; }
+.parts-list-table th:nth-child(7), .parts-list-table th:nth-child(8) { text-align: right; }
+.parts-list-table .catalog-actions { gap: 4px; }
+.parts-list-table .catalog-actions > button { min-width: 28px; height: 28px; }
+
+/* Trailer identity, finance source and location fit the catalog viewport. */
+.trailer-list-table table { width:100%; min-width:1100px; table-layout:fixed; white-space:normal; }
+.trailer-list-table th, .trailer-list-table td { padding:10px 8px; white-space:normal; overflow-wrap:anywhere; vertical-align:middle; }
+.trailer-list-table th { line-height:1.4; }
+.trailer-list-table td:nth-child(3), .trailer-list-table td:nth-child(5) { font-variant-numeric:tabular-nums; }
+.trailer-list-table .catalog-actions { gap:4px; }
+.trailer-list-table .catalog-actions > button { min-width:28px; height:28px; }
+
+.equipment-list-table table { width:100%; min-width:740px; table-layout:fixed; white-space:normal; }
+.equipment-list-table th, .equipment-list-table td { padding:12px 10px; white-space:normal; overflow-wrap:anywhere; vertical-align:middle; }
+.equipment-list-table .catalog-actions { justify-content:center; gap:6px; }
+
+/* Keep history/edit/delete controls aligned in fixed-width catalog tables. */
+.equipment-list-table .catalog-actions, .supplier-list-table .catalog-actions { gap:4px; }
+.equipment-list-table .catalog-actions > button, .supplier-list-table .catalog-actions > button { min-width:28px; height:28px; }
+
+
+/* Catalog tables share the compact pairing table typography and spacing. */
+.catalog-table { font-size:12px; line-height:16px; text-align:left; font-variant-numeric:tabular-nums; }
+.catalog-table thead, .catalog-table thead tr { font-size:12px; line-height:16px; font-weight:600; text-transform:none; }
+.catalog-table thead th { padding:8px 12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:middle; }
+.catalog-table tbody tr { height:50px; }
+.catalog-table tbody td { padding:8px 12px; line-height:16px; vertical-align:middle; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; overflow-wrap:normal; }
+.catalog-table .catalog-cell-center { padding-left:8px; padding-right:8px; text-align:center; }
+.catalog-table .catalog-cell-number { text-align:right; font-variant-numeric:tabular-nums; }
+.catalog-table .catalog-cell-text { text-align:left; }
+.catalog-table .catalog-actions-cell { padding:8px; text-align:center; }
+.catalog-table .catalog-actions { gap:4px; }
+.catalog-table .catalog-actions > button { min-width:28px; height:28px; }
+.catalog-page > div:first-child { padding:12px; gap:8px; }
+.catalog-page > div:first-child h2 { font-size:14px; line-height:20px; font-weight:700; }
+.catalog-page > div:first-child button { min-height:36px; font-size:12px; line-height:16px; }
+.catalog-page > div:last-of-type { font-size:12px; }
+@media (min-width:640px) {
+ .catalog-page > div:first-child { padding:16px; }
+ .catalog-page > div:first-child h2 { font-size:16px; line-height:24px; }
+}

@@ -1,0 +1,4 @@
+# Copy to .dev.vars and use real Cloudflare Access settings.
+# Domain only, e.g. your-team.cloudflareaccess.com; no https:// prefix.
+ACCESS_TEAM_DOMAIN=""
+ACCESS_AUD=""

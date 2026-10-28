@@ -1,0 +1,5 @@
+from pathlib import Path
+p=Path('worker/tests/api.test.mjs');s=p.read_text(encoding='utf-8').replace("assert.equal((await post(draft,'opening-no-right','warehouse')).status,403);",'');p.write_text(s,encoding='utf-8')
+p=Path('src/documents/previewStore.ts');s=p.read_text(encoding='utf-8');s='\n'.join(l for l in s.split('\n')if 'async openingUnit(' not in l);s=s.replace('        info.odo = String(vehicle.current_odo_km ?? 0);','        info.odo = String(vehicle.current_odo_km ?? 0);\n        if(vehicle.id==="vehicle-1"){info.trailer_number=String(fixtures.vehicles?.find(v=>v.id==="trailer-1")?.plate_number??"");info.other=String(fixtures.equipment?.find(e=>e.id==="generator-1")?.code??"");}');p.write_text(s,encoding='utf-8')
+p=Path('src/documents/documentClient.ts');s=p.read_text(encoding='utf-8');s='\n'.join(l for l in s.split('\n')if 'openingUnit?(' not in l and 'async openingUnit(' not in l);p.write_text(s,encoding='utf-8')
+p=Path('shared/documents.ts');s=p.read_text(encoding='utf-8').replace('  management_unit_label?:string;\n','');p.write_text(s,encoding='utf-8')

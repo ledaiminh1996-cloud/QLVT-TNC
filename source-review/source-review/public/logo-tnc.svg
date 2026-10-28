@@ -1,0 +1,96 @@
+<svg viewBox="0 0 320 95" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="tncGreenGrad" x1="0%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#96D13D" />
+      <stop offset="35%" stop-color="#82BC35" />
+      <stop offset="70%" stop-color="#009245" />
+      <stop offset="100%" stop-color="#006837" />
+    </linearGradient>
+    <filter id="tncSubtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <text
+    x="6"
+    y="56"
+    fill="#0072BC"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Montserrat', 'Arial Black', sans-serif"
+    font-weight="900"
+    font-size="46"
+    letter-spacing="-1.5"
+  >
+    TânNamCh
+  </text>
+
+  <circle
+    cx="226"
+    cy="22"
+    r="13.5"
+    fill="#E52427"
+    filter="url(#tncSubtleShadow)"
+  />
+
+  <path
+    d="M 216 43 C 214 55, 210 70, 222 84 C 230 93, 246 95, 260 85 C 268 79, 274 70, 276 66 C 272 70, 264 78, 252 82 C 241 85, 230 83, 224 74 C 217 65, 220 53, 224 43 C 225 40, 228 36, 233 42 C 239 49, 245 56, 241 68 C 238 74, 233 78, 230 79 C 234 77, 240 73, 243 65 C 247 54, 239 44, 233 39 C 228 35, 220 38, 216 43 Z"
+    fill="url(#tncGreenGrad)"
+    filter="url(#tncSubtleShadow)"
+  />
+
+  <text
+    x="239"
+    y="56"
+    fill="#0072BC"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Montserrat', 'Arial Black', sans-serif"
+    font-weight="900"
+    font-size="46"
+    letter-spacing="-1.5"
+  >
+    nh
+  </text>
+
+  <circle
+    cx="294"
+    cy="24"
+    r="6"
+    stroke="#0072BC"
+    stroke-width="1.2"
+    fill="none"
+  />
+  <text
+    x="294"
+    y="27"
+    text-anchor="middle"
+    fill="#0072BC"
+    font-family="system-ui, sans-serif"
+    font-weight="800"
+    font-size="7.5"
+  >
+    R
+  </text>
+
+  <text
+    x="76"
+    y="74"
+    fill="#006837"
+    font-family="system-ui, -apple-system, 'Arial', sans-serif"
+    font-style="italic"
+    font-weight="900"
+    font-size="12.5"
+    letter-spacing="2.5"
+  >
+    VIETNAM LOGIST
+  </text>
+  <text
+    x="228"
+    y="74"
+    fill="#006837"
+    font-family="system-ui, -apple-system, 'Arial', sans-serif"
+    font-style="italic"
+    font-weight="900"
+    font-size="12.5"
+    letter-spacing="2"
+  >
+    CS
+  </text>
+</svg>

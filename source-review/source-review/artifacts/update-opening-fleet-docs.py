@@ -1,0 +1,4 @@
+from pathlib import Path
+p=Path('ARCHITECTURE.md');s=p.read_text(encoding='utf-8');a=s.index('## Vật tư đang sử dụng đầu kỳ — cập nhật 27/10/2026');s=s[:a]+'''## Vật tư đang sử dụng đầu kỳ — yêu cầu mới nhất 27/10/2026
+Theo docs/22-opening-fleet-header-20261027.md: bỏ Đơn vị quản lý ở phiếu và danh mục phương tiện; không kiểm tra quyền đơn vị cho đầu kỳ. Đầu phiếu lấy tài xế/xe/rơ moóc/máy phát từ ghép nối hiện tại, snapshot được máy chủ xác thực và giữ trong bản in. Bảng vật tư gọn, nguyên giá định dạng tiền có thể sửa. Đầu kỳ không gắn kho, không thay đổi tồn, giữ ba tổng cộng. Thủ kho thao tác nguồn đầu kỳ do mình lập; nguồn kho cũ vẫn theo quyền kho. Kho nhận thu hồi luôn được kiểm tra riêng. Dữ liệu đơn vị và schema 0034 giữ lại vì lịch sử, không hiển thị hoặc bắt buộc khai báo.
+''';p.write_text(s,encoding='utf-8')

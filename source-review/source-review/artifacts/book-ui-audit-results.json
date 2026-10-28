@@ -1,0 +1,46 @@
+[
+  {
+    "theme": "light",
+    "activeContrast": 9.448966208818252,
+    "footerContrast": 7.584010363626772,
+    "icon": "rgb(2,6,23)",
+    "activeBg": "rgb(254,154,0)",
+    "footer": "rgb(69,85,108)",
+    "footerBg": "rgb(255,255,255)",
+    "missing": "rgb(98,116,142)",
+    "missingBg": "rgb(255,255,255)",
+    "padding": [
+      "12px",
+      "16px",
+      "8px"
+    ],
+    "inset": 9,
+    "scrolls": true,
+    "bodyOverflows": false,
+    "emDashes": 0,
+    "columns": 14,
+    "logoHeight": 48
+  },
+  {
+    "theme": "dark",
+    "activeContrast": 9.448966208818252,
+    "footerContrast": 14.481508292066573,
+    "icon": "rgb(2,6,23)",
+    "activeBg": "rgb(254,154,0)",
+    "footer": "rgb(226,232,240)",
+    "footerBg": "rgb(15,23,42)",
+    "missing": "rgb(148,163,184)",
+    "missingBg": "rgb(15,23,42)",
+    "padding": [
+      "12px",
+      "16px",
+      "8px"
+    ],
+    "inset": 9,
+    "scrolls": true,
+    "bodyOverflows": false,
+    "emDashes": 0,
+    "columns": 14,
+    "logoHeight": 48
+  }
+]

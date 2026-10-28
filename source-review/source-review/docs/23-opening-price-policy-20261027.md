@@ -1,0 +1,11 @@
+# Định giá đầu kỳ bằng nguyên giá, tỷ lệ và người xác nhận — 27/10/2026
+
+Theo yêu cầu mới nhất, bỏ logic cảnh báo thiếu giá gốc lịch sử của opening/in_use. Nguyên giá ở form là căn cứ định giá: lấy giá mua DMVT khi chọn vật tư; người dùng có thể nhập đè giá mua gốc cũ nếu biết. Nếu gửi trống nguyên giá cùng đánh giá kỹ thuật, máy chủ đọc giá DMVT làm mặc định khi có giá dương. Không tự cập nhật nguyên giá đã lưu khi danh mục đổi giá.
+
+- Ghi sổ theo bộ thông tin đang hiển thị: nguyên giá, tỷ lệ còn lại và người xác nhận. Không dùng ô giá gốc lịch sử đã bỏ. Người xác nhận bắt buộc; biên bản cũ không thay cho người xác nhận. Phiếu nháp được thiếu dữ liệu; ghi sổ phương pháp mới phải đủ ba thông tin. Tỷ lệ 0% hợp lệ.
+- Giá trị còn lại quản trị = nguyên giá × tỷ lệ/100 × số lượng. Tính bằng số nguyên theo thang đo và làm tròn VND; giới hạn tiền như chứng từ. Snapshot version 2, basis opening_price_quality. Giữ khóa opening_reference_assessment để đọc tương thích.
+- Nguồn đầu kỳ mới theo phương pháp này lưu amount_vnd và open_value_vnd bằng giá trị còn lại; serial lưu giá trị còn lại trên từng đơn vị. Không tạo stock_movements/buckets/lots hoặc liên kết kho. Khi thu hồi vẫn chọn đúng nguồn, đúng số lượng còn mở và xác nhận giá/% thực tế lúc tháo theo luồng thu hồi đã có.
+- Không tạo inventory_valuation_flags vì thiếu trường unit_price cũ. Phiếu cũ được đọc tổng theo thông tin đánh giá đã lưu; bỏ nhãn/cờ cảnh báo giá gốc lịch sử ở chi tiết, danh sách và danh sách nguồn thu hồi. Bộ lọc pending không tính cảnh báo giá gốc cũ của đầu kỳ. Không xóa/sửa lịch sử sổ kho hoặc cờ dữ liệu cũ trên cloud; không revalue sổ đã ghi.
+- Các cảnh báo định giá thật sự chưa đủ ở phiếu thu hồi/xuất khác vẫn hoạt động. API khai báo đời trước không có trường đánh giá giữ cách đọc lịch sử cũ, không phát sinh cảnh báo giá gốc mới.
+- Danh sách đầu kỳ đổi tên cột Sau VAT thành Giá trị còn lại. Giá hiển thị, tổng cuối form, tổng phiếu và bản in dùng cùng phép tính mới.
+- Kiểm tra: 146 frontend tests, 136 Worker tests, TypeScript hai phần, build; các kiểm tra bổ sung giá DMVT, nhập giá cũ, thiếu người xác nhận, 0%, bỏ cảnh báo cũ mà không thay lịch sử, không thay tồn. Kiểm tra trình duyệt sáng/tối/mobile, sửa nguyên giá và tổng cộng, bản in. Không migration hoặc ghi thử dữ liệu thật.

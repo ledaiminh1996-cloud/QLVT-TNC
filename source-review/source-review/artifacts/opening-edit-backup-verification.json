@@ -1,0 +1,7 @@
+{
+  "tables_verified": 58,
+  "rows_unchanged": 15680,
+  "schema_objects_preserved": 129,
+  "foreign_key_violations": 0,
+  "dependency_guard_matches": true
+}

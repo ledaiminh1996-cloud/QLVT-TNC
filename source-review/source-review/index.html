@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (() => {
+        let theme;
+        try { theme = localStorage.getItem('tnc_theme'); } catch {}
+        document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ thống quản lý vật tư</title>
+    <link rel="icon" type="image/svg+xml" href="/logo-tnc.svg" />
+    <meta name="description" content="Hệ thống quản lý vật tư - Quản lý phụ tùng, thiết bị xe đầu kéo, rơ-moóc, xuất nhập tồn và định mức bảo trì." />
+    <meta property="og:title" content="Hệ thống quản lý vật tư" />
+    <meta property="og:description" content="Hệ thống quản lý vật tư - Quản lý phụ tùng, thiết bị xe đầu kéo, rơ-moóc, xuất nhập tồn và định mức bảo trì." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

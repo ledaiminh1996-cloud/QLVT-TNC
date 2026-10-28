@@ -1,0 +1,13 @@
+{
+  "stats": {
+    "total": 91,
+    "complete": 58,
+    "missing_trailer": 25,
+    "missing_generator": 7,
+    "missing_driver": 16,
+    "reviewed": 0,
+    "filtered_complete": 58
+  },
+  "foreign_keys": [],
+  "verified": true
+}

@@ -1,0 +1,11 @@
+TÂN NAM CHINH — THIẾT LẬP MẬT KHẨU QUẢN TRỊ
+
+Email đăng nhập: ledaiminh1996@gmail.com
+
+Sao chép liên kết dưới đây vào trình duyệt của bạn, tự chọn mật khẩu mới. Liên kết chỉ dùng một lần; không chia sẻ cho người khác.
+
+https://qlvt.tannamchinh.workers.dev/#setup=832cdf9c28c0fa72b904219c132e54e573ac25513ed7af43e4e20eff124c6f37
+
+Hết hạn: lúc 14:34 Thứ Tư, 28 tháng 10, 2026
+
+Nếu Cloudflare vẫn hỏi đăng nhập: dùng trình duyệt quản trị đang có phiên Cloudflare để thiết lập. Chỉ gỡ chính sách Access cũ sau khi đã tạo mật khẩu và vào QLVT thành công.

@@ -1,0 +1,6 @@
+{
+  "name": "Quản Lý Vật Tư Xe Đầu Kéo & Rơ Moóc",
+  "description": "Hệ thống quản lý Xuất - Nhập - Tồn phụ tùng vật tư xe đầu kéo, rơ-moóc với cảnh báo tồn kho tối thiểu, theo dõi định mức số KM và tuổi thọ sử dụng, báo cáo bảo trì tự động và tích hợp Google Sheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

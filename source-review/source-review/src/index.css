@@ -1,0 +1,173 @@
+@import "tailwindcss";
+@source not "../artifacts";
+@import "./dark-theme.css";
+@import "./fonts.css";
+@import "./components/accessEntrance.css";
+
+@theme {
+ --font-sans: "Inter Variable", "Segoe UI", Arial, sans-serif;
+ --font-mono: "JetBrains Mono Variable", Consolas, "Liberation Mono", monospace;
+}
+
+@layer base {
+ html { font-family:var(--font-sans); }
+ body { font-family:var(--font-sans); }
+ button, input, select, textarea { font-family:inherit; }
+}
+
+/* Monospace is reserved for identifiers, not measurements or ordinary text. */
+.font-mono { font-size:11px; line-height:16px; font-variant-ligatures:none; }
+.font-mono::placeholder { font-family:var(--font-sans); }
+
+/* Keep action headings and button groups aligned across catalog tables. */
+.catalog-actions-cell {
+  width: 1%;
+  padding: 12px 16px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.catalog-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.catalog-actions > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* Keep every VT-TB list column visible on desktop; long names wrap. */
+.parts-list-table table { width: 100%; min-width: 1000px; table-layout: fixed; white-space: normal; }
+.parts-list-table th, .parts-list-table td { padding: 10px 8px; white-space: normal; overflow-wrap: anywhere; vertical-align: middle; }
+.parts-list-table th { line-height: 1.4; }
+.parts-list-table td:nth-child(7), .parts-list-table td:nth-child(8) { text-align: right; font-variant-numeric: tabular-nums; }
+.parts-list-table th:nth-child(7), .parts-list-table th:nth-child(8) { text-align: right; }
+.parts-list-table .catalog-actions { gap: 4px; }
+.parts-list-table .catalog-actions > button { min-width: 28px; height: 28px; }
+
+/* Trailer identity, finance source and location fit the catalog viewport. */
+.trailer-list-table table { width:100%; min-width:1100px; table-layout:fixed; white-space:normal; }
+.trailer-list-table th, .trailer-list-table td { padding:10px 8px; white-space:normal; overflow-wrap:anywhere; vertical-align:middle; }
+.trailer-list-table th { line-height:1.4; }
+.trailer-list-table td:nth-child(3), .trailer-list-table td:nth-child(5) { font-variant-numeric:tabular-nums; }
+.trailer-list-table .catalog-actions { gap:4px; }
+.trailer-list-table .catalog-actions > button { min-width:28px; height:28px; }
+
+.equipment-list-table table { width:100%; min-width:740px; table-layout:fixed; white-space:normal; }
+.equipment-list-table th, .equipment-list-table td { padding:12px 10px; white-space:normal; overflow-wrap:anywhere; vertical-align:middle; }
+.equipment-list-table .catalog-actions { justify-content:center; gap:6px; }
+
+/* Keep history/edit/delete controls aligned in fixed-width catalog tables. */
+.equipment-list-table .catalog-actions, .supplier-list-table .catalog-actions { gap:4px; }
+.equipment-list-table .catalog-actions > button, .supplier-list-table .catalog-actions > button { min-width:28px; height:28px; }
+
+
+/* Catalog tables share the compact pairing table typography and spacing. */
+.catalog-table { font-size:12px; line-height:16px; text-align:left; font-variant-numeric:tabular-nums; }
+.catalog-table thead, .catalog-table thead tr { font-size:12px; line-height:16px; font-weight:600; text-transform:none; }
+.catalog-table thead th { padding:8px 12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:middle; }
+.catalog-table tbody tr { height:50px; }
+.catalog-table tbody td { padding:8px 12px; line-height:16px; vertical-align:middle; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; overflow-wrap:normal; }
+.catalog-table .catalog-cell-center { padding-left:8px; padding-right:8px; text-align:center; }
+.catalog-table .catalog-cell-number { text-align:right; font-variant-numeric:tabular-nums; }
+.catalog-table .catalog-cell-text { text-align:left; }
+.catalog-table .catalog-actions-cell { padding:8px; text-align:center; }
+.catalog-table .catalog-actions { gap:4px; }
+.catalog-table .catalog-actions > button { min-width:28px; height:28px; }
+.catalog-page > div:first-child { padding:12px; gap:8px; }
+.catalog-page > div:first-child h2 { font-size:14px; line-height:20px; font-weight:700; }
+.catalog-page > div:first-child button { min-height:36px; font-size:12px; line-height:16px; }
+.catalog-page > div:last-of-type { font-size:12px; }
+@media (min-width:640px) {
+ .catalog-page > div:first-child { padding:16px; }
+ .catalog-page > div:first-child h2 { font-size:16px; line-height:24px; }
+}
+
+
+/* Readable book cells and active navigation icons in both themes. */
+.book-table.catalog-table thead th,
+.book-table.catalog-table tbody td { padding:12px 16px; }
+.sidebar-navigation [data-nav-active="true"] svg { color:#020617; }
+
+/* Compact tracking columns retain generous row height and the padded scroll frame. */
+.book-table.book-tracking-table thead th,
+.book-table.book-tracking-table tbody td { padding-left:12px; padding-right:12px; }
+
+/* A single, viewport-filling scroll region for the grouped stock ledger. */
+.stock-ledger { container-type:inline-size; --ledger-header-columns:repeat(4,minmax(0,1fr)) minmax(240px,1fr); }
+.ledger-desktop { display:none; }
+.ledger-mobile { display:block; }
+@container (min-width:1050px) { .ledger-desktop { display:table; } .ledger-mobile { display:none; } }
+.ledger-scroll:focus-visible { outline:1px solid #64748b; outline-offset:-2px; }
+.ledger-table th { padding:8px 6px; font-size:11px; font-weight:600; line-height:14px; overflow:hidden; }
+.ledger-table td { padding:6px; vertical-align:middle; overflow:hidden; }
+.ledger-density-compact .ledger-table > tbody > tr:not(.ledger-detail-row) { height:44px; }
+.ledger-density-comfortable .ledger-table > tbody > tr:not(.ledger-detail-row) { height:56px; }
+.ledger-density-comfortable .ledger-table > tbody > tr:not(.ledger-detail-row) > td { padding-top:10px; padding-bottom:10px; }
+.ledger-table .ledger-detail-row > td { padding:0; }
+.ledger-balance td { font-size:11px; }
+.ledger-filters input::placeholder { color:#475569; }
+html[data-theme="dark"] .ledger-filters input::placeholder { color:#94a3b8; }
+
+/* Ledger controls share the compact document-list layout. */
+.ledger-top { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.ledger-actions { display:grid; grid-template-columns:36px minmax(0,1fr) minmax(0,.8fr); align-items:center; gap:6px; width:100%; }
+.ledger-actions > button { min-width:0; padding-left:8px; padding-right:8px; }
+.ledger-stat-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; flex:1 1 100%; }
+.ledger-main-filters { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; align-items:center; }
+.ledger-main-filters > :first-child { grid-column:1/-1; }
+.ledger-main-filters input, .ledger-main-filters select { min-height:36px; height:36px; }
+@container (min-width:800px) {
+ .ledger-top { display:grid; grid-template-columns:var(--ledger-header-columns); }
+ .ledger-stat-cards { display:contents; }
+ .ledger-main-filters { grid-template-columns:var(--ledger-header-columns); }
+ .ledger-main-filters > :first-child { grid-column:auto; }
+}
+
+.recovery-list .ledger-actions { grid-template-columns:36px minmax(0,1fr); }
+.recovery-table th { padding:8px 6px; font-size:11px; line-height:14px; overflow:hidden; }
+.recovery-table td { padding:8px 6px; vertical-align:middle; overflow:hidden; border-top:1px solid var(--color-slate-200); }
+.recovery-table td:last-child { overflow:visible; }
+.recovery-table td:last-child button { min-height:30px; padding-left:4px; padding-right:4px; }
+
+/* Sổ tổng hợp NXT: the user's left-aligned, full-value presentation. */
+.nxt-summary-controls { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:8px; align-items:center; }
+.nxt-summary-controls > button { width:100%; min-height:36px!important; height:36px; white-space:nowrap; }
+.nxt-summary-controls > div > button { min-height:36px; height:36px; font-size:11px; }
+.nxt-summary .ledger-table th, .nxt-summary .ledger-table td { text-align:left; }
+.nxt-summary .nxt-number { font-family:var(--font-sans); font-variant-numeric:tabular-nums; white-space:normal; }
+.nxt-summary .nxt-number-group { white-space:nowrap; }
+.nxt-summary .nxt-money { color:#334155; font-size:11px; line-height:15px; margin-top:2px; }
+.nxt-summary .nxt-zero { color:#64748b; }
+.nxt-summary .nxt-unknown { color:#b45309; }
+.nxt-summary-totals { display:grid; flex-shrink:0; border-top:1px solid #cbd5e1; background:#f1f5f9; font-size:11px; line-height:15px; font-weight:600; }
+.nxt-summary-totals > div { min-width:0; padding:8px 6px; text-align:left; }
+.nxt-summary-totals-mobile { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.nxt-summary-totals-mobile .nxt-summary-total-label { grid-column:1/-1; padding-bottom:0; }
+html[data-theme="dark"] .nxt-summary .nxt-money { color:#cbd5e1; }
+html[data-theme="dark"] .nxt-summary .nxt-zero { color:#94a3b8; }
+html[data-theme="dark"] .nxt-summary .nxt-unknown { color:#fbbf24; }
+html[data-theme="dark"] .nxt-summary-totals { background:#1e293b; border-color:#475569; color:#e2e8f0; }
+
+.nxt-summary .ledger-scroll { scrollbar-gutter:auto; }
+.nxt-summary-totals { padding-right:var(--nxt-scrollbar,0px); }
+
+/* Keep the summary stock-state heading and values on one line. */
+.nxt-summary .ledger-table th { white-space:nowrap; }
+.nxt-summary .nxt-stock-state { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+.nxt-summary-money-cell { font-size:11px; line-height:16px; color:#334155; }
+html[data-theme="dark"] .nxt-summary-money-cell { color:#e2e8f0; }
+
+/* Native modal keeps the summary mounted and restores focus on close. */
+.nxt-detail-dialog { position:fixed; inset:0; margin:auto; padding:0; width:calc(100vw - 24px); max-width:1600px; height:calc(100dvh - 24px); max-height:960px; overflow:hidden; }
+.nxt-detail-dialog::backdrop { background:rgb(15 23 42 / .55); }
+@media (max-width:640px) { .nxt-detail-dialog { width:100vw; height:100dvh; max-height:none; border-radius:0; } }

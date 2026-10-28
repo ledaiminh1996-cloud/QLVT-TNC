@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-10-28T08:47:50.679Z",
+  "total_diagnostic_rows_read": 73323,
+  "report": [
+    {
+      "filter": {},
+      "identical": true,
+      "response_sha256": "b15417d14ed6945b77103dac1f7334ea3de4e983bcfac5bea12d85a2a99358ed",
+      "before": {
+        "sql": 4,
+        "rows_read": 16689,
+        "rows_written": 0,
+        "duration_ms": 22.5836
+      },
+      "after": {
+        "sql": 2,
+        "rows_read": 1759,
+        "rows_written": 0,
+        "duration_ms": 9.5643
+      },
+      "rows_read_reduction_percent": 89.5
+    },
+    {
+      "filter": {
+        "q": "50H-110.99"
+      },
+      "identical": true,
+      "response_sha256": "14b62e0f835649eb0daee3f01f7844db2ccc995c6dd15715f8068a899d712a69",
+      "before": {
+        "sql": 4,
+        "rows_read": 35532,
+        "rows_written": 0,
+        "duration_ms": 33.5253
+      },
+      "after": {
+        "sql": 2,
+        "rows_read": 10995,
+        "rows_written": 0,
+        "duration_ms": 32.6426
+      },
+      "rows_read_reduction_percent": 69.1
+    },
+    {
+      "filter": {
+        "part_id": "xlsx11-28d8fc68d8b60116bad15351636bfcba",
+        "q": "B65006700"
+      },
+      "identical": true,
+      "response_sha256": "9a6703cbfec5ac8d783f2169e57e77e5456add58665575acf1e87105caa6dd10",
+      "before": {
+        "sql": 4,
+        "rows_read": 5724,
+        "rows_written": 0,
+        "duration_ms": 21.6383
+      },
+      "after": {
+        "sql": 2,
+        "rows_read": 2624,
+        "rows_written": 0,
+        "duration_ms": 14.036200000000001
+      },
+      "rows_read_reduction_percent": 54.2
+    }
+  ]
+}

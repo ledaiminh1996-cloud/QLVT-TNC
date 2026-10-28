@@ -1,0 +1,8 @@
+INSERT INTO audit_events(id,actor_id,action,entity_type,entity_id,before_json,after_json,reason,request_id)
+SELECT lower(hex(randomblob(16))),'ca2b8a1b-d6f5-4cf0-9232-64445c8bd0dc','update','equipment',id,json_object('code',code,'original_status',original_status,'status',status,'version',version),json_object('code',code,'original_status','Ngưng sử dụng','status','stopped','version',version+1),'User confirmed removal of damaged condition; move four containers to stopped','remove-damaged-20261023'
+FROM equipment WHERE code IN ('NYKU7000172','TNCU6001240','TNCU6001440','KKFU6572038') AND original_status='Hư';
+UPDATE equipment SET original_status='Ngưng sử dụng',status='stopped',version=version+1 WHERE code IN ('NYKU7000172','TNCU6001240','TNCU6001440','KKFU6572038') AND original_status='Hư';
+INSERT INTO audit_events(id,actor_id,action,entity_type,entity_id,before_json,reason,request_id)
+SELECT lower(hex(randomblob(16))),'ca2b8a1b-d6f5-4cf0-9232-64445c8bd0dc','delete','equipment-parameters',id,json_object('code',code,'name',name,'group_key',group_key,'is_active',is_active),'User requested permanent removal of damaged condition','remove-damaged-20261023'
+FROM equipment_parameters WHERE id='dd530321-9264-5a76-b9b5-f8d6f5a1e47e' AND group_key='condition' AND code='DAMAGED' AND name='Hư' AND NOT EXISTS(SELECT 1 FROM equipment WHERE original_status='Hư') AND NOT EXISTS(SELECT 1 FROM vehicles WHERE original_status='Hư');
+DELETE FROM equipment_parameters WHERE id='dd530321-9264-5a76-b9b5-f8d6f5a1e47e' AND group_key='condition' AND code='DAMAGED' AND name='Hư' AND NOT EXISTS(SELECT 1 FROM equipment WHERE original_status='Hư') AND NOT EXISTS(SELECT 1 FROM vehicles WHERE original_status='Hư');

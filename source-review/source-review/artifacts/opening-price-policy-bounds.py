@@ -1,0 +1,4 @@
+from pathlib import Path
+p=Path('shared/openingUsageAssessment.ts');s=p.read_text(encoding='utf-8').replace('"Giá mua hiện tại"','"Nguyên giá"').replace('"Giá mua hiện tại phải lớn hơn 0."','"Nguyên giá phải lớn hơn 0."').replace('!Number.isSafeInteger(amount)','(!Number.isSafeInteger(amount)||amount>9000000000000)').replace('Giá trị tham khảo vượt giới hạn.','Giá trị còn lại vượt giới hạn.');p.write_text(s,encoding='utf-8')
+p=Path('worker/src/inventoryPosting.ts');s=p.read_text(encoding='utf-8').replace('assessed?Math.round(value*1000):legacyKnown','assessed?round(BigInt(value)*1000000n,BigInt(qty(line))):legacyKnown');p.write_text(s,encoding='utf-8')
+p=Path('src/documents/DocumentList.tsx');s=p.read_text(encoding='utf-8').replace('<th className="text-right">Sau VAT (đ)</th>','<th className="text-right">{kind==="opening"&&openingMode==="in_use"?"Giá trị còn lại (đ)":"Sau VAT (đ)"}</th>');p.write_text(s,encoding='utf-8')

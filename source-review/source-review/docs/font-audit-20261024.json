@@ -1,0 +1,1066 @@
+[
+  {
+    "file": "src/components/CatalogHistoryDrawer.tsx",
+    "line": 14,
+    "category": "identifier",
+    "original": "return <div className=\"fixed inset-0 z-50 bg-slate-900/40\" onMouseDown={e=>{if(e.target===e.currentTarget)onClose();}}><div ref={dialog} role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"catalog-history-title\" className=\"ml-auto flex h-full w-full max-w-2xl flex-col bg-white text-slate-900 shadow-xl\" onKeyDown={e=>{if(e.key==='Escape')onClose();if(e.key==='Tab'){const nodes=Array.from(dialog.current?.querySelectorAll<HTMLElement>('button:not([disabled]),summary')??[]),first=nodes[0],last=nodes[nodes.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}}}><div className=\"flex items-start justify-between gap-3 border-b border-slate-200 p-5\"><div><h3 id=\"catalog-history-title\" className=\"flex items-center gap-2 font-bold\"><History size={18} className=\"text-blue-600\"/>Lịch sử {definitions[resource].singular}</h3><p className=\"mt-2 break-words text-sm font-semibold\">{label}</p>{code&&code!==label&&<p className=\"mt-1 font-mono text-xs text-slate-500\">{code}</p>}</div><div className=\"flex gap-2\"><button aria-label=\"Tải lại lịch sử\" disabled={loading} className={button} onClick={()=>setRevision(n=>n+1)}><RefreshCw size={14}/></button><button aria-label=\"Đóng lịch sử\" className={button} onClick={onClose}><X size={16}/></button></div></div><div className=\"flex-1 space-y-4 overflow-y-auto p-5\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/CatalogListView.tsx",
+    "line": 193,
+    "category": "identifier",
+    "original": "<span className=\"font-mono text-xs font-bold text-amber-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/CatalogListView.tsx",
+    "line": 216,
+    "category": "numeric",
+    "original": "<div className=\"font-semibold text-slate-800 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/CatalogListView.tsx",
+    "line": 222,
+    "category": "numeric",
+    "original": "<div className=\"font-semibold text-slate-800 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/CatalogListView.tsx",
+    "line": 231,
+    "category": "numeric",
+    "original": "<div className={`font-bold font-mono text-sm ${isLow ? 'text-amber-700' : 'text-slate-900'}`}>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/CatalogListView.tsx",
+    "line": 237,
+    "category": "numeric",
+    "original": "<div className=\"font-mono text-slate-700 font-medium\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/CatalogListView.tsx",
+    "line": 250,
+    "category": "numeric",
+    "original": "<div className=\"text-xs font-mono text-slate-600 font-semibold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/CloudCatalogApp.tsx",
+    "line": 306,
+    "category": "identifier",
+    "original": ": result.data.map(row => <tr key={row.id} className=\"border-b border-slate-100 last:border-0 hover:bg-slate-50/70\">{definition.columns.map(key => <td key={key} title={displayValue(resource,key,row[key])} className={`${catalogCellClass(key,definition.fields.find(field=>field.key===key)?.type)} ${['sku', 'plate_number', 'code'].includes(key) ? 'font-mono font-bold text-amber-700' : key === 'name' ? 'font-semibold text-slate-900' : 'text-slate-700'}`}>{['is_active','status'].includes(key) ? <StatusBadge value={key === 'status' && conditionMode ? initialCondition(row) : row[key]} /> : ['warehouse_id','unit_id','department_id'].includes(key) ? warehouseLabels?.[String(row[key])] ?? String(row[key] ?? '—') : displayValue(resource, key, row[key])}</td>)}",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/DashboardAlerts.tsx",
+    "line": 215,
+    "category": "identifier",
+    "original": "<span className=\"font-mono text-xs text-amber-700 font-bold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/DashboardAlerts.tsx",
+    "line": 331,
+    "category": "identifier",
+    "original": "<span className=\"px-2 py-0.5 bg-slate-100 text-slate-900 font-mono font-bold text-xs rounded border border-slate-300\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/DashboardAlerts.tsx",
+    "line": 353,
+    "category": "numeric",
+    "original": "<div className=\"text-[10px] text-slate-500 mt-1 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/DirectoryExcelImportModal.tsx",
+    "line": 121,
+    "category": "ordinary",
+    "original": "className=\"w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-xs font-mono text-slate-200 focus:outline-none focus:border-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/DirectoryExcelImportModal.tsx",
+    "line": 149,
+    "category": "ordinary",
+    "original": "<div className=\"max-h-40 overflow-y-auto border border-slate-800 rounded-xl bg-slate-950 p-2 text-[11px] font-mono text-slate-300\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 355,
+    "category": "identifier",
+    "original": "<span className=\"font-mono text-amber-700 font-bold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 362,
+    "category": "ordinary",
+    "original": "<td className=\"p-3 text-slate-600 font-mono text-[11px]\">{s.phone || s.email || '-'}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 441,
+    "category": "identifier",
+    "original": "<input type=\"text\" name=\"staffVehicle\" placeholder=\"VD: 50H-048.53\" defaultValue={editingStaff?.vehicle || ''} className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\" />",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 445,
+    "category": "identifier",
+    "original": "<input type=\"text\" name=\"staffTrailer\" placeholder=\"VD: 51R-254.81\" defaultValue={editingStaff?.trailer || ''} className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\" />",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 559,
+    "category": "identifier",
+    "original": "<td className=\"p-3 font-mono font-bold text-amber-700\">{w.code}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 562,
+    "category": "numeric",
+    "original": "<td className=\"p-3 text-slate-500 font-mono\">{w.capacity}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 563,
+    "category": "numeric",
+    "original": "<td className=\"p-3 font-mono font-bold text-emerald-700\">{w.current}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 628,
+    "category": "identifier",
+    "original": "<input type=\"text\" required name=\"wCode\" defaultValue={editingWarehouse?.code || ''} className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-900 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\" />",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 647,
+    "category": "numeric",
+    "original": "<input readOnly={!!directory} type=\"text\" name=\"wCurrent\" defaultValue={editingWarehouse?.current || (directory ? 'Chưa kết nối sổ kho' : '10,000 Lít')} className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\" />",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 740,
+    "category": "identifier",
+    "original": "<td className=\"whitespace-nowrap px-2 py-3 font-mono font-bold text-amber-700\">{s.code || '—'}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 742,
+    "category": "identifier",
+    "original": "<td className=\"whitespace-nowrap px-2 py-3 text-slate-500 font-mono\">{s.tax_code || '—'}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 881,
+    "category": "identifier",
+    "original": "<td className=\"p-3 font-mono font-bold text-amber-700\">{s.vehiclePlate}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 883,
+    "category": "ordinary",
+    "original": "<td className=\"p-3 font-mono text-slate-600\">{s.simNumber}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 886,
+    "category": "numeric",
+    "original": "<td className=\"p-3 text-right font-mono font-bold text-slate-900\">{formatNumber(s.currentKm)} KM</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 919,
+    "category": "ordinary",
+    "original": "<div className=\"text-xs font-mono text-slate-500\">ledaiminh1996@gmail.com</div>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/EnterpriseSectionsView.tsx",
+    "line": 928,
+    "category": "ordinary",
+    "original": "<div className=\"text-xs font-mono text-slate-500\">nguyenthuy060882@gmail.com</div>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 348,
+    "category": "identifier",
+    "original": "<span className=\"font-mono font-bold text-xs text-slate-900 px-2 py-0.5 bg-slate-100 rounded border border-slate-300\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 363,
+    "category": "numeric",
+    "original": "<span className=\"font-mono font-bold text-slate-900\">{formatNumber(veh.currentOdoKm)} KM</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 465,
+    "category": "identifier",
+    "original": "<span className=\"font-mono font-bold text-xs text-slate-900 px-2 py-0.5 bg-slate-100 rounded border border-slate-300\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 511,
+    "category": "numeric",
+    "original": "<span className=\"font-mono font-bold\">{formatNumber(veh.currentOdoKm)} KM</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 538,
+    "category": "identifier",
+    "original": "<span className=\"font-mono font-black text-xl text-slate-900 px-3 py-1 bg-slate-100 rounded-lg border border-slate-300\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 561,
+    "category": "numeric",
+    "original": "<div className=\"text-lg font-mono font-bold text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 618,
+    "category": "identifier",
+    "original": "<span className=\"font-mono text-xs text-amber-700 font-bold\">{comp.sku}</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 675,
+    "category": "identifier",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 699,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 754,
+    "category": "identifier",
+    "original": "Xe: <strong className=\"text-slate-900 font-mono\">{editingOdoVehicle.plateNumber}</strong>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FleetMountedManager.tsx",
+    "line": 767,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 font-mono font-bold focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 291,
+    "category": "numeric",
+    "original": "<div className=\"mt-2 text-2xl font-bold text-slate-900 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 294,
+    "category": "numeric",
+    "original": "<div className=\"text-xs text-amber-700 mt-1 font-mono font-semibold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 304,
+    "category": "numeric",
+    "original": "<div className=\"mt-2 text-2xl font-bold text-blue-700 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 317,
+    "category": "numeric",
+    "original": "<div className=\"mt-2 text-2xl font-bold text-cyan-700 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 330,
+    "category": "numeric",
+    "original": "<div className=\"mt-2 text-2xl font-bold text-emerald-700 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 371,
+    "category": "identifier",
+    "original": "<td className=\"py-2.5 px-3 font-mono font-bold text-amber-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 374,
+    "category": "ordinary",
+    "original": "<td className=\"py-2.5 px-2 text-center text-slate-500 font-mono text-[11px]\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 378,
+    "category": "identifier",
+    "original": "<div className=\"font-mono font-bold text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 383,
+    "category": "identifier",
+    "original": "Moóc: <span className=\"text-slate-700 font-mono\">{r.trailer}</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 406,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-bold text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 436,
+    "category": "numeric",
+    "original": "<span className=\"text-xs text-slate-500 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 453,
+    "category": "identifier",
+    "original": "<span className=\"font-mono font-bold text-sm text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 463,
+    "category": "numeric",
+    "original": "<div className=\"text-sm font-bold font-mono text-amber-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/FuelManagementView.tsx",
+    "line": 475,
+    "category": "numeric",
+    "original": "<span className=\"font-mono font-semibold\">{formatNumber(item.reeferLiters)} L</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 295,
+    "category": "identifier",
+    "original": "<div className=\"font-mono font-bold text-slate-900 text-xs\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 308,
+    "category": "identifier",
+    "original": "<div className=\"text-[10px] font-mono text-amber-700 font-bold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 319,
+    "category": "ordinary",
+    "original": "<td className=\"py-2.5 px-2 text-center text-slate-500 font-mono text-[11px]\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 324,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-bold text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 329,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono text-slate-500\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 337,
+    "category": "numeric",
+    "original": "<span className={`font-mono font-bold ${",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 386,
+    "category": "identifier",
+    "original": "<span className=\"font-mono font-bold text-sm text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 398,
+    "category": "numeric",
+    "original": "<span className=\"text-xs font-bold text-amber-700 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 475,
+    "category": "identifier",
+    "original": "<td className=\"py-2.5 px-3 font-mono font-bold text-amber-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 489,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-bold text-rose-600\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 492,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono text-slate-500\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 495,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-bold text-amber-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 498,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-bold text-emerald-700 text-sm\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 501,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-3 text-right font-mono text-slate-600\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 504,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-3 text-right font-mono font-bold text-amber-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/MaintenanceReport.tsx",
+    "line": 525,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-3 text-right font-mono text-emerald-700 font-bold text-sm\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PairingDrawer.tsx",
+    "line": 20,
+    "category": "identifier",
+    "original": "{row&&<div className=\"rounded-lg bg-slate-50 p-3 text-xs leading-6\"><p className=\"font-mono font-bold\">{row.parent_code}</p><p>Tài xế: {row.driver_name||'Chưa ghép'} {row.driver_code?' · '+row.driver_code:''}</p><p>Rơ moóc: {current.filter(l=>l.pairing_type==='trailer').map(l=>l.child_code).join(', ')||'Chưa ghép'}</p><p>Máy phát: {current.filter(l=>l.pairing_type==='generator').map(l=>l.child_code).join(', ')||'Chưa ghép'}</p><p>Nhóm tuyến: {row.route_group||'Chưa có thông tin'} · Sửa tại danh mục đầu kéo</p></div>}",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PairingSetsView.tsx",
+    "line": 42,
+    "category": "identifier",
+    "original": "{loading?<p role=\"status\" className=\"rounded-xl border border-slate-200 p-6\">Đang tải bộ ghép…</p>:result&&<><div className=\"min-h-0 flex-1 overflow-auto rounded-xl border border-slate-200 bg-white\" aria-label=\"Vùng cuộn bảng ghép thiết bị\"><table className=\"catalog-table w-full min-w-[920px] table-fixed text-left text-xs\"><colgroup>{canEdit&&<col style={{width:36}}/>}<col style={{width:112}}/><col style={{width:170}}/><col style={{width:112}}/><col style={{width:92}}/><col style={{width:90}}/><col style={{width:260}}/><col style={{width:40}}/></colgroup><thead className=\"sticky top-0 z-10 border-b border-slate-200 bg-slate-50 text-slate-600\"><tr>{canEdit&&<th className=\"w-10 p-2\"><input type=\"checkbox\" aria-label={result.data.length>100?\"Chọn 100 bộ ghép đầu tiên\":\"Chọn tất cả bộ ghép\"} disabled={reviewing||!result.data.length} checked={!!result.data.length&&result.data.slice(0,100).every(row=>selected[row.id]===row.version)} onChange={e=>setSelected(e.target.checked?Object.fromEntries(result.data.slice(0,100).map(row=>[row.id,row.version])):{})}/></th>}{columns.map(([key,label])=><th key={key} aria-sort={sort===key?(direction==='asc'?'ascending':'descending'):'none'} className={\"whitespace-nowrap px-3 py-2 \"+(key==='route_group'?'text-center':'text-left')}><button className=\"inline-flex items-center gap-1\" onClick={()=>sortBy(key)}>{label}{sort===key&&(direction==='asc'?<ArrowUp size={12}/>:<ArrowDown size={12}/>)}</button></th>)}<th className=\"px-3 py-2\">Cảnh báo</th><th aria-label={canEdit?'Thao tác':'Lịch sử'} className=\"w-10 whitespace-nowrap p-2 text-center\"><span className=\"sr-only\">{canEdit?'Thao tác':'Lịch sử'}</span></th></tr></thead><tbody>{result.data.map(row=>{const links=pairingLinks(row),warnings=pairingWarnings(row);return <tr key={row.id} className=\"h-[50px] border-b border-slate-100 last:border-0 hover:bg-slate-50/70\">{canEdit&&<td className=\"p-2\"><input type=\"checkbox\" aria-label={'Rà soát '+row.parent_code} disabled={reviewing||(!selected[row.id]&&count>=100)} checked={selected[row.id]===row.version} onChange={e=>setSelected(prev=>{const next={...prev};if(e.target.checked)next[row.id]=row.version;else delete next[row.id];return next;})}/></td>}<td className=\"whitespace-nowrap px-3 py-2 font-mono font-bold text-amber-700\">{row.parent_code}{row.reviewed===1&&<span aria-label=\"Đã rà soát\" title=\"Đã rà soát phiên bản hiện tại\" className=\"ml-1 text-emerald-600\">✓</span>}</td><td className=\"px-3 py-2\"><div title={String(row.driver_name??'')} className=\"truncate font-semibold text-slate-900\">{row.driver_name||<span title=\"Chưa ghép\" aria-label=\"Chưa ghép\" className=\"text-xs font-normal text-slate-400\">—</span>}</div>{row.driver_code&&<div className=\"mt-0.5 truncate font-mono text-[11px] text-slate-500\">{row.driver_code}</div>}</td>{['trailer','generator'].map(kind=><td key={kind} className=\"px-3 py-2 font-mono\">{links.some(l=>l.pairing_type===kind)?<div className=\"flex flex-col items-start text-[11px] leading-[14px]\">{links.filter(l=>l.pairing_type===kind).map(link=><button key={link.id||link.child_code} className=\"cursor-pointer text-blue-600 decoration-blue-200 underline-offset-2 hover:underline focus-visible:underline\" disabled={!link.asset_id} onClick={()=>setDetail({id:link.asset_id!,kind})}>{link.child_code}</button>)}</div>:<span title=\"Chưa ghép\" aria-label=\"Chưa ghép\" className=\"font-sans text-xs text-slate-400\">—</span>}</td>)}<td className=\"px-3 py-2 text-center\">{row.route_group?<span title={row.route_group==='BNAM'?'Bắc Nam':row.route_group==='DCANG'?'Đường cảng':String(row.route_group)} className=\"rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold\">{row.route_group}</span>:<span className=\"text-slate-400\">—</span>}</td><td className=\"px-2 py-2\"><CompactWarnings warnings={warnings}/></td><td className=\"px-1 py-2 text-center\"><button aria-label={(canEdit?'Thao tác bộ ghép ':'Lịch sử bộ ghép ')+row.parent_code} title={canEdit?'Thao tác bộ ghép':'Xem lịch sử'} className=\"inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100\" onClick={()=>setDrawer({row})}><MoreHorizontal size={18}/></button></td></tr>;})}{!result.data.length&&<tr><td colSpan={canEdit?8:7} className=\"p-8 text-center text-slate-500\">Không có bộ ghép phù hợp.</td></tr>}</tbody></table></div><div className=\"shrink-0 text-xs text-slate-600\">Hiển thị {result.data.length} đầu kéo{stats?`, ${stats.filtered_complete} đủ bộ`:''}</div></>}",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PairingSetsView.tsx",
+    "line": 42,
+    "category": "identifier",
+    "original": "{loading?<p role=\"status\" className=\"rounded-xl border border-slate-200 p-6\">Đang tải bộ ghép…</p>:result&&<><div className=\"min-h-0 flex-1 overflow-auto rounded-xl border border-slate-200 bg-white\" aria-label=\"Vùng cuộn bảng ghép thiết bị\"><table className=\"catalog-table w-full min-w-[920px] table-fixed text-left text-xs\"><colgroup>{canEdit&&<col style={{width:36}}/>}<col style={{width:112}}/><col style={{width:170}}/><col style={{width:112}}/><col style={{width:92}}/><col style={{width:90}}/><col style={{width:260}}/><col style={{width:40}}/></colgroup><thead className=\"sticky top-0 z-10 border-b border-slate-200 bg-slate-50 text-slate-600\"><tr>{canEdit&&<th className=\"w-10 p-2\"><input type=\"checkbox\" aria-label={result.data.length>100?\"Chọn 100 bộ ghép đầu tiên\":\"Chọn tất cả bộ ghép\"} disabled={reviewing||!result.data.length} checked={!!result.data.length&&result.data.slice(0,100).every(row=>selected[row.id]===row.version)} onChange={e=>setSelected(e.target.checked?Object.fromEntries(result.data.slice(0,100).map(row=>[row.id,row.version])):{})}/></th>}{columns.map(([key,label])=><th key={key} aria-sort={sort===key?(direction==='asc'?'ascending':'descending'):'none'} className={\"whitespace-nowrap px-3 py-2 \"+(key==='route_group'?'text-center':'text-left')}><button className=\"inline-flex items-center gap-1\" onClick={()=>sortBy(key)}>{label}{sort===key&&(direction==='asc'?<ArrowUp size={12}/>:<ArrowDown size={12}/>)}</button></th>)}<th className=\"px-3 py-2\">Cảnh báo</th><th aria-label={canEdit?'Thao tác':'Lịch sử'} className=\"w-10 whitespace-nowrap p-2 text-center\"><span className=\"sr-only\">{canEdit?'Thao tác':'Lịch sử'}</span></th></tr></thead><tbody>{result.data.map(row=>{const links=pairingLinks(row),warnings=pairingWarnings(row);return <tr key={row.id} className=\"h-[50px] border-b border-slate-100 last:border-0 hover:bg-slate-50/70\">{canEdit&&<td className=\"p-2\"><input type=\"checkbox\" aria-label={'Rà soát '+row.parent_code} disabled={reviewing||(!selected[row.id]&&count>=100)} checked={selected[row.id]===row.version} onChange={e=>setSelected(prev=>{const next={...prev};if(e.target.checked)next[row.id]=row.version;else delete next[row.id];return next;})}/></td>}<td className=\"whitespace-nowrap px-3 py-2 font-mono font-bold text-amber-700\">{row.parent_code}{row.reviewed===1&&<span aria-label=\"Đã rà soát\" title=\"Đã rà soát phiên bản hiện tại\" className=\"ml-1 text-emerald-600\">✓</span>}</td><td className=\"px-3 py-2\"><div title={String(row.driver_name??'')} className=\"truncate font-semibold text-slate-900\">{row.driver_name||<span title=\"Chưa ghép\" aria-label=\"Chưa ghép\" className=\"text-xs font-normal text-slate-400\">—</span>}</div>{row.driver_code&&<div className=\"mt-0.5 truncate font-mono text-[11px] text-slate-500\">{row.driver_code}</div>}</td>{['trailer','generator'].map(kind=><td key={kind} className=\"px-3 py-2 font-mono\">{links.some(l=>l.pairing_type===kind)?<div className=\"flex flex-col items-start text-[11px] leading-[14px]\">{links.filter(l=>l.pairing_type===kind).map(link=><button key={link.id||link.child_code} className=\"cursor-pointer text-blue-600 decoration-blue-200 underline-offset-2 hover:underline focus-visible:underline\" disabled={!link.asset_id} onClick={()=>setDetail({id:link.asset_id!,kind})}>{link.child_code}</button>)}</div>:<span title=\"Chưa ghép\" aria-label=\"Chưa ghép\" className=\"font-sans text-xs text-slate-400\">—</span>}</td>)}<td className=\"px-3 py-2 text-center\">{row.route_group?<span title={row.route_group==='BNAM'?'Bắc Nam':row.route_group==='DCANG'?'Đường cảng':String(row.route_group)} className=\"rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold\">{row.route_group}</span>:<span className=\"text-slate-400\">—</span>}</td><td className=\"px-2 py-2\"><CompactWarnings warnings={warnings}/></td><td className=\"px-1 py-2 text-center\"><button aria-label={(canEdit?'Thao tác bộ ghép ':'Lịch sử bộ ghép ')+row.parent_code} title={canEdit?'Thao tác bộ ghép':'Xem lịch sử'} className=\"inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100\" onClick={()=>setDrawer({row})}><MoreHorizontal size={18}/></button></td></tr>;})}{!result.data.length&&<tr><td colSpan={canEdit?8:7} className=\"p-8 text-center text-slate-500\">Không có bộ ghép phù hợp.</td></tr>}</tbody></table></div><div className=\"shrink-0 text-xs text-slate-600\">Hiển thị {result.data.length} đầu kéo{stats?`, ${stats.filtered_complete} đủ bộ`:''}</div></>}",
+    "occurrence_on_line": 2
+  },
+  {
+    "file": "src/components/PairingSetsView.tsx",
+    "line": 42,
+    "category": "identifier",
+    "original": "{loading?<p role=\"status\" className=\"rounded-xl border border-slate-200 p-6\">Đang tải bộ ghép…</p>:result&&<><div className=\"min-h-0 flex-1 overflow-auto rounded-xl border border-slate-200 bg-white\" aria-label=\"Vùng cuộn bảng ghép thiết bị\"><table className=\"catalog-table w-full min-w-[920px] table-fixed text-left text-xs\"><colgroup>{canEdit&&<col style={{width:36}}/>}<col style={{width:112}}/><col style={{width:170}}/><col style={{width:112}}/><col style={{width:92}}/><col style={{width:90}}/><col style={{width:260}}/><col style={{width:40}}/></colgroup><thead className=\"sticky top-0 z-10 border-b border-slate-200 bg-slate-50 text-slate-600\"><tr>{canEdit&&<th className=\"w-10 p-2\"><input type=\"checkbox\" aria-label={result.data.length>100?\"Chọn 100 bộ ghép đầu tiên\":\"Chọn tất cả bộ ghép\"} disabled={reviewing||!result.data.length} checked={!!result.data.length&&result.data.slice(0,100).every(row=>selected[row.id]===row.version)} onChange={e=>setSelected(e.target.checked?Object.fromEntries(result.data.slice(0,100).map(row=>[row.id,row.version])):{})}/></th>}{columns.map(([key,label])=><th key={key} aria-sort={sort===key?(direction==='asc'?'ascending':'descending'):'none'} className={\"whitespace-nowrap px-3 py-2 \"+(key==='route_group'?'text-center':'text-left')}><button className=\"inline-flex items-center gap-1\" onClick={()=>sortBy(key)}>{label}{sort===key&&(direction==='asc'?<ArrowUp size={12}/>:<ArrowDown size={12}/>)}</button></th>)}<th className=\"px-3 py-2\">Cảnh báo</th><th aria-label={canEdit?'Thao tác':'Lịch sử'} className=\"w-10 whitespace-nowrap p-2 text-center\"><span className=\"sr-only\">{canEdit?'Thao tác':'Lịch sử'}</span></th></tr></thead><tbody>{result.data.map(row=>{const links=pairingLinks(row),warnings=pairingWarnings(row);return <tr key={row.id} className=\"h-[50px] border-b border-slate-100 last:border-0 hover:bg-slate-50/70\">{canEdit&&<td className=\"p-2\"><input type=\"checkbox\" aria-label={'Rà soát '+row.parent_code} disabled={reviewing||(!selected[row.id]&&count>=100)} checked={selected[row.id]===row.version} onChange={e=>setSelected(prev=>{const next={...prev};if(e.target.checked)next[row.id]=row.version;else delete next[row.id];return next;})}/></td>}<td className=\"whitespace-nowrap px-3 py-2 font-mono font-bold text-amber-700\">{row.parent_code}{row.reviewed===1&&<span aria-label=\"Đã rà soát\" title=\"Đã rà soát phiên bản hiện tại\" className=\"ml-1 text-emerald-600\">✓</span>}</td><td className=\"px-3 py-2\"><div title={String(row.driver_name??'')} className=\"truncate font-semibold text-slate-900\">{row.driver_name||<span title=\"Chưa ghép\" aria-label=\"Chưa ghép\" className=\"text-xs font-normal text-slate-400\">—</span>}</div>{row.driver_code&&<div className=\"mt-0.5 truncate font-mono text-[11px] text-slate-500\">{row.driver_code}</div>}</td>{['trailer','generator'].map(kind=><td key={kind} className=\"px-3 py-2 font-mono\">{links.some(l=>l.pairing_type===kind)?<div className=\"flex flex-col items-start text-[11px] leading-[14px]\">{links.filter(l=>l.pairing_type===kind).map(link=><button key={link.id||link.child_code} className=\"cursor-pointer text-blue-600 decoration-blue-200 underline-offset-2 hover:underline focus-visible:underline\" disabled={!link.asset_id} onClick={()=>setDetail({id:link.asset_id!,kind})}>{link.child_code}</button>)}</div>:<span title=\"Chưa ghép\" aria-label=\"Chưa ghép\" className=\"font-sans text-xs text-slate-400\">—</span>}</td>)}<td className=\"px-3 py-2 text-center\">{row.route_group?<span title={row.route_group==='BNAM'?'Bắc Nam':row.route_group==='DCANG'?'Đường cảng':String(row.route_group)} className=\"rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold\">{row.route_group}</span>:<span className=\"text-slate-400\">—</span>}</td><td className=\"px-2 py-2\"><CompactWarnings warnings={warnings}/></td><td className=\"px-1 py-2 text-center\"><button aria-label={(canEdit?'Thao tác bộ ghép ':'Lịch sử bộ ghép ')+row.parent_code} title={canEdit?'Thao tác bộ ghép':'Xem lịch sử'} className=\"inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100\" onClick={()=>setDrawer({row})}><MoreHorizontal size={18}/></button></td></tr>;})}{!result.data.length&&<tr><td colSpan={canEdit?8:7} className=\"p-8 text-center text-slate-500\">Không có bộ ghép phù hợp.</td></tr>}</tbody></table></div><div className=\"shrink-0 text-xs text-slate-600\">Hiển thị {result.data.length} đầu kéo{stats?`, ${stats.filtered_complete} đủ bộ`:''}</div></>}",
+    "occurrence_on_line": 3
+  },
+  {
+    "file": "src/components/PartCardGrid.tsx",
+    "line": 25,
+    "category": "identifier",
+    "original": "<span className=\"min-w-0 break-all font-mono text-[11px] text-amber-700\">{value('sku')}</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartCatalogModal.tsx",
+    "line": 108,
+    "category": "identifier",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:border-amber-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartCatalogModal.tsx",
+    "line": 211,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-amber-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartCatalogModal.tsx",
+    "line": 226,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-amber-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartCatalogModal.tsx",
+    "line": 241,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-900 focus:outline-none focus:border-amber-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartCatalogModal.tsx",
+    "line": 259,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:border-blue-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartCatalogModal.tsx",
+    "line": 277,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:border-blue-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 117,
+    "category": "identifier",
+    "original": "<span className=\"font-mono text-xs px-2 py-0.5 rounded font-bold bg-amber-100 text-amber-800 border border-amber-300\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 167,
+    "category": "numeric",
+    "original": "<div className=\"font-black text-lg text-amber-600 font-mono mt-0.5\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 194,
+    "category": "ordinary",
+    "original": "<td className=\"py-2 px-3 font-mono font-bold text-slate-600\">ĐẦU KỲ</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 198,
+    "category": "numeric",
+    "original": "<td className=\"py-2 px-2 text-right font-mono font-bold text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 213,
+    "category": "ordinary",
+    "original": "<td className=\"py-2.5 px-3 font-mono text-[11px] text-slate-600\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 216,
+    "category": "identifier",
+    "original": "<td className=\"py-2.5 px-3 font-mono font-bold text-amber-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 236,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-bold text-emerald-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 239,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-bold text-blue-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PartStockCardModal.tsx",
+    "line": 242,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-black text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PeriodLockModal.tsx",
+    "line": 93,
+    "category": "numeric",
+    "original": "<span className=\"font-mono font-bold text-emerald-700\">{formatVND(totalInAmount)}</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PeriodLockModal.tsx",
+    "line": 97,
+    "category": "numeric",
+    "original": "<span className=\"font-mono font-bold text-blue-700\">{formatVND(totalOutAmount)}</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/PeriodLockModal.tsx",
+    "line": 101,
+    "category": "numeric",
+    "original": "<span className=\"font-mono text-slate-900 font-black\">{formatVND(currentClosingStockValue)}</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/ProjectDataImportModal.tsx",
+    "line": 268,
+    "category": "ordinary",
+    "original": "className=\"w-full p-3 bg-white border border-slate-300 rounded-xl text-xs font-mono text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/ProjectDataImportModal.tsx",
+    "line": 293,
+    "category": "numeric",
+    "original": "<div className=\"grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 font-mono text-[11px] text-slate-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 255,
+    "category": "numeric",
+    "original": "<div className=\"text-[11px] text-slate-500 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 265,
+    "category": "numeric",
+    "original": "<div className=\"text-[11px] text-slate-500 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 275,
+    "category": "numeric",
+    "original": "<div className=\"text-[11px] text-slate-500 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 342,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-3 text-center text-slate-500 font-mono text-[11px] border-r border-slate-200\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 347,
+    "category": "identifier",
+    "original": "<td className=\"py-2.5 px-3 font-mono font-bold text-amber-700 border-r border-slate-200 whitespace-nowrap\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 387,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono border-r border-slate-200 text-slate-500\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 392,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono border-r border-slate-200 text-emerald-700 font-bold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 395,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono text-[11px] border-r border-slate-200 text-slate-500\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 400,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono border-r border-slate-200 text-blue-700 font-bold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 403,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono text-[11px] border-r border-slate-200 text-slate-500\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 408,
+    "category": "numeric",
+    "original": "<td className={`py-2.5 px-2 text-right font-mono font-bold border-r border-slate-200 ${",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 413,
+    "category": "numeric",
+    "original": "<td className=\"py-2.5 px-2 text-right font-mono font-semibold border-r border-slate-200 text-slate-800\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 432,
+    "category": "numeric",
+    "original": "<div className=\"font-semibold text-slate-800 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 485,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-right border-r border-slate-200 font-mono text-slate-500\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 488,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-right border-r border-slate-200 font-mono text-emerald-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 491,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-right border-r border-slate-200 font-mono text-emerald-700 text-[11px]\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 494,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-right border-r border-slate-200 font-mono text-blue-700\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 497,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-right border-r border-slate-200 font-mono text-blue-700 text-[11px]\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 500,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-right border-r border-slate-200 font-mono text-amber-800\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/StockBalanceTable.tsx",
+    "line": 503,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-right border-r border-slate-200 font-mono text-amber-800\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 334,
+    "category": "numeric",
+    "original": "<div className=\"mt-1 text-2xl font-bold text-slate-900 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 344,
+    "category": "numeric",
+    "original": "<div className=\"mt-1 text-2xl font-bold text-amber-700 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 354,
+    "category": "numeric",
+    "original": "<div className=\"mt-1 text-2xl font-bold text-rose-700 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 364,
+    "category": "numeric",
+    "original": "<div className=\"mt-1 text-2xl font-bold text-blue-700 font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 396,
+    "category": "identifier",
+    "original": "<td className=\"py-3 px-3 font-mono font-bold text-amber-700 text-xs\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 411,
+    "category": "ordinary",
+    "original": "<td className=\"py-3 px-2 text-center font-mono text-slate-600\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 418,
+    "category": "identifier",
+    "original": "<span className=\"font-mono font-bold text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-900 border border-slate-300\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 430,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-right font-mono font-bold text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 434,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-center font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 444,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-center font-mono\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 503,
+    "category": "identifier",
+    "original": "Số Seri: <strong className=\"text-amber-700 font-mono\">{selectedTire.serialNumber}</strong> ({selectedTire.brand})",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 512,
+    "category": "identifier",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 545,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-900 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 587,
+    "category": "identifier",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 625,
+    "category": "identifier",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TireManagementView.tsx",
+    "line": 652,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-900 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionFormModal.tsx",
+    "line": 263,
+    "category": "identifier",
+    "original": "<span className={`text-xs px-2 py-0.5 rounded font-mono font-bold ${",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionFormModal.tsx",
+    "line": 366,
+    "category": "ordinary",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs text-slate-800 font-mono focus:outline-none focus:border-blue-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionFormModal.tsx",
+    "line": 397,
+    "category": "numeric",
+    "original": "className=\"w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs text-slate-800 font-mono focus:outline-none focus:border-blue-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionFormModal.tsx",
+    "line": 487,
+    "category": "numeric",
+    "original": "<span className={`px-2 py-0.5 rounded text-[11px] font-mono font-bold ${",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionFormModal.tsx",
+    "line": 501,
+    "category": "numeric",
+    "original": "className={`w-20 text-center py-1 bg-white border rounded-lg text-xs font-mono font-bold text-slate-900 focus:outline-none shadow-xs ${",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionFormModal.tsx",
+    "line": 520,
+    "category": "numeric",
+    "original": "className=\"w-28 text-right py-1 px-2 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:border-amber-500 shadow-xs\"",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionFormModal.tsx",
+    "line": 525,
+    "category": "numeric",
+    "original": "<td className=\"py-2 px-3 text-right font-mono font-bold text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionFormModal.tsx",
+    "line": 549,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-3 text-right font-mono text-sm text-blue-900 font-extrabold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionHistoryView.tsx",
+    "line": 175,
+    "category": "identifier",
+    "original": "<td className=\"py-3 px-3 font-mono font-bold text-slate-900 text-xs\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionHistoryView.tsx",
+    "line": 185,
+    "category": "ordinary",
+    "original": "<td className=\"py-3 px-2 text-center text-slate-500 font-mono text-[11px]\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionHistoryView.tsx",
+    "line": 202,
+    "category": "identifier",
+    "original": "<span className=\"font-mono font-bold text-xs px-2 py-0.5 rounded bg-slate-100 text-amber-700 border border-slate-300\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionHistoryView.tsx",
+    "line": 211,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-2 text-center font-mono text-slate-600\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionHistoryView.tsx",
+    "line": 216,
+    "category": "numeric",
+    "original": "<td className=\"py-3 px-3 text-right font-mono font-bold text-amber-700 text-xs\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionReceiptModal.tsx",
+    "line": 31,
+    "category": "identifier",
+    "original": "<span className=\"font-mono text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 font-bold\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionReceiptModal.tsx",
+    "line": 71,
+    "category": "identifier",
+    "original": "<div className=\"mt-1 font-mono font-bold text-slate-900\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionReceiptModal.tsx",
+    "line": 103,
+    "category": "identifier",
+    "original": "<span className=\"font-mono\">{transaction.invoiceNumber}</span>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionReceiptModal.tsx",
+    "line": 111,
+    "category": "identifier",
+    "original": "<span className=\"font-black text-slate-900 font-mono text-sm mr-4\">",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionReceiptModal.tsx",
+    "line": 155,
+    "category": "identifier",
+    "original": "<td className=\"p-2 border-r border-slate-200 font-mono text-center\">{item.sku}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionReceiptModal.tsx",
+    "line": 158,
+    "category": "numeric",
+    "original": "<td className=\"p-2 border-r border-slate-200 text-right font-mono\">{formatNumber(item.unitPrice)}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionReceiptModal.tsx",
+    "line": 159,
+    "category": "numeric",
+    "original": "<td className=\"p-2 text-right font-mono font-bold\">{formatNumber(item.totalPrice)}</td>",
+    "occurrence_on_line": 1
+  },
+  {
+    "file": "src/components/TransactionReceiptModal.tsx",
+    "line": 170,
+    "category": "numeric",
+    "original": "<td className=\"p-2 text-right font-mono font-bold text-slate-950\">",
+    "occurrence_on_line": 1
+  }
+]

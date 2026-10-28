@@ -1,0 +1,33 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "qlvt",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-10-20",
+	"workers_dev": true,
+	"preview_urls": false,
+	"assets": {
+  		"directory": "../dist",
+  		"binding": "ASSETS",
+  		"not_found_handling": "single-page-application",
+  		"run_worker_first": ["/api", "/api/*"]
+		},
+	"vars": {
+        "AUTH_MODE": "native",
+		"ACCESS_TEAM_DOMAIN": "misty-disk-6b97.cloudflareaccess.com",
+		"ACCESS_AUD": "dcc66623e9d179cca5e0f1efd7b68a47cd76c27251744cebe077e5c3dca98234"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "tnc-vattu",
+			"database_id": "193f96eb-3091-4a3e-92e4-7868f8053e4c",
+			"migrations_dir": "../migrations"
+		},
+		{
+			"binding": "tnc_vattu",
+			"database_name": "tnc-vattu",
+			"database_id": "193f96eb-3091-4a3e-92e4-7868f8053e4c",
+			"remote": true
+		}
+	]
+}

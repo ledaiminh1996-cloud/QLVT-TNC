@@ -1,0 +1,90 @@
+{
+  "counts": {
+    "parts": 561,
+    "vehicles": 269,
+    "catalog_search": 10444,
+    "stock_movements": 46,
+    "inventory_document_lines": 66,
+    "document_drafts": 9,
+    "document_draft_serials": 144
+  },
+  "plans": [
+    {
+      "case": "ledger-search-0",
+      "scans": [
+        "SCAN m",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 3",
+        "SCAN g",
+        "CORRELATED SCALAR SUBQUERY 10",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "CORRELATED SCALAR SUBQUERY 8",
+        "SCAN e VIRTUAL TABLE INDEX 1:",
+        "CORRELATED SCALAR SUBQUERY 9",
+        "SCAN e VIRTUAL TABLE INDEX 1:",
+        "CORRELATED SCALAR SUBQUERY 12",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "CORRELATED SCALAR SUBQUERY 13",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "CORRELATED SCALAR SUBQUERY 14",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    },
+    {
+      "case": "ledger-search-1",
+      "scans": [
+        "SCAN m",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 3",
+        "SCAN g",
+        "CORRELATED SCALAR SUBQUERY 10",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "CORRELATED SCALAR SUBQUERY 8",
+        "SCAN e VIRTUAL TABLE INDEX 1:",
+        "CORRELATED SCALAR SUBQUERY 9",
+        "SCAN e VIRTUAL TABLE INDEX 1:"
+      ]
+    },
+    {
+      "case": "ledger-search-2",
+      "scans": [
+        "SCAN m",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 2",
+        "CORRELATED SCALAR SUBQUERY 3",
+        "SCAN g",
+        "CORRELATED SCALAR SUBQUERY 10",
+        "SEARCH rj USING AUTOMATIC COVERING INDEX (received_line_id=?) LEFT-JOIN",
+        "CORRELATED SCALAR SUBQUERY 8",
+        "SCAN e VIRTUAL TABLE INDEX 1:",
+        "CORRELATED SCALAR SUBQUERY 9",
+        "SCAN e VIRTUAL TABLE INDEX 1:",
+        "USE TEMP B-TREE FOR GROUP BY"
+      ]
+    },
+    {
+      "case": "ledger-search-3",
+      "scans": [
+        "SCAN CONSTANT ROW"
+      ]
+    },
+    {
+      "case": "vehicle-picker-search-count",
+      "scans": [
+        "SCAN vehicles USING COVERING INDEX sqlite_autoindex_vehicles_1"
+      ]
+    }
+  ]
+}

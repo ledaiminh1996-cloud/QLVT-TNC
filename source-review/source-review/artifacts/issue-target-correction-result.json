@@ -1,0 +1,139 @@
+{
+  "operation_id": "ed262aab-5c76-45b5-bda2-ea21e06f0e21",
+  "document": "10.26.00001/PX",
+  "old_target": "50H-110.99",
+  "new_target": "51R-047.31",
+  "draft_version_before": 1,
+  "draft_version_after": 2,
+  "lines_corrected": 12,
+  "usages_corrected": 12,
+  "inherited_tractor_odo_removed": true,
+  "financial_checks": [
+    {
+      "table": "inventory_documents",
+      "rows": 9,
+      "sha256": "cf09a1093320486682959f56ff11d15789af197c57048545a48591c94a66ed0d",
+      "unchanged": true
+    },
+    {
+      "table": "stock_balances",
+      "rows": 10,
+      "sha256": "285258ecffbf975682819a05794bd4ebf67e37d7dce758f1309e66e0d04ff833",
+      "unchanged": true
+    },
+    {
+      "table": "stock_buckets",
+      "rows": 10,
+      "sha256": "dfd91392ef2c3ff50ede4d41d7b98a62b27e23b893a589efb40a3afb58a10108",
+      "unchanged": true
+    },
+    {
+      "table": "stock_lots",
+      "rows": 26,
+      "sha256": "fdc3b28726930139e0c59547318ad14d1dc4a5a02a51af0e7b4966daf98c449d",
+      "unchanged": true
+    },
+    {
+      "table": "stock_movements",
+      "rows": 46,
+      "sha256": "92e72cd2e7900c588253274d3aceb42f8bc475ca9bdc1b0b2543b4132607139a",
+      "unchanged": true
+    },
+    {
+      "table": "stock_source_allocations",
+      "rows": 20,
+      "sha256": "6b347908b91ea4b1b48aec155cd99542039b02f6f2b8743ebf8c43a80549d6a4",
+      "unchanged": true
+    },
+    {
+      "table": "stock_cost_dependencies",
+      "rows": 20,
+      "sha256": "b83f31e7c9b15d077a2729121c4ddf5fc214fe94542fd9085a67109bf7203c00",
+      "unchanged": true
+    },
+    {
+      "table": "inventory_serials",
+      "rows": 104,
+      "sha256": "ba7b8fdbdd330ded4b57fc3188e5aada028471cf7cd8e14f8d4aa8e834a8cdd5",
+      "unchanged": true
+    },
+    {
+      "table": "usage_serials",
+      "rows": 40,
+      "sha256": "46445bf18a60515410fd3b53a6d64b1fc95ad584549422e8567fc321363a6cfa",
+      "unchanged": true
+    },
+    {
+      "table": "stock_book_months",
+      "rows": 10,
+      "sha256": "52438b07e561397360bff62c00699583069933af9dc0a2bb44849514432d9d3e",
+      "unchanged": true
+    },
+    {
+      "table": "stock_book_flow",
+      "rows": 46,
+      "sha256": "d738bda79610e4a6a45fee6b75ff6cff896924542e3e596e10595345fb2c9706",
+      "unchanged": true
+    },
+    {
+      "table": "opening_groups",
+      "rows": 1,
+      "sha256": "775004711c6678832ec10306f82dea2216a7a34dd7a5c7d845bac997ae1d31e5",
+      "unchanged": true
+    },
+    {
+      "table": "retread_jobs",
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "unchanged": true
+    },
+    {
+      "table": "inventory_valuation_flags",
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "unchanged": true
+    },
+    {
+      "table": "equipment_operations",
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "unchanged": true
+    },
+    {
+      "table": "document_draft_serials",
+      "rows": 144,
+      "sha256": "98f30b6878901dde6daf8aaeaac158b891fb048989fd0d5d4002290dc1064552",
+      "unchanged": true
+    },
+    {
+      "table": "accounting_periods",
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "unchanged": true
+    },
+    {
+      "table": "inventory_document_lines",
+      "rows": 66,
+      "sha256": "0620e8b35a1d53583cf2b891aa98b47baaa64edf3cf6569dc9b8677c52571c3e",
+      "unchanged": true
+    },
+    {
+      "table": "stock_usages",
+      "rows": 40,
+      "sha256": "9183b154ba819a8a8ffd7beff733ed9836c3e1454e5545282919f8be3de97f61",
+      "unchanged": true
+    },
+    {
+      "table": "all_triggers",
+      "sha256": "0f017cef77c9cd0457af2e8a8ac2c69513f6de5d4568285f1b351a136fcdc131",
+      "unchanged": true
+    }
+  ],
+  "ledger": {
+    "target": "51R-047.31 · Rơ moóc",
+    "quantity_milli": 12000,
+    "readings": ""
+  },
+  "completed_at": "2026-10-28T08:06:48.398Z",
+  "backup": "before-issue-target-correction-20261028.sql"
+}

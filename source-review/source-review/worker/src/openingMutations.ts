@@ -1,0 +1,20 @@
+import type {Env,Row} from "./types.ts";
+import type {DocumentRecord} from "../../shared/documents.ts";
+import type {OpeningReplacement} from "./inventoryPosting.ts";
+/** Rechecked by the mutation-lock trigger in the same atomic batch as the edit. */
+export function openingDependencySql(alias="d"):string{
+ return `EXISTS(SELECT 1 FROM inventory_document_lines l WHERE l.document_id=${alias}.posted_inventory_id AND (NOT EXISTS(SELECT 1 FROM opening_usage_lines ou WHERE ou.inventory_line_id=l.id) OR (SELECT count(*) FROM stock_usages u WHERE u.root_line_id=l.id)<>1 OR EXISTS(SELECT 1 FROM stock_usages u WHERE u.root_line_id=l.id AND (u.parent_usage_id IS NOT NULL OR u.open_quantity_milli<>u.quantity_milli)) OR EXISTS(SELECT 1 FROM stock_movements m WHERE m.document_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_lots lot WHERE lot.source_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_cost_dependencies c WHERE c.source_line_id=l.id OR c.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM stock_source_allocations a WHERE a.source_line_id=l.id OR a.consumer_line_id=l.id) OR EXISTS(SELECT 1 FROM inventory_valuation_flags f WHERE f.origin_line_id=l.id AND f.inventory_line_id<>l.id) OR EXISTS(SELECT 1 FROM equipment_operations e JOIN stock_usages u ON u.id=e.from_usage_id OR u.id=e.to_usage_id WHERE u.root_line_id=l.id) OR EXISTS(SELECT 1 FROM retread_jobs j WHERE j.send_line_id=l.id OR j.received_line_id=l.id) OR EXISTS(SELECT 1 FROM usage_serials us JOIN stock_usages u ON u.id=us.usage_id WHERE u.root_line_id=l.id AND (us.active<>1 OR NOT EXISTS(SELECT 1 FROM inventory_serials s WHERE s.part_id=us.part_id AND s.serial_key=us.serial_key AND s.document_line_id=l.id AND s.status='mounted'))) OR EXISTS(SELECT 1 FROM document_draft_lines dl JOIN document_drafts other ON other.id=dl.document_id JOIN stock_usages u ON u.id=json_extract(dl.line_json,'$.usage_id') WHERE u.root_line_id=l.id AND other.id<>${alias}.id AND other.deleted_at IS NULL AND other.status<>'cancelled')))`;
+}
+export async function openingCanModify(env:Env,id:string){const row=await env.DB.prepare(`SELECT d.kind,d.status,d.header_json,d.deleted_at,d.posted_inventory_id,(${openingDependencySql()}) AS used,coalesce(substr(d.business_at,1,7)>(SELECT max(period) FROM accounting_periods WHERE is_locked=1),1) AS unlocked FROM document_drafts d WHERE d.id=?`).bind(id).first<Row>();return !!row&&row.kind==="opening"&&JSON.parse(String(row.header_json)).opening_mode==="in_use"&&row.status!=="cancelled"&&!row.deleted_at&&!!row.posted_inventory_id&&row.used===0&&row.unlocked===1;}
+export async function openingReplacement(env:Env,before:DocumentRecord):Promise<OpeningReplacement>{
+ const roots=await env.DB.prepare("SELECT l.id,l.line_number,u.id AS usage_id,u.version AS usage_version FROM inventory_document_lines l JOIN stock_usages u ON u.root_line_id=l.id WHERE l.document_id=? ORDER BY l.line_number").bind(before.id).all<Row>();
+ return {sources:Object.fromEntries(roots.results.map(root=>[before.draft.lines[Number(root.line_number)-1].id,{line_id:String(root.id),usage_id:String(root.usage_id),usage_version:Number(root.usage_version)}]))};
+}
+export function openingClearStatements(env:Env,id:string){return [
+ env.DB.prepare("DELETE FROM usage_serials WHERE usage_id IN (SELECT u.id FROM stock_usages u JOIN inventory_document_lines l ON l.id=u.root_line_id WHERE l.document_id=?)").bind(id),
+ env.DB.prepare("DELETE FROM stock_usages WHERE root_line_id IN (SELECT id FROM inventory_document_lines WHERE document_id=?)").bind(id),
+ env.DB.prepare("DELETE FROM inventory_serials WHERE document_line_id IN (SELECT id FROM inventory_document_lines WHERE document_id=?) AND status='mounted'").bind(id),
+ env.DB.prepare("DELETE FROM inventory_valuation_flags WHERE inventory_line_id IN (SELECT id FROM inventory_document_lines WHERE document_id=?)").bind(id),
+ env.DB.prepare("DELETE FROM opening_usage_lines WHERE inventory_line_id IN (SELECT id FROM inventory_document_lines WHERE document_id=?)").bind(id),
+ env.DB.prepare("DELETE FROM inventory_document_lines WHERE document_id=?").bind(id),
+ ];}

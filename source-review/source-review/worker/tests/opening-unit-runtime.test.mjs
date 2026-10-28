@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync,readdirSync} from 'node:fs';import {Miniflare,convertV4MiniflareOptions} from 'miniflare';
+test('D1 runtime upgrades populated mounted-opening schema without changing ledger, lots or references',async()=>{
+ const mf=new Miniflare(convertV4MiniflareOptions({modules:true,script:"export default {fetch(){return new Response('ok')}}",compatibilityDate:'2026-10-20',d1Databases:{DB:'opening-unit-upgrade'}}));
+ try{const db=await mf.getD1Database('DB'),dir=new URL('../../migrations/',import.meta.url);
+ const run=async(text)=>{const source=text.replace(/--[^\n]*/g,'').replace(/CREATE TRIGGER[\s\S]*?END;/g,block=>block.slice(0,-1).replaceAll(';','__SEMICOLON__')+';');await db.batch(source.split(';').map(s=>s.replaceAll('__SEMICOLON__',';').trim()).filter(Boolean).map(s=>db.prepare(s)));};
+ for(const name of readdirSync(dir).filter(n=>/^\d+.*\.sql$/.test(n)&&n<'0034').sort())await run(readFileSync(new URL(name,dir),'utf8'));
+ await run("INSERT INTO app_users(id,auth_subject,email,display_name,role) VALUES('u','u','u@example.invalid','Admin','admin');INSERT INTO warehouses(id,code,name,kind) VALUES('w','W','Warehouse','parts');INSERT INTO parts(id,sku,name,category,unit,applicable_for) VALUES('p','P','Part','tires','Cái','both');INSERT INTO inventory_documents(id,code,type,business_date,created_by,idempotency_key,request_hash) VALUES('d','D','IN','2026-10-01','u','key','hash');INSERT INTO inventory_document_lines(id,document_id,line_number,part_id,sku_snapshot,part_name_snapshot,unit_snapshot,quantity_milli,unit_price_vnd_milli,amount_vnd,to_warehouse_id) VALUES('l','d',1,'p','P','Part','Cái',1000,50000,50,'w');INSERT INTO stock_lots(source_line_id,part_id,warehouse_id,stock_state,initial_quantity_milli,remaining_quantity_milli,original_value_vnd,available_at) VALUES('l','p','w','new',1000,1000,50,'2026-10-01T00:00');");
+ const before=(await db.prepare('SELECT * FROM inventory_document_lines').all()).results;
+ await run(readFileSync(new URL('0034_opening_management_units.sql',dir),'utf8'));
+ const after=(await db.prepare('SELECT * FROM inventory_document_lines').all()).results.map(({is_opening_usage,...row})=>row);assert.deepEqual(after,before);assert.equal((await db.prepare('SELECT remaining_quantity_milli FROM stock_lots').first()).remaining_quantity_milli,1000);assert.deepEqual((await db.prepare('PRAGMA foreign_key_check').all()).results,[]);
+ }finally{await mf.dispose()}
+});

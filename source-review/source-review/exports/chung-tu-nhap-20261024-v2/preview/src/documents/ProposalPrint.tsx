@@ -1,0 +1,145 @@
+import type { DocumentRecord } from "../../shared/documents";
+import { proposalSections } from "../../shared/proposal";
+export function ProposalPrint({ row }: { row: DocumentRecord }) {
+  const p = row.draft.proposal ?? {};
+  return (
+    <main>
+      <strong>CÔNG TY TNHH DV VÀ TM TÂN NAM CHINH · MST: 0303955513</strong>
+      <h1>PHIẾU ĐỀ XUẤT VẬT TƯ THIẾT BỊ</h1>
+      <p>
+        Số: {row.code} · Ngày: {row.draft.business_at.replace("T", " ")}
+      </p>
+      <p>
+        Trạng thái hồ sơ:{" "}
+        {
+          {
+            draft: "Nháp",
+            pending: "Chờ phê duyệt",
+            approved: "Đã phê duyệt",
+            returned: "Trả về",
+            rejected: "Từ chối",
+            cancelled: "Đã hủy",
+          }[row.status]
+        }{" "}
+        · CHƯA GHI SỔ KHO
+      </p>
+      <p>
+        Kính gửi: Tổng Giám đốc hoặc người được ủy quyền; bộ phận vật tư và kỹ
+        thuật.
+      </p>
+      {proposalSections.slice(0, 3).map(([title, fields]) => (
+        <section key={title}>
+          <h2>{title}</h2>
+          {fields.map((f) => (
+            <span
+              key={f[0]}
+              style={{
+                display: "inline-block",
+                minWidth: "48%",
+                padding: "3px 8px 3px 0",
+              }}
+            >
+              {f[1]}: {p[f[0]] || "—"}
+            </span>
+          ))}
+        </section>
+      ))}
+      <p>Phương án: {p.plans || "—"}</p>
+      {["remove", "install"].map((side) => (
+        <section key={side}>
+          <h2>
+            {side === "remove"
+              ? "2.1. Vật tư dự kiến tháo / thu hồi"
+              : "2.2. Vật tư dự kiến cấp / lắp vào"}
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                {[
+                  "STT",
+                  "Mã / Tên vật tư và quy cách",
+                  "ĐVT",
+                  "Số lượng",
+                  "Serial / Nhận dạng",
+                  "Xe / Vị trí",
+                  "Hiện trạng / Nguồn cấp",
+                  "Nơi nhận / Mã liên kết",
+                ].map((t) => (
+                  <th key={t}>{t}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {row.draft.lines
+                .filter((l) => (l.proposal_side ?? "install") === side)
+                .map((l, i) => (
+                  <tr key={l.id}>
+                    <td>{i + 1}</td>
+                    <td>
+                      {row.labels["parts:" + l.part_id]}{" "}
+                      {l.proposal_description}
+                    </td>
+                    <td>{row.labels["unit:" + l.part_id]}</td>
+                    <td className="number">{l.quantity}</td>
+                    <td className="code">{l.serial}</td>
+                    <td>{l.proposal_location}</td>
+                    <td>
+                      {l.proposal_condition} {l.proposal_source}
+                    </td>
+                    <td>
+                      {l.proposal_destination} {l.proposal_link}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </section>
+      ))}
+      {proposalSections.slice(3).map(([title, fields]) => (
+        <section key={title}>
+          <h2>{title}</h2>
+          {fields.map((f) => (
+            <p key={f[0]}>
+              {f[1]}: {p[f[0]] || "Chưa xác định"}
+            </p>
+          ))}
+        </section>
+      ))}
+      <p>Hồ sơ kèm theo: {p.evidence || "—"}</p>
+      <p>
+        Tổng trước thuế:{" "}
+        {row.totals.net === null
+          ? "Chưa xác định"
+          : row.totals.net.toLocaleString("vi-VN")}{" "}
+        · Tổng thanh toán dự kiến:{" "}
+        {row.totals.gross === null
+          ? "Chưa xác định"
+          : row.totals.gross.toLocaleString("vi-VN")}{" "}
+        {p.currency_other || p.currency || "VND"}
+      </p>
+      <h2>4. Xác nhận và quyết định phê duyệt</h2>
+      <p>
+        Quyết định điện tử và điều kiện: xem lịch sử phê duyệt kèm theo hồ sơ.
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            {[
+              "Người đề xuất",
+              "PT. Nghi Sơn / Trưởng BP",
+              "Kỹ thuật",
+              "Vật tư",
+              "Người có thẩm quyền",
+            ].map((t) => (
+              <td key={t} style={{ height: 90, verticalAlign: "top" }}>
+                <strong>{t}</strong>
+                <p>(Ký, ghi rõ họ tên và ngày giờ)</p>
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+      <p>{row.draft.notes}</p>
+    </main>
+  );
+}

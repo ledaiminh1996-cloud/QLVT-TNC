@@ -1,0 +1,10 @@
+{
+  "tables_unchanged": 58,
+  "rows_unchanged": 15672,
+  "schema_objects_preserved": 189,
+  "monthly_rows": 2,
+  "monthly_equals_posted_ledger": true,
+  "matches_current_stock_buckets": true,
+  "foreign_key_violations": 0,
+  "status_and_date_changes_verified": true
+}

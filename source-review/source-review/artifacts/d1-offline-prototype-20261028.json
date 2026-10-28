@@ -1,0 +1,23 @@
+[
+  {
+    "query": 0,
+    "same_result": true,
+    "current_vm_steps": 124600,
+    "prototype_vm_steps": 57900,
+    "changed_columns": []
+  },
+  {
+    "query": 1,
+    "same_result": true,
+    "current_vm_steps": 83700,
+    "prototype_vm_steps": 55600,
+    "changed_columns": []
+  },
+  {
+    "query": 2,
+    "same_result": true,
+    "current_vm_steps": 83800,
+    "prototype_vm_steps": 55700,
+    "changed_columns": []
+  }
+]
